@@ -25,6 +25,7 @@
 /* ---- Import Components ---- */
 @import url('./components/_buttons.css') layer(components);
 @import url('./components/_cards.css') layer(components);
+@import url('./components/_navigation.css') layer(components);
 /* Add more component imports as needed */
 
 /* ---- Import Layout ---- */
@@ -42,8 +43,8 @@
   appearance: none;
   -webkit-appearance: none;
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 1.5rem;
+  right: 1.5rem;
   z-index: var(--sm-z-fixed);
   width: 48px;
   height: 48px;
@@ -58,46 +59,79 @@
   align-items: center;
   justify-content: center;
   box-shadow: var(--sm-shadow-md);
-  transition: transform var(--sm-transition-fast);
+  transition: all var(--sm-transition);
+  overflow: hidden;
+}
+
+#theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sm-shadow-lg);
 }
 
 #theme-toggle:active {
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 
+/* Sun icon (light mode) */
 #theme-toggle::before {
   content: "";
-  display: block;
+  position: absolute;
   width: 24px;
   height: 24px;
-  background-color: transparent;
+  background-color: white;
   border-radius: 50%;
-  box-shadow: inset 8px -8px 0 0 white;
-  transform: rotate(45deg);
-  transition: box-shadow var(--sm-transition-fast), transform var(--sm-transition-fast);
+  transition: all var(--sm-transition);
+  transform: scale(1);
 }
 
+/* Sun rays */
+#theme-toggle::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 0 2px white,
+    0 0 0 4px transparent,
+    8px 0 0 0 white,
+    -8px 0 0 0 white,
+    0 8px 0 0 white,
+    0 -8px 0 0 white,
+    5.5px 5.5px 0 0 white,
+    -5.5px 5.5px 0 0 white,
+    5.5px -5.5px 0 0 white,
+    -5.5px -5.5px 0 0 white;
+  transition: all var(--sm-transition);
+  transform: scale(0.6);
+}
+
+/* Moon icon (dark mode) */
 #theme-toggle:checked::before {
-  box-shadow: inset 12px -12px 0 0 white;
-  transform: rotate(90deg);
+  transform: scale(0.7);
+  box-shadow: 3px -3px 0 0 var(--sm-accent);
+  background-color: var(--sm-accent);
 }
 
-/* JavaScript for theme toggle */
-#theme-toggle:checked ~ * {
-  --sm-bg: var(--sm-color-neutral-900);
-  --sm-fg: var(--sm-color-neutral-50);
-  --sm-subtle: var(--sm-color-neutral-400);
-  --sm-border: var(--sm-color-neutral-700);
-  --sm-border-strong: var(--sm-color-neutral-600);
-  --sm-input-bg: var(--sm-color-neutral-800);
-  --sm-focus-ring: color-mix(in srgb, var(--sm-accent) 60%, transparent);
-  --sm-accent-bg: color-mix(in srgb, var(--sm-accent) 20%, transparent);
-  --sm-success-bg: color-mix(in srgb, var(--sm-success) 20%, transparent);
-  --sm-warning-bg: color-mix(in srgb, var(--sm-warning) 20%, transparent);
-  --sm-error-bg: color-mix(in srgb, var(--sm-error) 20%, transparent);
-  --sm-purple-bg: color-mix(in srgb, var(--sm-purple) 20%, transparent);
-  --sm-highlight: color-mix(in srgb, var(--sm-accent) 30%, transparent);
-  color-scheme: dark;
+/* Hide sun rays in dark mode */
+#theme-toggle:checked::after {
+  transform: scale(0);
+  opacity: 0;
+}
+
+/* Dark mode background color */
+#theme-toggle:checked {
+  background-color: var(--sm-dark-bg, #1a202c);
+}
+
+/* Transition for theme toggle */
+.theme-transition {
+  transition:
+    background-color var(--sm-transition),
+    color var(--sm-transition),
+    border-color var(--sm-transition),
+    box-shadow var(--sm-transition);
 }
 
 /* ---- Modern Attribute Selectors Support ---- */
@@ -124,6 +158,7 @@
 }
 
 @supports not (selector(&)) {
+
   /* Fallbacks for browsers that don't support nesting */
   nav a:hover {
     color: var(--sm-accent);
@@ -157,6 +192,7 @@
 
 /* ---- Print Styles ---- */
 @media print {
+
   nav,
   button,
   [role="button"],
@@ -189,12 +225,18 @@
     font-style: italic;
   }
 
-  h1, h2, h3, h4, img, table {
+  h1,
+  h2,
+  h3,
+  h4,
+  img,
+  table {
     page-break-after: avoid;
     page-break-inside: avoid;
   }
 
-  p, li {
+  p,
+  li {
     page-break-inside: avoid;
   }
 

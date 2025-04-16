@@ -1,0 +1,313 @@
+/* Custom styles for the kitchen sink page */
+
+/* Enhance the navigation bar */
+nav[role="navigation"] {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: var(--sm-z-sticky);
+  backdrop-filter: blur(8px);
+  background-color: color-mix(in srgb, var(--sm-bg) 90%, transparent);
+  height: 3.5rem;
+}
+
+nav[role="navigation"] .container {
+  max-width: 1200px;
+  margin-inline: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+nav[role="navigation"] .brand {
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  font-weight: var(--sm-weight-semibold);
+}
+
+nav[role="navigation"] a {
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--sm-radius-sm);
+  transition: background-color var(--sm-transition-fast), color var(--sm-transition-fast);
+}
+
+nav[role="navigation"] a:hover {
+  background-color: color-mix(in srgb, var(--sm-accent) 10%, transparent);
+}
+
+nav[role="navigation"] a[aria-current="page"] {
+  position: relative;
+}
+
+nav[role="navigation"] a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  height: 2px;
+  background-color: var(--sm-accent);
+  border-radius: 2px;
+}
+
+/* Improve section spacing */
+section {
+  padding-block: var(--sm-space-xl);
+  border-bottom: 1px solid var(--sm-border);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+/* Add section anchors */
+section h2 {
+  position: relative;
+}
+
+section h2::before {
+  content: "";
+  display: block;
+  height: 5rem;
+  margin-top: -5rem;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Enhance cards */
+.card {
+  transition:
+    transform var(--sm-transition),
+    box-shadow var(--sm-transition);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sm-shadow-md);
+}
+
+/* Improve code blocks */
+pre {
+  background-color: var(--sm-color-neutral-900);
+  color: var(--sm-color-neutral-100);
+  border-radius: var(--sm-radius);
+  padding: var(--sm-space);
+  overflow-x: auto;
+}
+
+pre code {
+  color: inherit;
+  background: transparent;
+}
+
+/* Enhance the theme toggle */
+#theme-toggle {
+  bottom: 1.5rem;
+  right: 1.5rem;
+  box-shadow: var(--sm-shadow-lg);
+  background-color: var(--sm-accent);
+  transition: all var(--sm-transition);
+}
+
+#theme-toggle:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+#theme-toggle:active {
+  transform: translateY(-1px);
+}
+
+/* Dark mode theme toggle */
+[data-theme="dark"] #theme-toggle {
+  background-color: var(--sm-dark-bg, hsl(222, 18%, 12%));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] #theme-toggle:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Theme transition */
+.theme-transition {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Improve form elements */
+input,
+select,
+textarea {
+  transition:
+    border-color var(--sm-transition-fast),
+    box-shadow var(--sm-transition-fast);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--sm-accent);
+  box-shadow: 0 0 0 3px var(--sm-focus-ring);
+}
+
+/* Enhance buttons */
+button {
+  transition:
+    transform var(--sm-transition-fast),
+    background-color var(--sm-transition-fast),
+    color var(--sm-transition-fast);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Improve table styling */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--sm-border);
+  border-radius: var(--sm-radius);
+  overflow: hidden;
+}
+
+th {
+  background-color: var(--sm-input-bg);
+  font-weight: var(--sm-weight-semibold);
+  text-align: left;
+  padding: var(--sm-space-sm);
+}
+
+td {
+  padding: var(--sm-space-sm);
+  border-top: 1px solid var(--sm-border);
+}
+
+tr:nth-child(even) {
+  background-color: var(--sm-input-bg);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  nav[role="navigation"] {
+    padding-block: 0.5rem;
+  }
+
+  .content-wrapper {
+    padding-inline: var(--sm-space-sm);
+  }
+}
+
+/* Dark mode enhancements */
+@media (prefers-color-scheme: dark),
+[data-theme="dark"] {
+
+  /* Code blocks */
+  pre {
+    background-color: var(--sm-code-bg, hsl(225, 25%, 10%));
+    border: 1px solid var(--sm-code-border, hsl(225, 20%, 20%));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  code {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: var(--sm-code-fg, hsl(210, 10%, 92%));
+  }
+
+  /* Cards */
+  .card {
+    background-color: var(--sm-card-bg, var(--sm-dark-surface));
+    border-color: var(--sm-border);
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background-color: var(--sm-card-hover, var(--sm-dark-surface-2));
+  }
+
+  .card header {
+    border-bottom-color: var(--sm-border);
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .card footer {
+    border-top-color: var(--sm-border);
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Navigation */
+  nav[role="navigation"] {
+    background-color: var(--sm-dark-bg);
+    border-bottom-color: var(--sm-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  nav[role="navigation"] a:hover {
+    background-color: var(--sm-card-hover, var(--sm-dark-surface-2));
+  }
+
+  /* Tables */
+  table {
+    border-color: var(--sm-border);
+  }
+
+  th {
+    background-color: var(--sm-dark-surface-2, hsl(223, 14%, 20%));
+  }
+
+  tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+
+  /* Forms */
+  input,
+  select,
+  textarea {
+    background-color: var(--sm-dark-surface, hsl(223, 14%, 16%));
+    border-color: var(--sm-border);
+    color: var(--sm-fg);
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: var(--sm-accent);
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Buttons */
+  button:not([primary]):not([success]):not([warning]):not([error]) {
+    background-color: var(--sm-dark-surface, hsl(223, 14%, 16%));
+    border-color: var(--sm-border);
+  }
+
+  button:not([primary]):not([success]):not([warning]):not([error]):hover {
+    background-color: var(--sm-dark-surface-2, hsl(223, 14%, 20%));
+  }
+
+  /* Blockquotes */
+  blockquote {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-left-color: var(--sm-accent);
+  }
+
+  /* Links */
+  a {
+    color: var(--sm-accent);
+  }
+
+  a:hover {
+    color: color-mix(in srgb, var(--sm-accent) 80%, white);
+  }
+
+  /* Keyboard */
+  kbd {
+    background-color: var(--sm-dark-surface-2, hsl(223, 14%, 20%));
+    border-color: var(--sm-border);
+    box-shadow: 0 2px 0 var(--sm-border-strong);
+  }
+}

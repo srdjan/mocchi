@@ -1,87 +1,207 @@
 /* ---- Dark Theme ---- */
 @layer theme {
+
+  /* Dark Theme Variables */
+  :root {
+    /* Dark Mode Color Adjustments */
+    --sm-dark-bg: hsl(222, 18%, 12%);
+    /* Slightly blue-tinted dark background */
+    --sm-dark-surface: hsl(223, 14%, 16%);
+    /* Slightly lighter than bg for cards */
+    --sm-dark-surface-2: hsl(223, 14%, 20%);
+    /* For hover states and secondary surfaces */
+    --sm-dark-border: hsl(223, 10%, 24%);
+    /* Subtle borders */
+    --sm-dark-border-strong: hsl(223, 10%, 30%);
+    /* Stronger borders */
+    --sm-dark-fg: hsl(210, 10%, 92%);
+    /* Slightly off-white for better eye comfort */
+    --sm-dark-fg-subtle: hsl(210, 8%, 70%);
+    /* Subtle text */
+    --sm-dark-fg-muted: hsl(210, 6%, 50%);
+    /* Muted text */
+
+    /* Dark Mode Accent Colors - Slightly adjusted for better visibility */
+    --sm-dark-accent: hsl(217, 91%, 60%);
+    /* Brighter blue */
+    --sm-dark-success: hsl(160, 84%, 45%);
+    /* Brighter green */
+    --sm-dark-warning: hsl(38, 92%, 60%);
+    /* Brighter amber */
+    --sm-dark-error: hsl(0, 84%, 60%);
+    /* Brighter red */
+    --sm-dark-purple: hsl(270, 76%, 65%);
+    /* Brighter purple */
+  }
+
   /* System Dark Mode */
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       /* Base Colors */
-      --sm-bg: var(--sm-color-neutral-900);
-      --sm-fg: var(--sm-color-neutral-50);
-      --sm-subtle: var(--sm-color-neutral-400);
-      --sm-border: var(--sm-color-neutral-700);
-      --sm-border-strong: var(--sm-color-neutral-600);
-      --sm-input-bg: var(--sm-color-neutral-800);
-      
+      --sm-bg: var(--sm-dark-bg);
+      --sm-fg: var(--sm-dark-fg);
+      --sm-subtle: var(--sm-dark-fg-subtle);
+      --sm-muted: var(--sm-dark-fg-muted);
+      --sm-border: var(--sm-dark-border);
+      --sm-border-strong: var(--sm-dark-border-strong);
+      --sm-input-bg: var(--sm-dark-surface);
+
+      /* Accent Colors */
+      --sm-accent: var(--sm-dark-accent);
+      --sm-success: var(--sm-dark-success);
+      --sm-warning: var(--sm-dark-warning);
+      --sm-error: var(--sm-dark-error);
+      --sm-purple: var(--sm-dark-purple);
+
+      /* Accent Subtle Colors */
+      --sm-accent-subtle: hsl(217, 91%, 50%);
+      --sm-success-subtle: hsl(160, 84%, 35%);
+      --sm-warning-subtle: hsl(38, 92%, 50%);
+      --sm-error-subtle: hsl(0, 84%, 50%);
+      --sm-purple-subtle: hsl(270, 76%, 55%);
+
       /* Focus and Interaction */
-      --sm-focus-ring: color-mix(in srgb, var(--sm-accent) 60%, transparent);
-      
-      /* Semantic Colors */
-      --sm-accent-bg: color-mix(in srgb, var(--sm-accent) 20%, transparent);
-      --sm-success-bg: color-mix(in srgb, var(--sm-success) 20%, transparent);
-      --sm-warning-bg: color-mix(in srgb, var(--sm-warning) 20%, transparent);
-      --sm-error-bg: color-mix(in srgb, var(--sm-error) 20%, transparent);
-      --sm-purple-bg: color-mix(in srgb, var(--sm-purple) 20%, transparent);
-      --sm-highlight: color-mix(in srgb, var(--sm-accent) 30%, transparent);
-      
+      --sm-focus-ring: color-mix(in srgb, var(--sm-accent) 70%, transparent);
+
+      /* Semantic Background Colors */
+      --sm-accent-bg: color-mix(in srgb, var(--sm-accent) 15%, transparent);
+      --sm-success-bg: color-mix(in srgb, var(--sm-success) 15%, transparent);
+      --sm-warning-bg: color-mix(in srgb, var(--sm-warning) 15%, transparent);
+      --sm-error-bg: color-mix(in srgb, var(--sm-error) 15%, transparent);
+      --sm-purple-bg: color-mix(in srgb, var(--sm-purple) 15%, transparent);
+      --sm-highlight: color-mix(in srgb, var(--sm-accent) 25%, transparent);
+
       /* Shadow Properties */
-      --sm-shadow-strength: 10%;
+      --sm-shadow-strength: 30%;
       --sm-shadow-color: 220 40% 2%;
-      
+
+      /* Card and Surface Colors */
+      --sm-card-bg: var(--sm-dark-surface);
+      --sm-card-hover: var(--sm-dark-surface-2);
+
+      /* Code Block Colors */
+      --sm-code-bg: hsl(225, 25%, 10%);
+      --sm-code-fg: hsl(210, 10%, 92%);
+      --sm-code-border: hsl(225, 20%, 20%);
+
       /* System Properties */
       color-scheme: dark;
     }
   }
-  
+
   /* Manual Dark Mode */
   [data-theme="dark"] {
     /* Base Colors */
-    --sm-bg: var(--sm-color-neutral-900);
-    --sm-fg: var(--sm-color-neutral-50);
-    --sm-subtle: var(--sm-color-neutral-400);
-    --sm-border: var(--sm-color-neutral-700);
-    --sm-border-strong: var(--sm-color-neutral-600);
-    --sm-input-bg: var(--sm-color-neutral-800);
-    
+    --sm-bg: var(--sm-dark-bg);
+    --sm-fg: var(--sm-dark-fg);
+    --sm-subtle: var(--sm-dark-fg-subtle);
+    --sm-muted: var(--sm-dark-fg-muted);
+    --sm-border: var(--sm-dark-border);
+    --sm-border-strong: var(--sm-dark-border-strong);
+    --sm-input-bg: var(--sm-dark-surface);
+
+    /* Accent Colors */
+    --sm-accent: var(--sm-dark-accent);
+    --sm-success: var(--sm-dark-success);
+    --sm-warning: var(--sm-dark-warning);
+    --sm-error: var(--sm-dark-error);
+    --sm-purple: var(--sm-dark-purple);
+
+    /* Accent Subtle Colors */
+    --sm-accent-subtle: hsl(217, 91%, 50%);
+    --sm-success-subtle: hsl(160, 84%, 35%);
+    --sm-warning-subtle: hsl(38, 92%, 50%);
+    --sm-error-subtle: hsl(0, 84%, 50%);
+    --sm-purple-subtle: hsl(270, 76%, 55%);
+
     /* Focus and Interaction */
     --sm-focus-ring: color-mix(in srgb, var(--sm-accent) 70%, transparent);
-    
-    /* Semantic Colors */
-    --sm-accent-bg: color-mix(in srgb, var(--sm-accent) 20%, transparent);
-    --sm-success-bg: color-mix(in srgb, var(--sm-success) 20%, transparent);
-    --sm-warning-bg: color-mix(in srgb, var(--sm-warning) 20%, transparent);
-    --sm-error-bg: color-mix(in srgb, var(--sm-error) 20%, transparent);
-    --sm-purple-bg: color-mix(in srgb, var(--sm-purple) 20%, transparent);
-    --sm-highlight: color-mix(in srgb, var(--sm-accent) 30%, transparent);
-    
+
+    /* Semantic Background Colors */
+    --sm-accent-bg: color-mix(in srgb, var(--sm-accent) 15%, transparent);
+    --sm-success-bg: color-mix(in srgb, var(--sm-success) 15%, transparent);
+    --sm-warning-bg: color-mix(in srgb, var(--sm-warning) 15%, transparent);
+    --sm-error-bg: color-mix(in srgb, var(--sm-error) 15%, transparent);
+    --sm-purple-bg: color-mix(in srgb, var(--sm-purple) 15%, transparent);
+    --sm-highlight: color-mix(in srgb, var(--sm-accent) 25%, transparent);
+
     /* Shadow Properties */
-    --sm-shadow-strength: 10%;
+    --sm-shadow-strength: 30%;
     --sm-shadow-color: 220 40% 2%;
-    
+
+    /* Card and Surface Colors */
+    --sm-card-bg: var(--sm-dark-surface);
+    --sm-card-hover: var(--sm-dark-surface-2);
+
+    /* Code Block Colors */
+    --sm-code-bg: hsl(225, 25%, 10%);
+    --sm-code-fg: hsl(210, 10%, 92%);
+    --sm-code-border: hsl(225, 20%, 20%);
+
     /* System Properties */
     color-scheme: dark;
   }
-  
+
+  /* Dark Mode Element Overrides */
+  @media (prefers-color-scheme: dark),
+  [data-theme="dark"] {
+
+    /* Card Styling in Dark Mode */
+    .card {
+      background-color: var(--sm-card-bg);
+    }
+
+    /* Code Block Styling in Dark Mode */
+    pre {
+      background-color: var(--sm-code-bg);
+      color: var(--sm-code-fg);
+      border: 1px solid var(--sm-code-border);
+    }
+
+    /* Input Styling in Dark Mode */
+    input,
+    select,
+    textarea {
+      background-color: color-mix(in srgb, var(--sm-input-bg) 70%, transparent);
+    }
+
+    /* Button Styling in Dark Mode */
+    button:not([primary]):not([success]):not([warning]):not([error]) {
+      background-color: var(--sm-dark-surface);
+    }
+
+    /* Table Styling in Dark Mode */
+    tr:nth-child(even) {
+      background-color: color-mix(in srgb, var(--sm-dark-surface-2) 50%, transparent);
+    }
+
+    th {
+      background-color: var(--sm-dark-surface-2);
+    }
+  }
+
   /* Fallbacks for browsers that don't support color-mix */
   @supports not (color-mix(in srgb, var(--sm-accent) 10%, transparent)) {
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --sm-accent-bg: rgba(59, 130, 246, 0.2);
-        --sm-success-bg: rgba(16, 185, 129, 0.2);
-        --sm-warning-bg: rgba(245, 158, 11, 0.2);
-        --sm-error-bg: rgba(239, 68, 68, 0.2);
-        --sm-purple-bg: rgba(168, 85, 247, 0.2);
-        --sm-highlight: rgba(59, 130, 246, 0.3);
-        --sm-focus-ring: rgba(59, 130, 246, 0.6);
+        --sm-accent-bg: rgba(96, 165, 250, 0.15);
+        --sm-success-bg: rgba(52, 211, 153, 0.15);
+        --sm-warning-bg: rgba(251, 191, 36, 0.15);
+        --sm-error-bg: rgba(248, 113, 113, 0.15);
+        --sm-purple-bg: rgba(192, 132, 252, 0.15);
+        --sm-highlight: rgba(96, 165, 250, 0.25);
+        --sm-focus-ring: rgba(96, 165, 250, 0.7);
       }
     }
-    
+
     [data-theme="dark"] {
-      --sm-accent-bg: rgba(59, 130, 246, 0.2);
-      --sm-success-bg: rgba(16, 185, 129, 0.2);
-      --sm-warning-bg: rgba(245, 158, 11, 0.2);
-      --sm-error-bg: rgba(239, 68, 68, 0.2);
-      --sm-purple-bg: rgba(168, 85, 247, 0.2);
-      --sm-highlight: rgba(59, 130, 246, 0.3);
-      --sm-focus-ring: rgba(59, 130, 246, 0.7);
+      --sm-accent-bg: rgba(96, 165, 250, 0.15);
+      --sm-success-bg: rgba(52, 211, 153, 0.15);
+      --sm-warning-bg: rgba(251, 191, 36, 0.15);
+      --sm-error-bg: rgba(248, 113, 113, 0.15);
+      --sm-purple-bg: rgba(192, 132, 252, 0.15);
+      --sm-highlight: rgba(96, 165, 250, 0.25);
+      --sm-focus-ring: rgba(96, 165, 250, 0.7);
     }
   }
 }
