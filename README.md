@@ -6,19 +6,23 @@
 
 sem-mochi is a modern CSS framework designed around the principle of semantic markup, focusing on styling native HTML elements directly while minimizing class usage. It leverages advanced CSS features and selectors to create a highly maintainable styling approach that prioritizes the inherent semantic meaning of HTML elements.
 
-## Key Principles
+## Key Features
 
-1. **Semantic HTML First**: Style native HTML elements directly rather than abstracting with classes
-2. **Attribute-Based Variations**: Use HTML attributes for component variations instead of modifier classes
-3. **ARIA-Driven States**: Leverage ARIA attributes to manage interactive states
-4. **Minimal Classes**: Only use classes for true composition patterns that cannot be achieved with standard HTML elements
+- **Modular Architecture**: Organized into logical modules for better maintainability
+- **HSL-Based Color System**: Programmatically generated color palette for consistent theming
+- **Component-Specific Custom Properties**: Better encapsulation and customization
+- **Enhanced Accessibility**: Robust keyboard navigation and focus management
+- **Comprehensive Animation System**: Consistent timing functions and animations
+- **Improved Layout System**: Flexible grid and container components
+- **Container Query Support**: For component-level responsive design
+- **Dark Mode & High Contrast Themes**: Built-in accessibility features
 
 ## Architecture
 
 sem-mochi is structured using CSS cascade layers for explicit specificity control:
 
 ```css
-@layer tokens, base, elements, composition, states, queries;
+@layer tokens, theme, base, elements, components, layout, states, utilities, queries;
 ```
 
 This layered approach enables predictable styling without specificity conflicts, allowing for:
@@ -26,6 +30,37 @@ This layered approach enables predictable styling without specificity conflicts,
 - Clear separation of concerns
 - Deterministic cascade application
 - Isolated styling contexts
+
+## File Structure
+
+```
+src/
+├── tokens/
+│   ├── _colors.css
+│   ├── _typography.css
+│   ├── _spacing.css
+│   └── _effects.css
+├── themes/
+│   ├── _light.css
+│   ├── _dark.css
+│   └── _high-contrast.css
+├── base/
+│   ├── _reset.css
+│   └── _elements.css
+├── components/
+│   ├── _buttons.css
+│   ├── _cards.css
+│   └── ...
+├── layout/
+│   ├── _container.css
+│   ├── _grid.css
+│   └── ...
+├── utilities/
+│   ├── _accessibility.css
+│   ├── _animations.css
+│   └── ...
+└── sem-mochi.css
+```
 
 ## Usage Approach
 
@@ -53,36 +88,6 @@ Elements are styled directly without requiring classes:
   <p>Subtitle content</p>
 </header>
 
-<nav>
-  <a href="/" aria-current="page">Home</a>
-  <a href="/about">About</a>
-  <a href="/contact">Contact</a>
-</nav>
-```
-
-### Attribute-Based Variants
-
-Component variations use HTML attributes:
-
-```html
-<!-- Primary button -->
-<button primary>Primary Action</button>
-
-<!-- Outline button -->
-<button outline>Secondary Action</button>
-
-<!-- Success alert -->
-<aside data-type="success">Operation completed successfully.</aside>
-```
-
-### ARIA-Driven States
-
-Interactive states are controlled by ARIA attributes:
-
-```html
-<!-- Active navigation item -->
-<a href="/current-page" aria-current="page">Current Page</a>
-
 <!-- Expanded accordion header -->
 <h3>
   <button aria-expanded="true" aria-controls="panel1">Section Title</button>
@@ -98,147 +103,36 @@ Semantic design tokens using CSS custom properties:
 
 ```css
 :root {
-  --sm-bg: #ffffff;
-  --sm-fg: var(--sm-color-gray-900);
-  --sm-accent: var(--sm-color-blue-500);
-  --sm-success: var(--sm-color-green-500);
-  --sm-warning: var(--sm-color-yellow-500);
-  --sm-error: var(--sm-color-red-500);
+  /* HSL-based color system */
+  --sm-color-primary-h: 217;
+  --sm-color-primary-s: 91%;
+  --sm-luminance-500: 50%;
+  --sm-color-primary-500: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), var(--sm-luminance-500));
   
+  /* Semantic tokens */
+  --sm-bg: #ffffff;
+  --sm-fg: var(--sm-color-neutral-900);
+  --sm-accent: var(--sm-color-primary-500);
+  
+  /* Spacing system */
   --sm-space: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
-  --sm-radius: 0.375rem;
 }
 ```
 
-### Logical Properties for Internationalization
-
-Full support for RTL languages and logical flow directions:
+### Component-Specific Properties
 
 ```css
-blockquote {
-  padding-block: var(--sm-space);
-  padding-inline: var(--sm-space);
-  border-inline-start: 4px solid var(--sm-accent);
-}
-```
-
-### Container Queries for Component-Based Responsiveness
-
-Layout adjustments based on container size rather than viewport:
-
-```css
-@container layout (min-width: 40rem) {
-  .card {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-  }
-}
-```
-
-### Advanced Selector Patterns
-
-Leveraging modern CSS selectors for sophisticated styling:
-
-```css
-/* Style for required fields */
-label:has(+ [required])::after {
-  content: " *";
-  color: var(--sm-error);
+button {
+  --button-bg: var(--sm-accent);
+  --button-color: white;
+  --button-hover-bg: var(--sm-accent-subtle);
+  
+  background-color: var(--button-bg);
+  color: var(--button-color);
 }
 
-/* Tooltip display */
-[data-tooltip]:hover::after {
-  content: attr(data-tooltip);
-  /* Styling properties */
-}
-```
-
-## Composition Patterns
-
-A minimal set of composition classes for layout needs:
-
-```html
-<!-- Two-column layout -->
-<div class="two-columns">
-  <div>First column content</div>
-  <div>Second column content</div>
-</div>
-
-<!-- Auto-grid layout -->
-<div class="auto-grid">
-  <article>Item 1</article>
-  <article>Item 2</article>
-  <article>Item 3</article>
-</div>
-
-<!-- Card pattern -->
-<article class="card">
-  <header>Card Title</header>
-  <div class="content">Main content</div>
-  <footer>Card footer</footer>
-</article>
-```
-
-## JavaScript-Less Interactivity
-
-Pure CSS implementations of typically JavaScript-dependent components:
-
-```css
-/* CSS-only tabs */
-.tab-btn:focus + .tab-panel {
-  display: block;
-}
-
-/* CSS-only modal via :target selector */
-.modal:target {
-  display: flex;
-}
-```
-
-## Accessibility Features
-
-Strong focus on accessibility with built-in patterns:
-
-```html
-<!-- Skip link for keyboard users -->
-<a href="#main-content" class="skip-link">Skip to main content</a>
-
-<!-- Properly structured form -->
-<label for="email">Email Address</label>
-<input type="email" id="email" name="email" required>
-
-<!-- Accessible tables -->
-<table>
-  <caption>User Data</caption>
-  <tr>
-    <th scope="col">Name</th>
-    <th scope="col">Email</th>
-  </tr>
-  <!-- Table data -->
-</table>
-```
-
-## Responsive Design
-
-Responsive behavior with minimal overhead:
-
-```css
-/* Mobile-first media queries */
-@media (min-width: 768px) {
-  /* Medium screen adjustments */
-}
-
-@media (min-width: 1024px) {
-  /* Large screen adjustments */
-}
-
-/* Media feature queries */
-@media (prefers-reduced-motion: reduce) {
-  /* Motion reduction accommodations */
-}
-
-@media (prefers-contrast: more) {
-  /* High contrast adjustments */
+button:hover {
+  background-color: var(--button-hover-bg);
 }
 ```
 
@@ -251,6 +145,7 @@ Responsive behavior with minimal overhead:
 5. **Better SEO**: Search engines understand semantic HTML better than class-based markup
 6. **Reduced Bundle Size**: Less CSS required for styling
 7. **Simplified Development**: Component styling follows HTML structure
+8. **Improved Performance**: Optimized with CSS containment and content-visibility
 
 ## Getting Started
 
@@ -285,8 +180,9 @@ Responsive behavior with minimal overhead:
 3. For layouts, use the minimal composition classes:
 
    ```html
-   <div class="two-columns">
-     <!-- Two column content -->
+   <div class="grid">
+     <div class="col-span-6">Left column</div>
+     <div class="col-span-6">Right column</div>
    </div>
    ```
 
@@ -308,3 +204,7 @@ For browsers that don't support certain features, appropriate fallbacks are prov
 sem-mochi represents a return to the original vision of the web where content structure drives presentation. By leveraging modern CSS capabilities, we can now achieve sophisticated styling while respecting the semantic meaning of HTML elements.
 
 This approach creates a more maintainable, accessible, and future-proof development pattern compared to utility-first or heavily class-based CSS frameworks.
+
+## License
+
+MIT License
