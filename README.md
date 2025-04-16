@@ -42,6 +42,7 @@ sem-mochi takes a fundamentally different approach to CSS frameworks. Instead of
 ## Key Features
 
 - **Semantic-First Approach**: Style native HTML elements directly with minimal class usage
+- **Attribute-Based Variations**: Uses HTML attributes instead of classes for component variations
 - **Modular Architecture**: Organized into logical modules for better maintainability
 - **HSL-Based Color System**: Programmatically generated color palette for consistent theming
 - **Component-Specific Custom Properties**: Better encapsulation and customization
@@ -359,49 +360,54 @@ Navigation components with various styles:
 
 ### Layout
 
-sem-mochi provides a flexible grid system and container components:
+sem-mochi provides a flexible grid system and container components using attributes instead of classes:
 
 ```html
 <!-- Basic container -->
-<div class="container">
+<div container>
   <!-- Content -->
 </div>
 
 <!-- Container with max-width -->
-<div class="container" max-width="lg">
+<div container max-width="lg">
   <!-- Content -->
 </div>
 
 <!-- Container with padding -->
-<div class="container" padding="sm">
+<div container padding="sm">
   <!-- Content -->
 </div>
 
 <!-- Grid layout -->
-<div class="grid">
-  <div class="col-span-6">Left column</div>
-  <div class="col-span-6">Right column</div>
+<div grid>
+  <div col-span="6">Left column</div>
+  <div col-span="6">Right column</div>
 </div>
 
 <!-- Grid with gap -->
-<div class="grid" gap="md">
+<div grid gap="md">
   <!-- Grid items -->
 </div>
 
 <!-- Responsive grid -->
-<div class="grid">
-  <div class="col-span-12 col-md-span-6 col-sm-span-full">
+<div grid>
+  <div col-span="12" col-sm-span="full" col-md-span="6">
     Responsive column
   </div>
   <!-- More columns -->
 </div>
 
 <!-- Auto-fit grid -->
-<div class="grid-auto-fit">
+<div grid="auto-fit">
   <!-- Items will automatically fit based on available space -->
   <div>Item 1</div>
   <div>Item 2</div>
   <div>Item 3</div>
+</div>
+
+<!-- Legacy class support is also available -->
+<div class="grid">
+  <div class="col-span-6">Legacy class support</div>
 </div>
 ```
 
@@ -463,25 +469,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### Utilities
 
-sem-mochi includes essential utilities for common needs:
+sem-mochi includes essential utilities for common needs, using attributes instead of classes:
 
 ```html
 <!-- Accessibility -->
-<a href="#main-content" class="skip-link">Skip to main content</a>
-<span class="sr-only">Text only for screen readers</span>
+<a href="#main-content" skip-link>Skip to main content</a>
+<span sr-only>Text only for screen readers</span>
 
 <!-- Animations -->
-<div class="animate-fade-in">Fades in</div>
-<div class="animate-slide-in-up">Slides up</div>
-<div class="animate-pulse">Pulses</div>
+<div animate="fade-in">Fades in</div>
+<div animate="slide-in-up">Slides up</div>
+<div animate="pulse">Pulses</div>
 
 <!-- Animation modifiers -->
-<div class="animate-fade-in delay-300">Delayed animation</div>
-<div class="animate-slide-in-up duration-slow">Slow animation</div>
+<div animate="fade-in" delay="300">Delayed animation</div>
+<div animate="slide-in-up" duration="slow">Slow animation</div>
 
 <!-- Reduced motion -->
-<div class="motion-safe">Only shown when animations are enabled</div>
-<div class="motion-reduce">Only shown when reduced motion is preferred</div>
+<div motion="safe">Only shown when animations are enabled</div>
+<div motion="reduce">Only shown when reduced motion is preferred</div>
+
+<!-- Legacy class support is also available -->
+<div class="animate-fade-in">Legacy class support</div>
 ```
 
 ## Customization
@@ -568,10 +577,11 @@ This approach creates a more maintainable, accessible, and future-proof developm
 ### Core Principles
 
 1. **Semantic HTML First**: Write meaningful HTML that describes the content, not the presentation
-2. **Minimal Classes**: Use classes only when necessary for true composition patterns
-3. **Attributes for Variations**: Use HTML attributes for component variations
+2. **Attributes Over Classes**: Use HTML attributes instead of classes for variations and utilities
+3. **Minimal Classes**: Use classes only when absolutely necessary for complex composition patterns
 4. **ARIA for States**: Leverage ARIA attributes for interactive states
 5. **Progressive Enhancement**: Provide fallbacks for older browsers while leveraging modern features
+6. **Backward Compatibility**: Maintain legacy class support for backward compatibility
 
 ## Contributing
 

@@ -30,12 +30,16 @@
 
 /* ---- Import Layout ---- */
 @import url('./layout/_container.css') layer(layout);
+@import url('./layout/_container-attr.css') layer(layout);
 @import url('./layout/_grid.css') layer(layout);
+@import url('./layout/_grid-attr.css') layer(layout);
 /* Add more layout imports as needed */
 
 /* ---- Import Utilities ---- */
 @import url('./utilities/_accessibility.css') layer(utilities);
+@import url('./utilities/_accessibility-attr.css') layer(utilities);
 @import url('./utilities/_animations.css') layer(utilities);
+@import url('./utilities/_animations-attr.css') layer(utilities);
 /* Add more utility imports as needed */
 
 /* ---- Theme Toggle Component ---- */
