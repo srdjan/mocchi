@@ -1,0 +1,1529 @@
+/**
+ * Mochi CSS - A minimalistic CSS library with semantic styling and layout
+ * Inspired by Matcha.css but with added layout features
+ * MIT License
+ */
+
+/* ---- CSS Reset and Root Variables ---- */
+:root {
+  /* Base Colors */
+  --mochi-bg: #ffffff;
+  --mochi-fg: #111827;
+  --mochi-subtle: #6b7280;
+  --mochi-accent: #3b82f6;
+  --mochi-accent-subtle: #60a5fa;
+  --mochi-success: #10b981;
+  --mochi-warning: #f59e0b;
+  --mochi-danger: #ef4444;
+  --mochi-muted: #9ca3af;
+
+  /* UI Elements */
+  --mochi-border: #e5e7eb;
+  --mochi-input-bg: #f9fafb;
+  --mochi-focus-ring: rgba(59, 130, 246, 0.5);
+
+  /* Typography */
+  --mochi-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mochi-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --mochi-line-height: 1.5;
+
+  /* Layout */
+  --mochi-spacing-xs: 0.25rem;
+  --mochi-spacing-sm: 0.5rem;
+  --mochi-spacing: 1rem;
+  --mochi-spacing-md: 1.5rem;
+  --mochi-spacing-lg: 2rem;
+  --mochi-spacing-xl: 3rem;
+
+  /* Borders & Shadows */
+  --mochi-radius-sm: 0.25rem;
+  --mochi-radius: 0.375rem;
+  --mochi-radius-md: 0.5rem;
+  --mochi-radius-lg: 0.75rem;
+  --mochi-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --mochi-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --mochi-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --mochi-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --mochi-bg: #1f2937;
+    --mochi-fg: #f9fafb;
+    --mochi-subtle: #9ca3af;
+    --mochi-accent: #60a5fa;
+    --mochi-accent-subtle: #93c5fd;
+    --mochi-success: #34d399;
+    --mochi-warning: #fbbf24;
+    --mochi-danger: #f87171;
+    --mochi-muted: #6b7280;
+    --mochi-border: #374151;
+    --mochi-input-bg: #111827;
+    --mochi-focus-ring: rgba(96, 165, 250, 0.5);
+  }
+}
+
+/* Base reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--mochi-font-sans);
+  font-size: 16px;
+  line-height: var(--mochi-line-height);
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  color: var(--mochi-fg);
+  background-color: var(--mochi-bg);
+}
+
+/* ---- Typography ---- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: var(--mochi-spacing);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.875rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--mochi-spacing);
+}
+
+a {
+  color: var(--mochi-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid var(--mochi-focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--mochi-radius-sm);
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--mochi-font-mono);
+  font-size: 0.9em;
+}
+
+code {
+  background-color: var(--mochi-input-bg);
+  padding: 0.2em 0.4em;
+  border-radius: var(--mochi-radius-sm);
+}
+
+pre {
+  margin: var(--mochi-spacing) 0;
+  padding: var(--mochi-spacing);
+  overflow: auto;
+  background-color: var(--mochi-input-bg);
+  border-radius: var(--mochi-radius);
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  font-size: inherit;
+}
+
+kbd {
+  background-color: var(--mochi-input-bg);
+  border: 1px solid var(--mochi-border);
+  border-radius: var(--mochi-radius-sm);
+  box-shadow: 0 1px 0 var(--mochi-border);
+  padding: 0.1em 0.4em;
+}
+
+mark {
+  background-color: var(--mochi-warning);
+  color: inherit;
+}
+
+small {
+  font-size: 0.875em;
+}
+
+sub,
+sup {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+hr {
+  height: 0;
+  border: 0;
+  border-top: 1px solid var(--mochi-border);
+  margin: var(--mochi-spacing-lg) 0;
+}
+
+blockquote {
+  margin: var(--mochi-spacing) 0;
+  padding: var(--mochi-spacing);
+  border-left: 4px solid var(--mochi-accent);
+  background-color: var(--mochi-input-bg);
+  border-radius: var(--mochi-radius);
+}
+
+/* ---- Layout System ---- */
+.container {
+  width: 100%;
+  padding-left: var(--mochi-spacing);
+  padding-right: var(--mochi-spacing);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  gap: var(--mochi-spacing);
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .sm\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+/* Column span utilities */
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
+
+.col-span-4 {
+  grid-column: span 4 / span 4;
+}
+
+.col-span-6 {
+  grid-column: span 6 / span 6;
+}
+
+.col-span-12 {
+  grid-column: span 12 / span 12;
+}
+
+/* Row span utilities */
+.row-span-1 {
+  grid-row: span 1 / span 1;
+}
+
+.row-span-2 {
+  grid-row: span 2 / span 2;
+}
+
+.row-span-3 {
+  grid-row: span 3 / span 3;
+}
+
+.row-span-4 {
+  grid-row: span 4 / span 4;
+}
+
+.row-span-6 {
+  grid-row: span 6 / span 6;
+}
+
+/* Flexbox Layout */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.gap-xs {
+  gap: var(--mochi-spacing-xs);
+}
+
+.gap-sm {
+  gap: var(--mochi-spacing-sm);
+}
+
+.gap {
+  gap: var(--mochi-spacing);
+}
+
+.gap-md {
+  gap: var(--mochi-spacing-md);
+}
+
+.gap-lg {
+  gap: var(--mochi-spacing-lg);
+}
+
+.gap-xl {
+  gap: var(--mochi-spacing-xl);
+}
+
+/* Spacing utilities */
+.m-0 {
+  margin: 0;
+}
+
+.m-xs {
+  margin: var(--mochi-spacing-xs);
+}
+
+.m-sm {
+  margin: var(--mochi-spacing-sm);
+}
+
+.m {
+  margin: var(--mochi-spacing);
+}
+
+.m-md {
+  margin: var(--mochi-spacing-md);
+}
+
+.m-lg {
+  margin: var(--mochi-spacing-lg);
+}
+
+.m-xl {
+  margin: var(--mochi-spacing-xl);
+}
+
+.mx-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.mx-xs {
+  margin-left: var(--mochi-spacing-xs);
+  margin-right: var(--mochi-spacing-xs);
+}
+
+.mx-sm {
+  margin-left: var(--mochi-spacing-sm);
+  margin-right: var(--mochi-spacing-sm);
+}
+
+.mx {
+  margin-left: var(--mochi-spacing);
+  margin-right: var(--mochi-spacing);
+}
+
+.mx-md {
+  margin-left: var(--mochi-spacing-md);
+  margin-right: var(--mochi-spacing-md);
+}
+
+.mx-lg {
+  margin-left: var(--mochi-spacing-lg);
+  margin-right: var(--mochi-spacing-lg);
+}
+
+.mx-xl {
+  margin-left: var(--mochi-spacing-xl);
+  margin-right: var(--mochi-spacing-xl);
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.my-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.my-xs {
+  margin-top: var(--mochi-spacing-xs);
+  margin-bottom: var(--mochi-spacing-xs);
+}
+
+.my-sm {
+  margin-top: var(--mochi-spacing-sm);
+  margin-bottom: var(--mochi-spacing-sm);
+}
+
+.my {
+  margin-top: var(--mochi-spacing);
+  margin-bottom: var(--mochi-spacing);
+}
+
+.my-md {
+  margin-top: var(--mochi-spacing-md);
+  margin-bottom: var(--mochi-spacing-md);
+}
+
+.my-lg {
+  margin-top: var(--mochi-spacing-lg);
+  margin-bottom: var(--mochi-spacing-lg);
+}
+
+.my-xl {
+  margin-top: var(--mochi-spacing-xl);
+  margin-bottom: var(--mochi-spacing-xl);
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.p-xs {
+  padding: var(--mochi-spacing-xs);
+}
+
+.p-sm {
+  padding: var(--mochi-spacing-sm);
+}
+
+.p {
+  padding: var(--mochi-spacing);
+}
+
+.p-md {
+  padding: var(--mochi-spacing-md);
+}
+
+.p-lg {
+  padding: var(--mochi-spacing-lg);
+}
+
+.p-xl {
+  padding: var(--mochi-spacing-xl);
+}
+
+.px-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.px-xs {
+  padding-left: var(--mochi-spacing-xs);
+  padding-right: var(--mochi-spacing-xs);
+}
+
+.px-sm {
+  padding-left: var(--mochi-spacing-sm);
+  padding-right: var(--mochi-spacing-sm);
+}
+
+.px {
+  padding-left: var(--mochi-spacing);
+  padding-right: var(--mochi-spacing);
+}
+
+.px-md {
+  padding-left: var(--mochi-spacing-md);
+  padding-right: var(--mochi-spacing-md);
+}
+
+.px-lg {
+  padding-left: var(--mochi-spacing-lg);
+  padding-right: var(--mochi-spacing-lg);
+}
+
+.px-xl {
+  padding-left: var(--mochi-spacing-xl);
+  padding-right: var(--mochi-spacing-xl);
+}
+
+.py-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.py-xs {
+  padding-top: var(--mochi-spacing-xs);
+  padding-bottom: var(--mochi-spacing-xs);
+}
+
+.py-sm {
+  padding-top: var(--mochi-spacing-sm);
+  padding-bottom: var(--mochi-spacing-sm);
+}
+
+.py {
+  padding-top: var(--mochi-spacing);
+  padding-bottom: var(--mochi-spacing);
+}
+
+.py-md {
+  padding-top: var(--mochi-spacing-md);
+  padding-bottom: var(--mochi-spacing-md);
+}
+
+.py-lg {
+  padding-top: var(--mochi-spacing-lg);
+  padding-bottom: var(--mochi-spacing-lg);
+}
+
+.py-xl {
+  padding-top: var(--mochi-spacing-xl);
+  padding-bottom: var(--mochi-spacing-xl);
+}
+
+/* ---- Form Elements ---- */
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: var(--mochi-line-height);
+}
+
+/* Base styling for form controls */
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  color: var(--mochi-fg);
+  background-color: var(--mochi-input-bg);
+  border: 1px solid var(--mochi-border);
+  border-radius: var(--mochi-radius);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 0;
+  border-color: var(--mochi-accent);
+  box-shadow: 0 0 0 3px var(--mochi-focus-ring);
+}
+
+/* Checkboxes and radios */
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+/* Required field indicator */
+label:has(input[required]):after {
+  content: " *";
+  color: var(--mochi-danger);
+}
+
+/* Form validation states */
+input:invalid:not(:placeholder-shown) {
+  border-color: var(--mochi-danger);
+}
+
+input:valid:not(:placeholder-shown) {
+  border-color: var(--mochi-success);
+}
+
+::placeholder {
+  color: var(--mochi-muted);
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: var(--mochi-spacing);
+}
+
+/* ---- Buttons ---- */
+button,
+.btn {
+  display: inline-block;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  border-radius: var(--mochi-radius);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+button:focus,
+.btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 3px var(--mochi-focus-ring);
+}
+
+button:disabled,
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Button variants */
+.btn-primary {
+  color: #fff;
+  background-color: var(--mochi-accent);
+  border-color: var(--mochi-accent);
+}
+
+.btn-primary:hover {
+  background-color: var(--mochi-accent-subtle);
+  border-color: var(--mochi-accent-subtle);
+}
+
+.btn-outline {
+  color: var(--mochi-accent);
+  border-color: var(--mochi-accent);
+}
+
+.btn-outline:hover {
+  color: #fff;
+  background-color: var(--mochi-accent);
+  border-color: var(--mochi-accent);
+}
+
+.btn-success {
+  color: #fff;
+  background-color: var(--mochi-success);
+  border-color: var(--mochi-success);
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: var(--mochi-danger);
+  border-color: var(--mochi-danger);
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: var(--mochi-radius-sm);
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  border-radius: var(--mochi-radius-md);
+}
+
+/* ---- Cards ---- */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--mochi-bg);
+  border: 1px solid var(--mochi-border);
+  border-radius: var(--mochi-radius-md);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: var(--mochi-spacing);
+  border-bottom: 1px solid var(--mochi-border);
+  background-color: var(--mochi-input-bg);
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: var(--mochi-spacing);
+}
+
+.card-footer {
+  padding: var(--mochi-spacing);
+  border-top: 1px solid var(--mochi-border);
+  background-color: var(--mochi-input-bg);
+}
+
+/* ---- Tables ---- */
+table {
+  width: 100%;
+  margin-bottom: var(--mochi-spacing);
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--mochi-border);
+}
+
+th {
+  font-weight: 600;
+  background-color: var(--mochi-input-bg);
+}
+
+tbody tr:hover {
+  background-color: var(--mochi-input-bg);
+}
+
+/* ---- Navigation ---- */
+nav {
+  display: flex;
+  align-items: center;
+  padding: var(--mochi-spacing);
+  background-color: var(--mochi-bg);
+  border-bottom: 1px solid var(--mochi-border);
+}
+
+nav a {
+  color: var(--mochi-fg);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--mochi-radius);
+}
+
+nav a:hover {
+  background-color: var(--mochi-input-bg);
+  text-decoration: none;
+}
+
+nav a.active {
+  color: var(--mochi-accent);
+  font-weight: 600;
+}
+
+/* Menus - semantic styling like Matcha */
+menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+menu>li {
+  position: relative;
+}
+
+menu>li>a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: var(--mochi-fg);
+  text-decoration: none;
+  border-radius: var(--mochi-radius);
+}
+
+menu>li>a:hover {
+  background-color: var(--mochi-input-bg);
+  text-decoration: none;
+}
+
+/* Submenus */
+menu menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  background-color: var(--mochi-bg);
+  border: 1px solid var(--mochi-border);
+  border-radius: var(--mochi-radius);
+  box-shadow: var(--mochi-shadow);
+  z-index: 1000;
+}
+
+menu li:hover>menu {
+  display: block;
+}
+
+/* ---- Utility Classes ---- */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.text-muted {
+  color: var(--mochi-muted);
+}
+
+.text-primary {
+  color: var(--mochi-accent);
+}
+
+.text-success {
+  color: var(--mochi-success);
+}
+
+.text-warning {
+  color: var(--mochi-warning);
+}
+
+.text-danger {
+  color: var(--mochi-danger);
+}
+
+.bg-light {
+  background-color: var(--mochi-input-bg);
+}
+
+.bg-primary {
+  background-color: var(--mochi-accent);
+  color: #fff;
+}
+
+.bg-success {
+  background-color: var(--mochi-success);
+  color: #fff;
+}
+
+.bg-warning {
+  background-color: var(--mochi-warning);
+}
+
+.bg-danger {
+  background-color: var(--mochi-danger);
+  color: #fff;
+}
+
+.rounded {
+  border-radius: var(--mochi-radius);
+}
+
+.rounded-sm {
+  border-radius: var(--mochi-radius-sm);
+}
+
+.rounded-md {
+  border-radius: var(--mochi-radius-md);
+}
+
+.rounded-lg {
+  border-radius: var(--mochi-radius-lg);
+}
+
+.shadow {
+  box-shadow: var(--mochi-shadow);
+}
+
+.shadow-sm {
+  box-shadow: var(--mochi-shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--mochi-shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--mochi-shadow-lg);
+}
+
+.border {
+  border: 1px solid var(--mochi-border);
+}
+
+.border-top {
+  border-top: 1px solid var(--mochi-border);
+}
+
+.border-right {
+  border-right: 1px solid var(--mochi-border);
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--mochi-border);
+}
+
+.border-left {
+  border-left: 1px solid var(--mochi-border);
+}
+
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---- Focused Interactions ---- */
+/* Tooltips with data-title attribute */
+[data-title] {
+  position: relative;
+}
+
+[data-title]:hover::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.25rem 0.5rem;
+  background-color: var(--mochi-fg);
+  color: var(--mochi-bg);
+  font-size: 0.875rem;
+  white-space: nowrap;
+  border-radius: var(--mochi-radius-sm);
+  z-index: 1000;
+  pointer-events: none;
+  margin-bottom: 5px;
+}
+
+/* Focus-visible polyfill */
+.focus-visible,
+:focus-visible {
+  outline: 2px solid var(--mochi-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Accessible hiding */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Simple animations */
+.fade {
+  transition: opacity 0.15s linear;
+}
+
+.fade:not(.show) {
+  opacity: 0;
+}
+
+.collapse {
+  display: none;
+}
+
+.collapse.show {
+  display: block;
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+
+/* ---- Modal Dialog ---- */
+dialog {
+  padding: 0;
+  border: 1px solid var(--mochi-border);
+  border-radius: var(--mochi-radius-md);
+  box-shadow: var(--mochi-shadow-lg);
+  background-color: var(--mochi-bg);
+  max-width: 32rem;
+  width: 100%;
+  margin: auto;
+  color: var(--mochi-fg);
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog>header {
+  padding: var(--mochi-spacing);
+  border-bottom: 1px solid var(--mochi-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+dialog>header h1,
+dialog>header h2,
+dialog>header h3,
+dialog>header h4,
+dialog>header h5,
+dialog>header h6 {
+  margin: 0;
+}
+
+dialog>header .close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+  color: var(--mochi-muted);
+}
+
+dialog>.content {
+  padding: var(--mochi-spacing);
+}
+
+dialog>footer {
+  padding: var(--mochi-spacing);
+  border-top: 1px solid var(--mochi-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--mochi-spacing-sm);
+}
+
+/* ---- Alert Component ---- */
+.alert {
+  position: relative;
+  padding: var(--mochi-spacing);
+  margin-bottom: var(--mochi-spacing);
+  border: 1px solid transparent;
+  border-radius: var(--mochi-radius);
+}
+
+.alert-primary {
+  color: var(--mochi-accent);
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.2);
+}
+
+.alert-success {
+  color: var(--mochi-success);
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.alert-warning {
+  color: var(--mochi-warning);
+  background-color: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.alert-danger {
+  color: var(--mochi-danger);
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.alert .close {
+  position: absolute;
+  top: var(--mochi-spacing-sm);
+  right: var(--mochi-spacing-sm);
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.alert .close:hover {
+  opacity: 1;
+}
+
+/* ---- Badge ---- */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: var(--mochi-radius-sm);
+}
+
+.badge-primary {
+  color: #fff;
+  background-color: var(--mochi-accent);
+}
+
+.badge-success {
+  color: #fff;
+  background-color: var(--mochi-success);
+}
+
+.badge-warning {
+  color: #000;
+  background-color: var(--mochi-warning);
+}
+
+.badge-danger {
+  color: #fff;
+  background-color: var(--mochi-danger);
+}
+
+/* ---- Tabs ---- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--mochi-border);
+  margin-bottom: var(--mochi-spacing);
+}
+
+.tabs-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.tabs-item:hover {
+  color: var(--mochi-accent);
+}
+
+.tabs-item.active {
+  color: var(--mochi-accent);
+  border-bottom-color: var(--mochi-accent);
+}
+
+.tab-content>.tab-pane {
+  display: none;
+}
+
+.tab-content>.active {
+  display: block;
+}
+
+/* ---- Progress ---- */
+progress {
+  vertical-align: baseline;
+  width: 100%;
+  height: 0.75rem;
+  border-radius: var(--mochi-radius);
+  overflow: hidden;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--mochi-input-bg);
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--mochi-accent);
+}
+
+progress::-moz-progress-bar {
+  background-color: var(--mochi-accent);
+}
+
+/* ---- Advanced Layout Components ---- */
+
+/* Sidebar Layout */
+.sidebar-layout {
+  display: grid;
+  grid-template-columns: minmax(250px, 1fr) 3fr;
+  gap: var(--mochi-spacing);
+}
+
+@media (max-width: 768px) {
+  .sidebar-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Holy Grail Layout */
+.holy-grail {
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas:
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(150px, 1fr) 3fr minmax(150px, 1fr);
+}
+
+.holy-grail>header {
+  grid-area: header;
+}
+
+.holy-grail>nav {
+  grid-area: nav;
+}
+
+.holy-grail>main {
+  grid-area: main;
+}
+
+.holy-grail>aside {
+  grid-area: aside;
+}
+
+.holy-grail>footer {
+  grid-area: footer;
+}
+
+@media (max-width: 768px) {
+  .holy-grail {
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "aside"
+      "footer";
+    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Masonry-like layout using CSS Grid */
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 10px;
+  grid-gap: var(--mochi-spacing);
+}
+
+.masonry-grid>* {
+  grid-row-end: span var(--row-span, 25);
+}
+
+/* CSS Grid Auto-fit - For responsive grids that automatically adjust */
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--auto-grid-min, 250px), 1fr));
+  grid-gap: var(--mochi-spacing);
+}
+
+/* Dashboard Layout */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: var(--mochi-spacing);
+}
+
+.dashboard-item {
+  background: var(--mochi-bg);
+  padding: var(--mochi-spacing);
+  border-radius: var(--mochi-radius);
+  border: 1px solid var(--mochi-border);
+  box-shadow: var(--mochi-shadow-sm);
+}
+
+/* Aspect Ratio Containers */
+.aspect-ratio {
+  position: relative;
+  width: 100%;
+  padding-top: var(--aspect-ratio, 56.25%);
+  /* Default 16:9 */
+}
+
+.aspect-ratio>* {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.aspect-1x1 {
+  --aspect-ratio: 100%;
+}
+
+.aspect-4x3 {
+  --aspect-ratio: 75%;
+}
+
+.aspect-16x9 {
+  --aspect-ratio: 56.25%;
+}
+
+.aspect-21x9 {
+  --aspect-ratio: 42.85%;
+}

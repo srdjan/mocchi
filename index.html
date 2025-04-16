@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Mochi CSS - A minimalist, type-safe CSS framework with functional composition patterns">
+  <title>Mochi CSS | Functional Component Library</title>
+  <link rel="stylesheet" href="./mochi.css">
+</head>
+
+<body>
+  <!-- Main Navigation - Semantic Structure -->
+  <header class="p-md">
+    <div class="container">
+      <h1>Mochi CSS</h1>
+      <p class="text-muted">A minimalist CSS framework with type-safe composition patterns</p>
+    </div>
+  </header>
+
+  <!-- Navigational Component - Pure Action Patterns -->
+  <nav class="site-nav bg-light border-bottom">
+    <div class="container flex gap-md">
+      <a href="#overview" class="active">Overview</a>
+      <a href="#typography">Typography</a>
+      <a href="#layouts">Layouts</a>
+      <a href="#components">Components</a>
+      <a href="#forms">Forms</a>
+      <a href="#utilities">Utilities</a>
+      <a href="#integration">Integration</a>
+    </div>
+  </nav>
+
+  <!-- Main Content - Recursive Composition Pattern -->
+  <main class="container py-lg">
+    <!-- Overview Section -->
+    <section id="overview" class="my-xl">
+      <h2>Overview</h2>
+      <p>Mochi CSS implements a pure functional approach to styling, focusing on composition over inheritance. The
+        framework provides strongly typed CSS variables that function like discriminated unions in TypeScript.</p>
+
+      <div class="alert alert-primary my-md">
+        <strong>Zero-dependency Philosophy:</strong> Mochi contains no runtime dependencies and leverages type-driven
+        CSS custom properties for theming.
+      </div>
+
+      <h3 class="mt-md">Core Principles</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap">
+        <div class="card">
+          <div class="card-body">
+            <h4>Type-Safe Variables</h4>
+            <p>CSS variables function as algebraic data types with strongly-typed constraints.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h4>Pure Composition</h4>
+            <p>Layout utilities compose functionally rather than through inheritance.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h4>Side-Effect Free</h4>
+            <p>All styles apply without modifying existing properties.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="mt-md">Type System</h3>
+      <div class="flex flex-wrap justify-center">
+        <div class="color-swatch" style="background-color: var(--mochi-accent);">Accent</div>
+        <div class="color-swatch" style="background-color: var(--mochi-success);">Success</div>
+        <div class="color-swatch" style="background-color: var(--mochi-warning); color: black;">Warning</div>
+        <div class="color-swatch" style="background-color: var(--mochi-danger);">Danger</div>
+      </div>
+    </section>
+
+    <!-- Typography Section -->
+    <section id="typography" class="my-xl">
+      <h2>Typography</h2>
+      <p>Mochi's typography follows functional composition principles with predictable type scaling.</p>
+
+      <!-- Headings -->
+      <h3 class="mt-md">Headings</h3>
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+
+      <!-- Text Elements -->
+      <h3 class="mt-md">Text Elements</h3>
+      <p>This is a standard paragraph with <a href="#">a link</a>, <strong>bold text</strong>, <em>italic text</em>, and
+        <code>inline code</code>.</p>
+
+      <blockquote>
+        This is a blockquote with pure, immutable styling that composes predictably with other elements.
+      </blockquote>
+
+      <!-- Code Blocks -->
+      <h3 class="mt-md">Code Blocks</h3>
+      <pre><code>// Type-safe function with explicit error handling
+const safeOperation = (input: string): Result&lt;number, Error&gt; => {
+  try {
+    const value = parseInt(input, 10);
+    if (isNaN(value)) {
+      return { ok: false, error: new Error("Invalid number") };
+    }
+    return { ok: true, value };
+  } catch (err) {
+    return { ok: false, error: err instanceof Error ? err : new Error(String(err)) };
+  }
+};</code></pre>
+    </section>
+
+    <!-- Layouts Section -->
+    <section id="layouts" class="my-xl">
+      <h2>Layouts</h2>
+      <p>Layout systems in Mochi follow functional composition patterns that transform predictably.</p>
+
+      <!-- Grid Layout -->
+      <h3 class="mt-md">Grid Layout</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap">
+        <div class="p bg-light border rounded">Column 1</div>
+        <div class="p bg-light border rounded">Column 2</div>
+        <div class="p bg-light border rounded">Column 3</div>
+      </div>
+
+      <!-- Flexbox Layout -->
+      <h3 class="mt-md">Flexbox Layout</h3>
+      <div class="flex justify-between p border rounded">
+        <div class="p-sm bg-light">Left</div>
+        <div class="p-sm bg-light">Center</div>
+        <div class="p-sm bg-light">Right</div>
+      </div>
+
+      <!-- Auto Grid -->
+      <h3 class="mt-md">Auto Grid</h3>
+      <div class="auto-grid" style="--auto-grid-min: 150px;">
+        <div class="p-sm bg-light border rounded">Item 1</div>
+        <div class="p-sm bg-light border rounded">Item 2</div>
+        <div class="p-sm bg-light border rounded">Item 3</div>
+        <div class="p-sm bg-light border rounded">Item 4</div>
+        <div class="p-sm bg-light border rounded">Item 5</div>
+        <div class="p-sm bg-light border rounded">Item 6</div>
+      </div>
+
+      <!-- Holy Grail Layout -->
+      <h3 class="mt-md">Holy Grail Layout</h3>
+      <div class="holy-grail p-sm border rounded" style="height: 400px;">
+        <header class="p-sm bg-light border rounded">Header</header>
+        <nav class="p-sm bg-light border rounded">Navigation</nav>
+        <main class="p-sm bg-light border rounded">Main Content</main>
+        <aside class="p-sm bg-light border rounded">Sidebar</aside>
+        <footer class="p-sm bg-light border rounded">Footer</footer>
+      </div>
+    </section>
+
+    <!-- Components Section -->
+    <section id="components" class="my-xl">
+      <h2>Components</h2>
+      <p>Components follow pure functional patterns with immutable styling transformations.</p>
+
+      <!-- Cards -->
+      <h3 class="mt-md">Cards</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="m-0">Card Title</h4>
+          </div>
+          <div class="card-body">
+            <p>This is a basic card with header, body, and footer.</p>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-sm btn-primary">Action</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h4>Simple Card</h4>
+            <p>This card only uses a body section.</p>
+            <button class="btn btn-sm btn-outline">Learn More</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h4 class="m-0">Features</h4>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li>Type-safe variables</li>
+              <li>Pure function composition</li>
+              <li>Zero runtime dependencies</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alerts -->
+      <h3 class="mt-md">Alerts</h3>
+      <div class="alert alert-primary">
+        This is a primary alert with type-safe status ADT
+      </div>
+
+      <div class="alert alert-success">
+        This is a success alert with immutable styling
+      </div>
+
+      <div class="alert alert-warning">
+        This is a warning alert with functional composition
+      </div>
+
+      <div class="alert alert-danger">
+        This is a danger alert with pure transformation
+      </div>
+
+      <!-- Tables -->
+      <h3 class="mt-md">Tables</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>TaskItem</td>
+            <td>Record&lt;string, unknown&gt;</td>
+            <td><span class="badge badge-success">Active</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>UserState</td>
+            <td>Discriminated Union</td>
+            <td><span class="badge badge-warning">Pending</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>DataResult</td>
+            <td>Result&lt;T, E&gt;</td>
+            <td><span class="badge badge-danger">Failed</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Forms Section -->
+    <section id="forms" class="my-xl">
+      <h2>Forms</h2>
+      <p>Form elements implement type-safe input validation patterns with explicit state handling.</p>
+
+      <form class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email (Required)</label>
+            <input type="email" id="email" required placeholder="Enter your email">
+          </div>
+
+          <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country">
+              <option value="">Select a country</option>
+              <option value="us">United States</option>
+              <option value="ca">Canada</option>
+              <option value="uk">United Kingdom</option>
+              <option value="au">Australia</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder="Your message"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <input type="checkbox"> I agree to the terms
+            </label>
+          </div>
+
+          <div class="flex gap-sm">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-outline">Reset</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Utilities Section -->
+    <section id="utilities" class="my-xl">
+      <h2>Utilities</h2>
+      <p>Utility classes implement atomic, pure transformations that compose predictably.</p>
+
+      <!-- Spacing Utilities -->
+      <h3 class="mt-md">Spacing Utilities</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap">
+        <div>
+          <h4>Margin</h4>
+          <div class="border p">
+            <div class="bg-light p m-xs">m-xs</div>
+            <div class="bg-light p m-sm">m-sm</div>
+            <div class="bg-light p m">m (default)</div>
+            <div class="bg-light p m-md">m-md</div>
+          </div>
+        </div>
+        <div>
+          <h4>Padding</h4>
+          <div class="border">
+            <div class="bg-light p-xs m-xs">p-xs</div>
+            <div class="bg-light p-sm m-xs">p-sm</div>
+            <div class="bg-light p m-xs">p (default)</div>
+            <div class="bg-light p-md m-xs">p-md</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Typography Utilities -->
+      <h3 class="mt-md">Typography Utilities</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap">
+        <div>
+          <h4>Text Styles</h4>
+          <p class="text-primary">Primary text</p>
+          <p class="text-success">Success text</p>
+          <p class="text-warning">Warning text</p>
+          <p class="text-danger">Danger text</p>
+          <p class="text-muted">Muted text</p>
+        </div>
+        <div>
+          <h4>Text Formatting</h4>
+          <p class="text-sm">Small text</p>
+          <p class="text-lg">Large text</p>
+          <p class="font-bold">Bold text</p>
+          <p class="italic">Italic text</p>
+          <p class="text-center">Centered text</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section id="integration" class="my-xl">
+      <h2>Integration with TypeScript</h2>
+      <p>Mochi CSS integrates perfectly with functional TypeScript patterns using discriminated unions.</p>
+
+      <div class="card">
+        <div class="card-body">
+          <h3>Type-Safe Component Example</h3>
+          <pre><code>// Algebraic data type for task status
+type TaskStatus = 'pending' | 'in-progress' | 'completed' | 'archived';
+
+// Pure function to determine badge class - exhaustive pattern matching
+const getStatusBadgeClass = (status: TaskStatus): string => {
+  switch (status) {
+    case 'pending': return 'badge-primary';
+    case 'in-progress': return 'badge-warning';
+    case 'completed': return 'badge-success';
+    case 'archived': return 'badge-muted';
+    // TypeScript ensures exhaustiveness
+    default: {
+      const _exhaustiveCheck: never = status;
+      return 'badge-primary';
+    }
+  }
+};
+
+// Immutable rendering function with type-safe composition
+const renderTaskCard = &lt;T extends { 
+  id: string; 
+  title: string; 
+  status: TaskStatus;
+  description?: string;
+}&gt;(task: Readonly&lt;T&gt;): string => `
+  &lt;div class="card" data-task-id="${task.id}"&gt;
+    &lt;div class="card-header flex justify-between items-center"&gt;
+      &lt;h3&gt;${task.title}&lt;/h3&gt;
+      &lt;span class="badge ${getStatusBadgeClass(task.status)}"&gt;${task.status}&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="card-body"&gt;
+      &lt;p&gt;${task.description ?? ''}&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+`;</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-light py-lg mt-xl">
+    <div class="container text-center">
+      <p>Mochi CSS - A minimalist CSS framework with semantic styling and immutable composition</p>
+      <p class="text-muted">Zero dependencies. Type-safe. Functionally pure.</p>
+      <p class="text-sm mt">MIT License</p>
+    </div>
+  </footer>
+
+  <!-- Custom elements for integration demo -->
+  <script type="module">
+    // Define color-swatch web component
+    class ColorSwatch extends HTMLElement {
+      static observedAttributes = ['color', 'name'];
+
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+      }
+
+      connectedCallback() {
+        this.render();
+      }
+
+      attributeChangedCallback() {
+        this.render();
+      }
+
+      render() {
+        const color = this.getAttribute('color') || '#3b82f6';
+        const name = this.getAttribute('name') || 'Color';
+        const textColor = this.getLuminance(color) > 0.5 ? '#111827' : '#ffffff';
+
+        this.shadowRoot.innerHTML = `
+          <style>
+            :host {
+              display: block;
+            }
+            
+            .swatch {
+              width: 100px;
+              height: 100px;
+              background-color: ${color};
+              color: ${textColor};
+              border-radius: var(--mochi-radius, 0.375rem);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: 600;
+              font-family: system-ui, sans-serif;
+            }
+          </style>
+          <div class="swatch">${name}</div>
+        `;
+      }
+
+      // Pure function for luminance calculation
+      getLuminance(hexColor) {
+        const r = parseInt(hexColor.substr(1, 2), 16) / 255;
+        const g = parseInt(hexColor.substr(3, 2), 16) / 255;
+        const b = parseInt(hexColor.substr(5, 2), 16) / 255;
+
+        const rgb = [r, g, b].map(v =>
+          v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)
+        );
+
+        return 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
+      }
+    }
+
+    // Register custom element
+    customElements.define('color-swatch', ColorSwatch);
+  </script>
+</body>
+
+</html>
