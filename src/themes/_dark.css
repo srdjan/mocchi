@@ -1,0 +1,87 @@
+/* ---- Dark Theme ---- */
+@layer theme {
+  /* System Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      /* Base Colors */
+      --sm-bg: var(--sm-color-neutral-900);
+      --sm-fg: var(--sm-color-neutral-50);
+      --sm-subtle: var(--sm-color-neutral-400);
+      --sm-border: var(--sm-color-neutral-700);
+      --sm-border-strong: var(--sm-color-neutral-600);
+      --sm-input-bg: var(--sm-color-neutral-800);
+      
+      /* Focus and Interaction */
+      --sm-focus-ring: color-mix(in srgb, var(--sm-accent) 60%, transparent);
+      
+      /* Semantic Colors */
+      --sm-accent-bg: color-mix(in srgb, var(--sm-accent) 20%, transparent);
+      --sm-success-bg: color-mix(in srgb, var(--sm-success) 20%, transparent);
+      --sm-warning-bg: color-mix(in srgb, var(--sm-warning) 20%, transparent);
+      --sm-error-bg: color-mix(in srgb, var(--sm-error) 20%, transparent);
+      --sm-purple-bg: color-mix(in srgb, var(--sm-purple) 20%, transparent);
+      --sm-highlight: color-mix(in srgb, var(--sm-accent) 30%, transparent);
+      
+      /* Shadow Properties */
+      --sm-shadow-strength: 10%;
+      --sm-shadow-color: 220 40% 2%;
+      
+      /* System Properties */
+      color-scheme: dark;
+    }
+  }
+  
+  /* Manual Dark Mode */
+  [data-theme="dark"] {
+    /* Base Colors */
+    --sm-bg: var(--sm-color-neutral-900);
+    --sm-fg: var(--sm-color-neutral-50);
+    --sm-subtle: var(--sm-color-neutral-400);
+    --sm-border: var(--sm-color-neutral-700);
+    --sm-border-strong: var(--sm-color-neutral-600);
+    --sm-input-bg: var(--sm-color-neutral-800);
+    
+    /* Focus and Interaction */
+    --sm-focus-ring: color-mix(in srgb, var(--sm-accent) 70%, transparent);
+    
+    /* Semantic Colors */
+    --sm-accent-bg: color-mix(in srgb, var(--sm-accent) 20%, transparent);
+    --sm-success-bg: color-mix(in srgb, var(--sm-success) 20%, transparent);
+    --sm-warning-bg: color-mix(in srgb, var(--sm-warning) 20%, transparent);
+    --sm-error-bg: color-mix(in srgb, var(--sm-error) 20%, transparent);
+    --sm-purple-bg: color-mix(in srgb, var(--sm-purple) 20%, transparent);
+    --sm-highlight: color-mix(in srgb, var(--sm-accent) 30%, transparent);
+    
+    /* Shadow Properties */
+    --sm-shadow-strength: 10%;
+    --sm-shadow-color: 220 40% 2%;
+    
+    /* System Properties */
+    color-scheme: dark;
+  }
+  
+  /* Fallbacks for browsers that don't support color-mix */
+  @supports not (color-mix(in srgb, var(--sm-accent) 10%, transparent)) {
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --sm-accent-bg: rgba(59, 130, 246, 0.2);
+        --sm-success-bg: rgba(16, 185, 129, 0.2);
+        --sm-warning-bg: rgba(245, 158, 11, 0.2);
+        --sm-error-bg: rgba(239, 68, 68, 0.2);
+        --sm-purple-bg: rgba(168, 85, 247, 0.2);
+        --sm-highlight: rgba(59, 130, 246, 0.3);
+        --sm-focus-ring: rgba(59, 130, 246, 0.6);
+      }
+    }
+    
+    [data-theme="dark"] {
+      --sm-accent-bg: rgba(59, 130, 246, 0.2);
+      --sm-success-bg: rgba(16, 185, 129, 0.2);
+      --sm-warning-bg: rgba(245, 158, 11, 0.2);
+      --sm-error-bg: rgba(239, 68, 68, 0.2);
+      --sm-purple-bg: rgba(168, 85, 247, 0.2);
+      --sm-highlight: rgba(59, 130, 246, 0.3);
+      --sm-focus-ring: rgba(59, 130, 246, 0.7);
+    }
+  }
+}

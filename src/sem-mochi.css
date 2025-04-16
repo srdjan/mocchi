@@ -1,0 +1,204 @@
+/**
+ * sem-mochi.css - Semantic-First CSS Framework with Minimal Class Usage
+ * v2.0.0 - Enhanced Architecture, Performance, and Modern CSS Features
+ * MIT License
+ */
+
+/* ---- CSS Architecture with Cascade Layers ---- */
+@layer tokens, theme, base, elements, components, layout, states, utilities, queries;
+
+/* ---- Import Design Tokens ---- */
+@import url('./tokens/_colors.css') layer(tokens);
+@import url('./tokens/_typography.css') layer(tokens);
+@import url('./tokens/_spacing.css') layer(tokens);
+@import url('./tokens/_effects.css') layer(tokens);
+
+/* ---- Import Themes ---- */
+@import url('./themes/_light.css') layer(theme);
+@import url('./themes/_dark.css') layer(theme);
+@import url('./themes/_high-contrast.css') layer(theme);
+
+/* ---- Import Base Styles ---- */
+@import url('./base/_reset.css') layer(base);
+@import url('./base/_elements.css') layer(base);
+
+/* ---- Import Components ---- */
+@import url('./components/_buttons.css') layer(components);
+@import url('./components/_cards.css') layer(components);
+/* Add more component imports as needed */
+
+/* ---- Import Layout ---- */
+@import url('./layout/_container.css') layer(layout);
+@import url('./layout/_grid.css') layer(layout);
+/* Add more layout imports as needed */
+
+/* ---- Import Utilities ---- */
+@import url('./utilities/_accessibility.css') layer(utilities);
+@import url('./utilities/_animations.css') layer(utilities);
+/* Add more utility imports as needed */
+
+/* ---- Theme Toggle Component ---- */
+#theme-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: var(--sm-z-fixed);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--sm-accent);
+  color: white;
+  font-size: 0;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sm-shadow-md);
+  transition: transform var(--sm-transition-fast);
+}
+
+#theme-toggle:active {
+  transform: scale(0.9);
+}
+
+#theme-toggle::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: inset 8px -8px 0 0 white;
+  transform: rotate(45deg);
+  transition: box-shadow var(--sm-transition-fast), transform var(--sm-transition-fast);
+}
+
+#theme-toggle:checked::before {
+  box-shadow: inset 12px -12px 0 0 white;
+  transform: rotate(90deg);
+}
+
+/* JavaScript for theme toggle */
+#theme-toggle:checked ~ * {
+  --sm-bg: var(--sm-color-neutral-900);
+  --sm-fg: var(--sm-color-neutral-50);
+  --sm-subtle: var(--sm-color-neutral-400);
+  --sm-border: var(--sm-color-neutral-700);
+  --sm-border-strong: var(--sm-color-neutral-600);
+  --sm-input-bg: var(--sm-color-neutral-800);
+  --sm-focus-ring: color-mix(in srgb, var(--sm-accent) 60%, transparent);
+  --sm-accent-bg: color-mix(in srgb, var(--sm-accent) 20%, transparent);
+  --sm-success-bg: color-mix(in srgb, var(--sm-success) 20%, transparent);
+  --sm-warning-bg: color-mix(in srgb, var(--sm-warning) 20%, transparent);
+  --sm-error-bg: color-mix(in srgb, var(--sm-error) 20%, transparent);
+  --sm-purple-bg: color-mix(in srgb, var(--sm-purple) 20%, transparent);
+  --sm-highlight: color-mix(in srgb, var(--sm-accent) 30%, transparent);
+  color-scheme: dark;
+}
+
+/* ---- Modern Attribute Selectors Support ---- */
+@supports selector(:has(*)) {
+  label:has(input:required)::after {
+    content: " *";
+    color: var(--sm-error);
+  }
+}
+
+/* ---- Fallbacks for Modern Features ---- */
+@supports not (color-mix(in srgb, var(--sm-accent) 10%, transparent)) {
+  [data-type="success"] {
+    background-color: rgba(16, 185, 129, 0.1);
+  }
+
+  [data-type="warning"] {
+    background-color: rgba(245, 158, 11, 0.1);
+  }
+
+  [data-type="error"] {
+    background-color: rgba(239, 68, 68, 0.1);
+  }
+}
+
+@supports not (selector(&)) {
+  /* Fallbacks for browsers that don't support nesting */
+  nav a:hover {
+    color: var(--sm-accent);
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+
+  nav a:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--sm-focus-ring);
+  }
+
+  nav a[aria-current="page"] {
+    font-weight: var(--sm-weight-medium);
+    color: var(--sm-accent);
+  }
+}
+
+/* ---- Subgrid Support ---- */
+@supports (grid-template-rows: subgrid) {
+  .grid {
+    grid-template-rows: subgrid;
+  }
+}
+
+/* ---- Viewport Units ---- */
+@supports (height: 100svh) {
+  body {
+    min-height: 100svh;
+  }
+}
+
+/* ---- Print Styles ---- */
+@media print {
+  nav,
+  button,
+  [role="button"],
+  [data-print="hide"],
+  dialog,
+  #theme-toggle {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: black;
+    background-color: white;
+  }
+
+  * {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: black !important;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+    font-style: italic;
+  }
+
+  h1, h2, h3, h4, img, table {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  p, li {
+    page-break-inside: avoid;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+}

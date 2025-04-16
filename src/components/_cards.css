@@ -1,0 +1,186 @@
+/* ---- Card Components ---- */
+@layer components {
+  /* Base Card */
+  .card {
+    --card-padding: var(--sm-space);
+    --card-bg: var(--sm-bg);
+    --card-border-color: var(--sm-border);
+    --card-radius: var(--sm-radius);
+    --card-shadow: var(--sm-shadow);
+    
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    border-radius: var(--card-radius);
+    border: 1px solid var(--card-border-color);
+    overflow: hidden;
+    transition: 
+      transform var(--sm-transition),
+      box-shadow var(--sm-transition);
+    contain: content;
+    content-visibility: auto;
+  }
+  
+  /* Card with shadow */
+  .card[shadow] {
+    box-shadow: var(--card-shadow);
+    border: none;
+  }
+  
+  /* Card with hover effect */
+  .card[hover] {
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sm-shadow-md);
+    }
+  }
+  
+  /* Card sections */
+  .card-header {
+    padding: var(--card-padding);
+    border-bottom: 1px solid var(--card-border-color);
+    
+    & > :first-child {
+      margin-top: 0;
+    }
+    
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  .card-body {
+    padding: var(--card-padding);
+    flex: 1 1 auto;
+    
+    & > :first-child {
+      margin-top: 0;
+    }
+    
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  .card-footer {
+    padding: var(--card-padding);
+    border-top: 1px solid var(--card-border-color);
+    
+    & > :first-child {
+      margin-top: 0;
+    }
+    
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  /* Card image */
+  .card-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    
+    &[top] {
+      border-top-left-radius: var(--card-radius);
+      border-top-right-radius: var(--card-radius);
+    }
+    
+    &[bottom] {
+      border-bottom-left-radius: var(--card-radius);
+      border-bottom-right-radius: var(--card-radius);
+    }
+  }
+  
+  /* Card variations */
+  .card[primary] {
+    --card-border-color: var(--sm-accent);
+  }
+  
+  .card[success] {
+    --card-border-color: var(--sm-success);
+  }
+  
+  .card[warning] {
+    --card-border-color: var(--sm-warning);
+  }
+  
+  .card[error] {
+    --card-border-color: var(--sm-error);
+  }
+  
+  /* Card sizes */
+  .card[size="sm"] {
+    --card-padding: var(--sm-space-sm);
+  }
+  
+  .card[size="lg"] {
+    --card-padding: var(--sm-space-md);
+  }
+  
+  /* Horizontal card layout */
+  .card[horizontal] {
+    flex-direction: row;
+    
+    & .card-image {
+      width: 33%;
+      height: 100%;
+      
+      &[top], &[bottom] {
+        border-radius: 0;
+      }
+      
+      &[start] {
+        border-top-left-radius: var(--card-radius);
+        border-bottom-left-radius: var(--card-radius);
+      }
+      
+      &[end] {
+        border-top-right-radius: var(--card-radius);
+        border-bottom-right-radius: var(--card-radius);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      
+      & .card-image {
+        width: 100%;
+        
+        &[start], &[end] {
+          border-radius: 0;
+        }
+        
+        &[start] {
+          border-top-left-radius: var(--card-radius);
+          border-top-right-radius: var(--card-radius);
+        }
+        
+        &[end] {
+          border-bottom-left-radius: var(--card-radius);
+          border-bottom-right-radius: var(--card-radius);
+        }
+      }
+    }
+  }
+  
+  /* Interactive card */
+  .card[interactive] {
+    cursor: pointer;
+    transition: 
+      transform var(--sm-transition-fast),
+      box-shadow var(--sm-transition-fast),
+      background-color var(--sm-transition-fast);
+    
+    &:hover {
+      background-color: color-mix(in srgb, var(--card-bg) 97%, var(--sm-accent));
+      transform: translateY(-2px);
+      box-shadow: var(--sm-shadow-md);
+    }
+    
+    &:active {
+      transform: translateY(0);
+      box-shadow: var(--sm-shadow-sm);
+    }
+  }
+}

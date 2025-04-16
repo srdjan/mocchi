@@ -1,0 +1,163 @@
+/* ---- Color System with HSL Base ---- */
+:root {
+  /* Primary (Blue) */
+  --sm-color-primary-h: 217;
+  --sm-color-primary-s: 91%;
+  
+  /* Success (Green) */
+  --sm-color-success-h: 160;
+  --sm-color-success-s: 84%;
+  
+  /* Warning (Yellow/Amber) */
+  --sm-color-warning-h: 38;
+  --sm-color-warning-s: 92%;
+  
+  /* Error (Red) */
+  --sm-color-error-h: 0;
+  --sm-color-error-s: 84%;
+  
+  /* Purple */
+  --sm-color-purple-h: 270;
+  --sm-color-purple-s: 76%;
+  
+  /* Neutral (Gray) */
+  --sm-color-neutral-h: 220;
+  --sm-color-neutral-s: 9%;
+  
+  /* Color Luminance Scale */
+  --sm-luminance-50: 95%;
+  --sm-luminance-100: 90%;
+  --sm-luminance-200: 85%;
+  --sm-luminance-300: 80%;
+  --sm-luminance-400: 65%;
+  --sm-luminance-500: 50%;
+  --sm-luminance-600: 40%;
+  --sm-luminance-700: 30%;
+  --sm-luminance-800: 20%;
+  --sm-luminance-900: 10%;
+  --sm-luminance-950: 5%;
+  
+  /* Generated Color Palette */
+  /* Primary */
+  --sm-color-primary-50: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), var(--sm-luminance-50));
+  --sm-color-primary-100: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), var(--sm-luminance-100));
+  --sm-color-primary-200: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), var(--sm-luminance-200));
+  --sm-color-primary-300: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), var(--sm-luminance-300));
+  --sm-color-primary-400: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), var(--sm-luminance-400));
+  --sm-color-primary-500: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), var(--sm-luminance-500));
+  --sm-color-primary-600: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), var(--sm-luminance-600));
+  --sm-color-primary-700: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), var(--sm-luminance-700));
+  --sm-color-primary-800: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), var(--sm-luminance-800));
+  --sm-color-primary-900: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), var(--sm-luminance-900));
+  --sm-color-primary-950: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), var(--sm-luminance-950));
+  
+  /* Success */
+  --sm-color-success-50: hsl(var(--sm-color-success-h), var(--sm-color-success-s), var(--sm-luminance-50));
+  --sm-color-success-100: hsl(var(--sm-color-success-h), var(--sm-color-success-s), var(--sm-luminance-100));
+  --sm-color-success-200: hsl(var(--sm-color-success-h), var(--sm-color-success-s), var(--sm-luminance-200));
+  --sm-color-success-300: hsl(var(--sm-color-success-h), var(--sm-color-success-s), var(--sm-luminance-300));
+  --sm-color-success-400: hsl(var(--sm-color-success-h), var(--sm-color-success-s), var(--sm-luminance-400));
+  --sm-color-success-500: hsl(var(--sm-color-success-h), var(--sm-color-success-s), var(--sm-luminance-500));
+  --sm-color-success-600: hsl(var(--sm-color-success-h), var(--sm-color-success-s), var(--sm-luminance-600));
+  --sm-color-success-700: hsl(var(--sm-color-success-h), var(--sm-color-success-s), var(--sm-luminance-700));
+  --sm-color-success-800: hsl(var(--sm-color-success-h), var(--sm-color-success-s), var(--sm-luminance-800));
+  --sm-color-success-900: hsl(var(--sm-color-success-h), var(--sm-color-success-s), var(--sm-luminance-900));
+  --sm-color-success-950: hsl(var(--sm-color-success-h), var(--sm-color-success-s), var(--sm-luminance-950));
+  
+  /* Warning */
+  --sm-color-warning-50: hsl(var(--sm-color-warning-h), var(--sm-color-warning-s), var(--sm-luminance-50));
+  --sm-color-warning-100: hsl(var(--sm-color-warning-h), var(--sm-color-warning-s), var(--sm-luminance-100));
+  --sm-color-warning-200: hsl(var(--sm-color-warning-h), var(--sm-color-warning-s), var(--sm-luminance-200));
+  --sm-color-warning-300: hsl(var(--sm-color-warning-h), var(--sm-color-warning-s), var(--sm-luminance-300));
+  --sm-color-warning-400: hsl(var(--sm-color-warning-h), var(--sm-color-warning-s), var(--sm-luminance-400));
+  --sm-color-warning-500: hsl(var(--sm-color-warning-h), var(--sm-color-warning-s), var(--sm-luminance-500));
+  --sm-color-warning-600: hsl(var(--sm-color-warning-h), var(--sm-color-warning-s), var(--sm-luminance-600));
+  --sm-color-warning-700: hsl(var(--sm-color-warning-h), var(--sm-color-warning-s), var(--sm-luminance-700));
+  --sm-color-warning-800: hsl(var(--sm-color-warning-h), var(--sm-color-warning-s), var(--sm-luminance-800));
+  --sm-color-warning-900: hsl(var(--sm-color-warning-h), var(--sm-color-warning-s), var(--sm-luminance-900));
+  --sm-color-warning-950: hsl(var(--sm-color-warning-h), var(--sm-color-warning-s), var(--sm-luminance-950));
+  
+  /* Error */
+  --sm-color-error-50: hsl(var(--sm-color-error-h), var(--sm-color-error-s), var(--sm-luminance-50));
+  --sm-color-error-100: hsl(var(--sm-color-error-h), var(--sm-color-error-s), var(--sm-luminance-100));
+  --sm-color-error-200: hsl(var(--sm-color-error-h), var(--sm-color-error-s), var(--sm-luminance-200));
+  --sm-color-error-300: hsl(var(--sm-color-error-h), var(--sm-color-error-s), var(--sm-luminance-300));
+  --sm-color-error-400: hsl(var(--sm-color-error-h), var(--sm-color-error-s), var(--sm-luminance-400));
+  --sm-color-error-500: hsl(var(--sm-color-error-h), var(--sm-color-error-s), var(--sm-luminance-500));
+  --sm-color-error-600: hsl(var(--sm-color-error-h), var(--sm-color-error-s), var(--sm-luminance-600));
+  --sm-color-error-700: hsl(var(--sm-color-error-h), var(--sm-color-error-s), var(--sm-luminance-700));
+  --sm-color-error-800: hsl(var(--sm-color-error-h), var(--sm-color-error-s), var(--sm-luminance-800));
+  --sm-color-error-900: hsl(var(--sm-color-error-h), var(--sm-color-error-s), var(--sm-luminance-900));
+  --sm-color-error-950: hsl(var(--sm-color-error-h), var(--sm-color-error-s), var(--sm-luminance-950));
+  
+  /* Purple */
+  --sm-color-purple-50: hsl(var(--sm-color-purple-h), var(--sm-color-purple-s), var(--sm-luminance-50));
+  --sm-color-purple-100: hsl(var(--sm-color-purple-h), var(--sm-color-purple-s), var(--sm-luminance-100));
+  --sm-color-purple-200: hsl(var(--sm-color-purple-h), var(--sm-color-purple-s), var(--sm-luminance-200));
+  --sm-color-purple-300: hsl(var(--sm-color-purple-h), var(--sm-color-purple-s), var(--sm-luminance-300));
+  --sm-color-purple-400: hsl(var(--sm-color-purple-h), var(--sm-color-purple-s), var(--sm-luminance-400));
+  --sm-color-purple-500: hsl(var(--sm-color-purple-h), var(--sm-color-purple-s), var(--sm-luminance-500));
+  --sm-color-purple-600: hsl(var(--sm-color-purple-h), var(--sm-color-purple-s), var(--sm-luminance-600));
+  --sm-color-purple-700: hsl(var(--sm-color-purple-h), var(--sm-color-purple-s), var(--sm-luminance-700));
+  --sm-color-purple-800: hsl(var(--sm-color-purple-h), var(--sm-color-purple-s), var(--sm-luminance-800));
+  --sm-color-purple-900: hsl(var(--sm-color-purple-h), var(--sm-color-purple-s), var(--sm-luminance-900));
+  --sm-color-purple-950: hsl(var(--sm-color-purple-h), var(--sm-color-purple-s), var(--sm-luminance-950));
+  
+  /* Neutral */
+  --sm-color-neutral-50: hsl(var(--sm-color-neutral-h), var(--sm-color-neutral-s), var(--sm-luminance-50));
+  --sm-color-neutral-100: hsl(var(--sm-color-neutral-h), var(--sm-color-neutral-s), var(--sm-luminance-100));
+  --sm-color-neutral-200: hsl(var(--sm-color-neutral-h), var(--sm-color-neutral-s), var(--sm-luminance-200));
+  --sm-color-neutral-300: hsl(var(--sm-color-neutral-h), var(--sm-color-neutral-s), var(--sm-luminance-300));
+  --sm-color-neutral-400: hsl(var(--sm-color-neutral-h), var(--sm-color-neutral-s), var(--sm-luminance-400));
+  --sm-color-neutral-500: hsl(var(--sm-color-neutral-h), var(--sm-color-neutral-s), var(--sm-luminance-500));
+  --sm-color-neutral-600: hsl(var(--sm-color-neutral-h), var(--sm-color-neutral-s), var(--sm-luminance-600));
+  --sm-color-neutral-700: hsl(var(--sm-color-neutral-h), var(--sm-color-neutral-s), var(--sm-luminance-700));
+  --sm-color-neutral-800: hsl(var(--sm-color-neutral-h), var(--sm-color-neutral-s), var(--sm-luminance-800));
+  --sm-color-neutral-900: hsl(var(--sm-color-neutral-h), var(--sm-color-neutral-s), var(--sm-luminance-900));
+  --sm-color-neutral-950: hsl(var(--sm-color-neutral-h), var(--sm-color-neutral-s), var(--sm-luminance-950));
+  
+  /* Semantic Color Tokens */
+  --sm-bg: #ffffff;
+  --sm-fg: var(--sm-color-neutral-900);
+  --sm-subtle: var(--sm-color-neutral-600);
+  --sm-accent: var(--sm-color-primary-500);
+  --sm-accent-subtle: var(--sm-color-primary-600);
+  --sm-accent-bg: color-mix(in srgb, var(--sm-accent) 10%, transparent);
+  --sm-success: var(--sm-color-success-500);
+  --sm-success-subtle: var(--sm-color-success-600);
+  --sm-success-bg: color-mix(in srgb, var(--sm-success) 10%, transparent);
+  --sm-warning: var(--sm-color-warning-500);
+  --sm-warning-subtle: var(--sm-color-warning-600);
+  --sm-warning-bg: color-mix(in srgb, var(--sm-warning) 10%, transparent);
+  --sm-error: var(--sm-color-error-500);
+  --sm-error-subtle: var(--sm-color-error-600);
+  --sm-error-bg: color-mix(in srgb, var(--sm-error) 10%, transparent);
+  --sm-muted: var(--sm-color-neutral-400);
+  --sm-highlight: color-mix(in srgb, var(--sm-accent) 20%, transparent);
+  --sm-purple: var(--sm-color-purple-500);
+  --sm-purple-subtle: var(--sm-color-purple-600);
+  --sm-purple-bg: color-mix(in srgb, var(--sm-purple) 10%, transparent);
+  
+  /* Border and UI Element Tokens */
+  --sm-border: var(--sm-color-neutral-200);
+  --sm-border-strong: var(--sm-color-neutral-300);
+  --sm-input-bg: var(--sm-color-neutral-50);
+  --sm-focus-ring: color-mix(in srgb, var(--sm-accent) 50%, transparent);
+  --sm-focus-ring-error: color-mix(in srgb, var(--sm-error) 50%, transparent);
+  --sm-focus-ring-success: color-mix(in srgb, var(--sm-success) 50%, transparent);
+}
+
+/* Fallbacks for browsers that don't support color-mix */
+@supports not (color-mix(in srgb, var(--sm-accent) 10%, transparent)) {
+  :root {
+    --sm-accent-bg: rgba(59, 130, 246, 0.1);
+    --sm-success-bg: rgba(16, 185, 129, 0.1);
+    --sm-warning-bg: rgba(245, 158, 11, 0.1);
+    --sm-error-bg: rgba(239, 68, 68, 0.1);
+    --sm-purple-bg: rgba(168, 85, 247, 0.1);
+    --sm-highlight: rgba(59, 130, 246, 0.2);
+    --sm-focus-ring: rgba(59, 130, 246, 0.5);
+    --sm-focus-ring-error: rgba(239, 68, 68, 0.5);
+    --sm-focus-ring-success: rgba(16, 185, 129, 0.5);
+  }
+}

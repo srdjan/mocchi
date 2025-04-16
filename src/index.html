@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="sem-mochi: A semantic-first CSS framework with minimal class usage">
+  <title>sem-mochi | Semantic-First CSS Framework</title>
+  <link rel="stylesheet" href="./sem-mochi.css">
+</head>
+
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Theme Toggle -->
+  <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+
+  <!-- Page Header -->
+  <header role="banner">
+    <div class="container">
+      <h1>sem-mochi</h1>
+      <p>A semantic-first CSS framework with minimal class usage</p>
+    </div>
+  </header>
+
+  <!-- Primary Navigation -->
+  <nav role="navigation" sticky>
+    <div>
+      <a href="#" aria-current="page">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        Home
+      </a>
+      <a href="#features">Features</a>
+      <a href="#examples">Examples</a>
+      <a href="#usage">Usage</a>
+    </div>
+    <div>
+      <a href="#docs">Documentation</a>
+      <a href="https://github.com/sem-mochi/sem-mochi">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+        GitHub
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container">
+        <div class="center-content">
+          <h2>Semantic HTML, Minimal Classes</h2>
+          <p>sem-mochi leverages modern CSS capabilities and semantic HTML to minimize class usage while maintaining
+            sophisticated styling capabilities.</p>
+
+          <aside data-type="success" class="animate-fade-in">
+            <strong>Semantic Benefit:</strong> Cleaner markup, better accessibility, improved maintainability, and
+            enhanced SEO.
+          </aside>
+        </div>
+
+        <div class="grid" gap="md">
+          <div class="col-span-6 col-xs-span-full">
+            <div class="card" shadow>
+              <div class="card-header">
+                <h3>Traditional CSS Framework</h3>
+              </div>
+              <div class="card-body">
+                <pre><code>&lt;button class="btn btn-primary btn-lg"&gt;
+  Submit
+&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-6 col-xs-span-full">
+            <div class="card" shadow primary>
+              <div class="card-header">
+                <h3>sem-mochi Approach</h3>
+              </div>
+              <div class="card-body">
+                <pre><code>&lt;button primary&gt;
+  Submit
+&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+      <div class="container">
+        <h2>Key Features</h2>
+        <p>Discover what makes sem-mochi different from other CSS frameworks.</p>
+
+        <div class="grid-auto-fit">
+          <div class="card" hover>
+            <div class="card-body">
+              <h3>Modular Architecture</h3>
+              <p>Organized into logical modules for better maintainability and organization.</p>
+            </div>
+          </div>
+          <div class="card" hover>
+            <div class="card-body">
+              <h3>HSL-Based Colors</h3>
+              <p>Programmatically generated color palette for consistent theming across your site.</p>
+            </div>
+          </div>
+          <div class="card" hover>
+            <div class="card-body">
+              <h3>Component Properties</h3>
+              <p>Component-specific custom properties for better encapsulation and customization.</p>
+            </div>
+          </div>
+          <div class="card" hover>
+            <div class="card-body">
+              <h3>Enhanced Accessibility</h3>
+              <p>Robust keyboard navigation and focus management built in from the start.</p>
+            </div>
+          </div>
+          <div class="card" hover>
+            <div class="card-body">
+              <h3>Animation System</h3>
+              <p>Comprehensive animation system with consistent timing functions.</p>
+            </div>
+          </div>
+          <div class="card" hover>
+            <div class="card-body">
+              <h3>Improved Layouts</h3>
+              <p>Flexible grid and container components for responsive designs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section id="examples">
+      <div class="container">
+        <h2>Component Examples</h2>
+        <p>See how sem-mochi styles native HTML elements and components.</p>
+
+        <h3 class="mt-md">Buttons</h3>
+        <div class="grid" gap="sm">
+          <div class="col-span-12">
+            <button>Default Button</button>
+            <button primary>Primary</button>
+            <button secondary>Secondary</button>
+            <button outline>Outline</button>
+            <button ghost>Ghost</button>
+          </div>
+          <div class="col-span-12">
+            <button success>Success</button>
+            <button warning>Warning</button>
+            <button error>Error</button>
+            <button size="sm">Small</button>
+            <button size="lg" primary>Large</button>
+          </div>
+        </div>
+
+        <h3 class="mt-md">Cards</h3>
+        <div class="grid" gap="md">
+          <div class="col-span-4 col-sm-span-6 col-xs-span-full">
+            <div class="card">
+              <div class="card-header">
+                <h4>Basic Card</h4>
+              </div>
+              <div class="card-body">
+                <p>This is a basic card with header and body.</p>
+              </div>
+              <div class="card-footer">
+                <button size="sm">Action</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-4 col-sm-span-6 col-xs-span-full">
+            <div class="card" shadow>
+              <div class="card-header">
+                <h4>Card with Shadow</h4>
+              </div>
+              <div class="card-body">
+                <p>This card has a shadow effect applied.</p>
+              </div>
+              <div class="card-footer">
+                <button primary size="sm">Action</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-4 col-sm-span-full col-xs-span-full">
+            <div class="card" primary>
+              <div class="card-header">
+                <h4>Primary Card</h4>
+              </div>
+              <div class="card-body">
+                <p>This card has a primary color border.</p>
+              </div>
+              <div class="card-footer">
+                <button outline size="sm">Action</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="mt-md">Form Elements</h3>
+        <form>
+          <div class="grid" gap="md">
+            <div class="col-span-6 col-xs-span-full">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Enter your name">
+            </div>
+            <div class="col-span-6 col-xs-span-full">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="col-span-12">
+              <label for="message">Message</label>
+              <textarea id="message" rows="4" placeholder="Enter your message"></textarea>
+            </div>
+            <div class="col-span-12">
+              <button primary type="submit">Submit</button>
+              <button type="reset">Reset</button>
+            </div>
+          </div>
+        </form>
+
+        <h3 class="mt-md">Alert Components</h3>
+        <div class="grid" gap="md">
+          <div class="col-span-6 col-xs-span-full">
+            <aside data-type="success">
+              <strong>Success:</strong> Operation completed successfully.
+            </aside>
+          </div>
+          <div class="col-span-6 col-xs-span-full">
+            <aside data-type="warning">
+              <strong>Warning:</strong> Please review before proceeding.
+            </aside>
+          </div>
+          <div class="col-span-12">
+            <aside data-type="error">
+              <strong>Error:</strong> Unable to complete the request.
+            </aside>
+          </div>
+        </div>
+
+        <h3 class="mt-md">Interactive Elements</h3>
+        <details>
+          <summary>Expandable Section</summary>
+          <p>This content is revealed when the section is expanded. sem-mochi styles the details/summary elements with a
+            consistent design that matches the rest of the framework.</p>
+        </details>
+
+        <p class="mt-md">
+          <span data-tooltip="This uses pure CSS, no JavaScript!">Hover over me</span> to see a tooltip.
+        </p>
+      </div>
+    </section>
+
+    <!-- Usage Section -->
+    <section id="usage">
+      <div class="container">
+        <h2>Using sem-mochi</h2>
+        <p>Get started with our semantic-first approach to CSS.</p>
+
+        <h3>Installation</h3>
+        <pre><code><!-- Download or link to sem-mochi.css -->
+&lt;link rel="stylesheet" href="path/to/sem-mochi.css"&gt;</code></pre>
+
+        <h3>Fundamental Principles</h3>
+        <ol>
+          <li><strong>Write semantic HTML first</strong> - Focus on the meaning of your content</li>
+          <li><strong>Use attributes for variants</strong> - Apply component variations with HTML attributes</li>
+          <li><strong>Leverage ARIA for states</strong> - Use standardized ARIA attributes for interactive states</li>
+          <li><strong>Minimize classes</strong> - Only use classes for true composition patterns</li>
+        </ol>
+
+        <h3 class="mt-md">Example Patterns</h3>
+        <div class="grid" gap="md">
+          <div class="col-span-6 col-xs-span-full">
+            <div class="card" shadow>
+              <div class="card-header">
+                <h4>Button Pattern</h4>
+              </div>
+              <div class="card-body">
+                <pre><code>&lt;!-- Primary button --&gt;
+&lt;button primary&gt;Submit&lt;/button&gt;
+
+&lt;!-- Outline button with size --&gt;
+&lt;button outline size="lg"&gt;Cancel&lt;/button&gt;
+
+&lt;!-- Success button --&gt;
+&lt;button success&gt;Confirm&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-6 col-xs-span-full">
+            <div class="card" shadow>
+              <div class="card-header">
+                <h4>Navigation Pattern</h4>
+              </div>
+              <div class="card-body">
+                <pre><code>&lt;nav role="navigation" sticky&gt;
+  &lt;div&gt;
+    &lt;a href="/" aria-current="page"&gt;Home&lt;/a&gt;
+    &lt;a href="/about"&gt;About&lt;/a&gt;
+    &lt;a href="/contact"&gt;Contact&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <p>sem-mochi: A semantic-first CSS framework with minimal class usage</p>
+      <p class="text-sm">Built with modern CSS features and semantic HTML principles</p>
+      <p class="text-sm mt-md">MIT License</p>
+    </div>
+  </footer>
+
+  <script>
+    // Simple theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    // Check for saved theme preference or respect OS preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      themeToggle.checked = true;
+    }
+    
+    // Toggle theme when the checkbox changes
+    themeToggle.addEventListener('change', () => {
+      if (themeToggle.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+</body>
+
+</html>

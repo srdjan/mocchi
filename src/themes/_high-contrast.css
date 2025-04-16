@@ -1,0 +1,94 @@
+/* ---- High Contrast Theme ---- */
+@layer theme {
+  /* High Contrast Mode */
+  [data-theme="high-contrast"] {
+    /* Light High Contrast */
+    --sm-bg: white;
+    --sm-fg: black;
+    --sm-subtle: #555;
+    --sm-border: black;
+    --sm-border-strong: black;
+    --sm-accent: #0066cc;
+    --sm-success: #008800;
+    --sm-warning: #dd6600;
+    --sm-error: #cc0000;
+    --sm-purple: #6600cc;
+    --sm-focus-ring: black;
+    --sm-accent-bg: #e6f0ff;
+    --sm-success-bg: #e6ffe6;
+    --sm-warning-bg: #fff2e6;
+    --sm-error-bg: #ffe6e6;
+    --sm-purple-bg: #f0e6ff;
+    --sm-input-bg: white;
+    --sm-highlight: #e6f0ff;
+    
+    /* Increase contrast for all elements */
+    --sm-shadow-strength: 20%;
+    --sm-shadow-color: 0 0% 0%;
+    
+    color-scheme: light;
+  }
+  
+  /* Dark High Contrast */
+  @media (prefers-color-scheme: dark) {
+    [data-theme="high-contrast"] {
+      --sm-bg: black;
+      --sm-fg: white;
+      --sm-subtle: #aaa;
+      --sm-border: white;
+      --sm-border-strong: white;
+      --sm-accent: #66b3ff;
+      --sm-success: #66ff66;
+      --sm-warning: #ffcc66;
+      --sm-error: #ff6666;
+      --sm-purple: #cc99ff;
+      --sm-focus-ring: white;
+      --sm-accent-bg: #003366;
+      --sm-success-bg: #003300;
+      --sm-warning-bg: #332200;
+      --sm-error-bg: #330000;
+      --sm-purple-bg: #220033;
+      --sm-input-bg: #111;
+      --sm-highlight: #003366;
+      
+      /* Increase contrast for all elements */
+      --sm-shadow-strength: 40%;
+      --sm-shadow-color: 0 0% 100%;
+      
+      color-scheme: dark;
+    }
+  }
+  
+  /* Media query for users who prefer high contrast */
+  @media (prefers-contrast: more) {
+    :root:not([data-theme]) {
+      --sm-focus-ring: rgba(0, 0, 0, 0.75);
+      --sm-border: black;
+      --sm-border-strong: black;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        --sm-focus-ring: rgba(255, 255, 255, 0.75);
+        --sm-border: white;
+        --sm-border-strong: white;
+      }
+    }
+    
+    /* Enhance contrast for interactive elements */
+    a,
+    button,
+    [role="button"] {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.2em;
+    }
+    
+    /* Increase focus indicator visibility */
+    :focus-visible {
+      outline-width: 3px;
+      outline-style: solid;
+      outline-offset: 3px;
+    }
+  }
+}

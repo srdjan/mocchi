@@ -1,0 +1,148 @@
+/* ---- Accessibility Utilities ---- */
+@layer utilities {
+  /* Visually Hidden Yet Accessible Text */
+  .visually-hidden,
+  .sr-only {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+  
+  /* Focus Visible Utility */
+  .focus-visible {
+    outline: 3px solid var(--sm-focus-ring);
+    outline-offset: 3px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Skip Link */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background-color: var(--sm-accent);
+    color: white;
+    padding: 10px;
+    z-index: var(--sm-z-max);
+    transition: top var(--sm-transition-fast);
+    
+    &:focus {
+      top: 0;
+    }
+  }
+  
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .motion-safe {
+      display: none;
+    }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .motion-reduce {
+      display: none;
+    }
+  }
+  
+  /* High Contrast Mode Utilities */
+  @media (prefers-contrast: more) {
+    .contrast-less {
+      display: none;
+    }
+  }
+  
+  @media (prefers-contrast: less) {
+    .contrast-more {
+      display: none;
+    }
+  }
+  
+  /* ARIA States */
+  [aria-busy="true"] {
+    cursor: progress;
+  }
+  
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+  
+  /* Keyboard Focus Indicator */
+  .keyboard-focus-only:focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  /* Print Accessibility */
+  @media print {
+    .print-hidden {
+      display: none !important;
+    }
+    
+    .print-visible {
+      display: block !important;
+    }
+    
+    /* Add URL after links */
+    a[href^="http"]::after {
+      content: " (" attr(href) ")";
+      font-size: 90%;
+      font-style: italic;
+    }
+  }
+  
+  /* Landmark Roles Outline (for development) */
+  .debug-landmarks [role="banner"],
+  .debug-landmarks [role="main"],
+  .debug-landmarks [role="contentinfo"],
+  .debug-landmarks [role="navigation"],
+  .debug-landmarks [role="complementary"],
+  .debug-landmarks [role="search"],
+  .debug-landmarks header,
+  .debug-landmarks main,
+  .debug-landmarks footer,
+  .debug-landmarks nav,
+  .debug-landmarks aside {
+    outline: 2px dashed var(--sm-accent);
+    outline-offset: 2px;
+    position: relative;
+  }
+  
+  .debug-landmarks [role="banner"]::before,
+  .debug-landmarks [role="main"]::before,
+  .debug-landmarks [role="contentinfo"]::before,
+  .debug-landmarks [role="navigation"]::before,
+  .debug-landmarks [role="complementary"]::before,
+  .debug-landmarks [role="search"]::before,
+  .debug-landmarks header::before,
+  .debug-landmarks main::before,
+  .debug-landmarks footer::before,
+  .debug-landmarks nav::before,
+  .debug-landmarks aside::before {
+    content: attr(role);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--sm-accent);
+    color: white;
+    font-size: var(--sm-font-xs);
+    padding: 2px 4px;
+    z-index: var(--sm-z-tooltip);
+  }
+  
+  /* Accessible Tooltip */
+  [role="tooltip"] {
+    position: absolute;
+    z-index: var(--sm-z-tooltip);
+    padding: var(--sm-space-xs);
+    background-color: var(--sm-fg);
+    color: var(--sm-bg);
+    border-radius: var(--sm-radius-sm);
+    font-size: var(--sm-font-sm);
+    max-width: 200px;
+    box-shadow: var(--sm-shadow-md);
+  }
+}

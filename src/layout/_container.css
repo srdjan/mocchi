@@ -1,0 +1,132 @@
+/* ---- Container Layout System ---- */
+@layer layout {
+  /* Base Container */
+  .container {
+    --container-width: min(100%, var(--sm-wide));
+    --container-padding: var(--sm-space);
+    
+    width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+  }
+  
+  /* Container Sizes */
+  .container[size="narrow"] {
+    --container-width: min(100%, var(--sm-narrow));
+  }
+  
+  .container[size="medium"] {
+    --container-width: min(100%, var(--sm-medium));
+  }
+  
+  .container[size="wide"] {
+    --container-width: min(100%, var(--sm-wide));
+  }
+  
+  .container[size="full"] {
+    --container-width: 100%;
+  }
+  
+  /* Container with max-width */
+  .container[max-width="xs"] {
+    --container-width: min(100%, 480px);
+  }
+  
+  .container[max-width="sm"] {
+    --container-width: min(100%, 640px);
+  }
+  
+  .container[max-width="md"] {
+    --container-width: min(100%, 768px);
+  }
+  
+  .container[max-width="lg"] {
+    --container-width: min(100%, 1024px);
+  }
+  
+  .container[max-width="xl"] {
+    --container-width: min(100%, 1280px);
+  }
+  
+  .container[max-width="2xl"] {
+    --container-width: min(100%, 1536px);
+  }
+  
+  /* Container Padding Variations */
+  .container[padding="none"] {
+    --container-padding: 0;
+  }
+  
+  .container[padding="sm"] {
+    --container-padding: var(--sm-space-sm);
+  }
+  
+  .container[padding="md"] {
+    --container-padding: var(--sm-space-md);
+  }
+  
+  .container[padding="lg"] {
+    --container-padding: var(--sm-space-lg);
+  }
+  
+  /* Content Container */
+  .content-container {
+    max-width: var(--sm-measure);
+    margin-inline: auto;
+  }
+  
+  .content-container[narrow] {
+    max-width: var(--sm-measure-narrow);
+  }
+  
+  .content-container[wide] {
+    max-width: var(--sm-measure-wide);
+  }
+  
+  /* Container Query Support */
+  @supports (container-type: inline-size) {
+    .container-query {
+      container-type: inline-size;
+      container-name: layout;
+    }
+    
+    @container layout (width < 768px) {
+      .container-adaptive {
+        flex-direction: column;
+      }
+      
+      .container-adaptive > * {
+        width: 100%;
+      }
+    }
+    
+    @container layout (width >= 768px) {
+      .container-adaptive {
+        flex-direction: row;
+      }
+      
+      .container-adaptive > * {
+        flex: 1;
+      }
+    }
+  }
+  
+  /* Responsive Container Padding */
+  @media (max-width: 480px) {
+    .container {
+      --container-padding: var(--sm-space-sm);
+    }
+  }
+  
+  /* Centered Content Container */
+  .center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    & > * {
+      max-width: var(--sm-measure);
+    }
+  }
+}

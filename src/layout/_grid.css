@@ -1,0 +1,246 @@
+/* ---- Grid Layout System ---- */
+@layer layout {
+  /* Base Grid Container */
+  .grid {
+    --grid-columns: 12;
+    --grid-gap: var(--sm-space);
+    
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    gap: var(--grid-gap);
+    width: 100%;
+  }
+  
+  /* Grid Gap Variations */
+  .grid[gap="none"] {
+    --grid-gap: 0;
+  }
+  
+  .grid[gap="xs"] {
+    --grid-gap: var(--sm-space-xs);
+  }
+  
+  .grid[gap="sm"] {
+    --grid-gap: var(--sm-space-sm);
+  }
+  
+  .grid[gap="md"] {
+    --grid-gap: var(--sm-space-md);
+  }
+  
+  .grid[gap="lg"] {
+    --grid-gap: var(--sm-space-lg);
+  }
+  
+  .grid[gap="xl"] {
+    --grid-gap: var(--sm-space-xl);
+  }
+  
+  /* Column Span Classes */
+  .col-span-1 {
+    grid-column: span 1;
+  }
+  
+  .col-span-2 {
+    grid-column: span 2;
+  }
+  
+  .col-span-3 {
+    grid-column: span 3;
+  }
+  
+  .col-span-4 {
+    grid-column: span 4;
+  }
+  
+  .col-span-5 {
+    grid-column: span 5;
+  }
+  
+  .col-span-6 {
+    grid-column: span 6;
+  }
+  
+  .col-span-7 {
+    grid-column: span 7;
+  }
+  
+  .col-span-8 {
+    grid-column: span 8;
+  }
+  
+  .col-span-9 {
+    grid-column: span 9;
+  }
+  
+  .col-span-10 {
+    grid-column: span 10;
+  }
+  
+  .col-span-11 {
+    grid-column: span 11;
+  }
+  
+  .col-span-12 {
+    grid-column: span 12;
+  }
+  
+  .col-span-full {
+    grid-column: 1 / -1;
+  }
+  
+  /* Row Span Classes */
+  .row-span-1 {
+    grid-row: span 1;
+  }
+  
+  .row-span-2 {
+    grid-row: span 2;
+  }
+  
+  .row-span-3 {
+    grid-row: span 3;
+  }
+  
+  .row-span-4 {
+    grid-row: span 4;
+  }
+  
+  .row-span-5 {
+    grid-row: span 5;
+  }
+  
+  .row-span-6 {
+    grid-row: span 6;
+  }
+  
+  /* Responsive Grid Columns */
+  @media (max-width: 480px) {
+    .grid {
+      --grid-columns: 4;
+    }
+    
+    .col-xs-span-1 {
+      grid-column: span 1;
+    }
+    
+    .col-xs-span-2 {
+      grid-column: span 2;
+    }
+    
+    .col-xs-span-3 {
+      grid-column: span 3;
+    }
+    
+    .col-xs-span-4 {
+      grid-column: span 4;
+    }
+    
+    .col-xs-span-full {
+      grid-column: 1 / -1;
+    }
+  }
+  
+  @media (min-width: 481px) and (max-width: 768px) {
+    .grid {
+      --grid-columns: 8;
+    }
+    
+    .col-sm-span-1 {
+      grid-column: span 1;
+    }
+    
+    .col-sm-span-2 {
+      grid-column: span 2;
+    }
+    
+    .col-sm-span-3 {
+      grid-column: span 3;
+    }
+    
+    .col-sm-span-4 {
+      grid-column: span 4;
+    }
+    
+    .col-sm-span-5 {
+      grid-column: span 5;
+    }
+    
+    .col-sm-span-6 {
+      grid-column: span 6;
+    }
+    
+    .col-sm-span-7 {
+      grid-column: span 7;
+    }
+    
+    .col-sm-span-8 {
+      grid-column: span 8;
+    }
+    
+    .col-sm-span-full {
+      grid-column: 1 / -1;
+    }
+  }
+  
+  /* Auto-fit and Auto-fill Grid Layouts */
+  .grid-auto-fit {
+    --min-item-width: 250px;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--min-item-width), 1fr));
+    gap: var(--grid-gap);
+  }
+  
+  .grid-auto-fill {
+    --min-item-width: 250px;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--min-item-width), 1fr));
+    gap: var(--grid-gap);
+  }
+  
+  /* Grid Item Alignment */
+  .grid-item-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Grid with named areas */
+  .grid-areas {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    grid-template-rows: auto;
+    gap: var(--grid-gap);
+  }
+  
+  /* Subgrid support */
+  @supports (grid-template-rows: subgrid) {
+    .subgrid {
+      display: grid;
+      grid-template-columns: subgrid;
+      grid-template-rows: subgrid;
+    }
+  }
+  
+  /* Container Query-based Grid */
+  @supports (container-type: inline-size) {
+    .container-grid {
+      container-type: inline-size;
+      container-name: grid-container;
+    }
+    
+    @container grid-container (width < 768px) {
+      .container-col-span-full {
+        grid-column: 1 / -1;
+      }
+    }
+    
+    @container grid-container (width >= 768px) {
+      .container-col-span-6 {
+        grid-column: span 6;
+      }
+    }
+  }
+}
