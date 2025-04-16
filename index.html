@@ -4,470 +4,650 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Mochi CSS - A minimalist, type-safe CSS framework with functional composition patterns">
-  <title>Mochi CSS | Functional Component Library</title>
+  <title>Mochi CSS - Modern Integration Example</title>
   <link rel="stylesheet" href="./mochi.css">
+  <style>
+    /* Custom page-specific styles */
+    .color-swatch {
+      width: 100px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      border-radius: var(--mochi-radius-md);
+      transition: transform var(--mochi-transition);
+    }
+
+    .color-swatch:hover {
+      transform: translateY(-4px);
+    }
+
+    .demo-section:not(:last-child) {
+      margin-bottom: var(--mochi-spacing-xl);
+      padding-bottom: var(--mochi-spacing-lg);
+      border-bottom: 1px solid var(--mochi-border);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Main Navigation - Semantic Structure -->
-  <header class="p-md">
-    <div class="container">
-      <h1>Mochi CSS</h1>
-      <p class="text-muted">A minimalist CSS framework with type-safe composition patterns</p>
+  <!-- Header with Theme Selector -->
+  <header class="p-md border-b">
+    <div class="container flex justify-between items-center">
+      <div>
+        <h1 class="text-2xl font-bold m-0">Mochi CSS</h1>
+        <p class="text-muted m-0">Modern CSS with Type-Safe Composition</p>
+      </div>
+      <div class="flex gap">
+        <button class="btn btn-sm" id="theme-blue">Blue</button>
+        <button class="btn btn-sm" id="theme-purple">Purple</button>
+        <button class="btn btn-sm" id="theme-green">Green</button>
+        <button class="btn btn-sm" id="theme-coral">Coral</button>
+      </div>
     </div>
   </header>
 
-  <!-- Navigational Component - Pure Action Patterns -->
-  <nav class="site-nav bg-light border-bottom">
-    <div class="container flex gap-md">
-      <a href="#overview" class="active">Overview</a>
-      <a href="#typography">Typography</a>
-      <a href="#layouts">Layouts</a>
-      <a href="#components">Components</a>
-      <a href="#forms">Forms</a>
-      <a href="#utilities">Utilities</a>
-      <a href="#integration">Integration</a>
+  <!-- Main Navigation -->
+  <nav class="bg-light border-b sticky top-0" style="z-index: 10;">
+    <div class="container">
+      <div class="nav">
+        <a href="#overview" class="nav-link active">Overview</a>
+        <a href="#components" class="nav-link">Components</a>
+        <a href="#layouts" class="nav-link">Layouts</a>
+        <a href="#forms" class="nav-link">Forms</a>
+        <a href="#typography" class="nav-link">Typography</a>
+      </div>
     </div>
   </nav>
 
-  <!-- Main Content - Recursive Composition Pattern -->
+  <!-- Main Content -->
   <main class="container py-lg">
     <!-- Overview Section -->
-    <section id="overview" class="my-xl">
-      <h2>Overview</h2>
-      <p>Mochi CSS implements a pure functional approach to styling, focusing on composition over inheritance. The
-        framework provides strongly typed CSS variables that function like discriminated unions in TypeScript.</p>
+    <section id="overview" class="demo-section">
+      <h2>Modern CSS Architecture</h2>
+      <p>Mochi CSS implements a pure functional approach to styling with type-safe variables and composition patterns.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md" style="container-type: inline-size;">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="m-0">Cascade Layers</h3>
+          </div>
+          <div class="card-body">
+            <p>Explicit specificity control with <code>@layer</code> for predictable composition.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="m-0">CSS Nesting</h3>
+          </div>
+          <div class="card-body">
+            <p>Clean, readable component styling with natural hierarchy using native CSS nesting.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="m-0">Container Queries</h3>
+          </div>
+          <div class="card-body">
+            <p>Component-scoped responsive design with <code>@container</code> queries.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="m-0">Logical Properties</h3>
+          </div>
+          <div class="card-body">
+            <p>Internationalization support with <code>margin-block</code>, <code>padding-inline</code> and more.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="mt-lg">Dynamic Theming System</h3>
+      <div class="flex flex-wrap gap-md justify-center my-md">
+        <div class="color-swatch" style="background-color: var(--mochi-accent); color: white;">Accent</div>
+        <div class="color-swatch" style="background-color: var(--mochi-success); color: white;">Success</div>
+        <div class="color-swatch" style="background-color: var(--mochi-warning); color: black;">Warning</div>
+        <div class="color-swatch" style="background-color: var(--mochi-danger); color: white;">Danger</div>
+      </div>
 
       <div class="alert alert-primary my-md">
-        <strong>Zero-dependency Philosophy:</strong> Mochi contains no runtime dependencies and leverages type-driven
-        CSS custom properties for theming.
-      </div>
-
-      <h3 class="mt-md">Core Principles</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap">
-        <div class="card">
-          <div class="card-body">
-            <h4>Type-Safe Variables</h4>
-            <p>CSS variables function as algebraic data types with strongly-typed constraints.</p>
-          </div>
+        <div class="alert-content">
+          <div class="alert-title">Type-Safe Design Tokens</div>
+          <p class="m-0">All design tokens are strongly typed and function as discriminated unions in TypeScript.</p>
         </div>
-        <div class="card">
-          <div class="card-body">
-            <h4>Pure Composition</h4>
-            <p>Layout utilities compose functionally rather than through inheritance.</p>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body">
-            <h4>Side-Effect Free</h4>
-            <p>All styles apply without modifying existing properties.</p>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="mt-md">Type System</h3>
-      <div class="flex flex-wrap justify-center">
-        <div class="color-swatch" style="background-color: var(--mochi-accent);">Accent</div>
-        <div class="color-swatch" style="background-color: var(--mochi-success);">Success</div>
-        <div class="color-swatch" style="background-color: var(--mochi-warning); color: black;">Warning</div>
-        <div class="color-swatch" style="background-color: var(--mochi-danger);">Danger</div>
-      </div>
-    </section>
-
-    <!-- Typography Section -->
-    <section id="typography" class="my-xl">
-      <h2>Typography</h2>
-      <p>Mochi's typography follows functional composition principles with predictable type scaling.</p>
-
-      <!-- Headings -->
-      <h3 class="mt-md">Headings</h3>
-      <h1>Heading 1</h1>
-      <h2>Heading 2</h2>
-      <h3>Heading 3</h3>
-      <h4>Heading 4</h4>
-      <h5>Heading 5</h5>
-      <h6>Heading 6</h6>
-
-      <!-- Text Elements -->
-      <h3 class="mt-md">Text Elements</h3>
-      <p>This is a standard paragraph with <a href="#">a link</a>, <strong>bold text</strong>, <em>italic text</em>, and
-        <code>inline code</code>.</p>
-
-      <blockquote>
-        This is a blockquote with pure, immutable styling that composes predictably with other elements.
-      </blockquote>
-
-      <!-- Code Blocks -->
-      <h3 class="mt-md">Code Blocks</h3>
-      <pre><code>// Type-safe function with explicit error handling
-const safeOperation = (input: string): Result&lt;number, Error&gt; => {
-  try {
-    const value = parseInt(input, 10);
-    if (isNaN(value)) {
-      return { ok: false, error: new Error("Invalid number") };
-    }
-    return { ok: true, value };
-  } catch (err) {
-    return { ok: false, error: err instanceof Error ? err : new Error(String(err)) };
-  }
-};</code></pre>
-    </section>
-
-    <!-- Layouts Section -->
-    <section id="layouts" class="my-xl">
-      <h2>Layouts</h2>
-      <p>Layout systems in Mochi follow functional composition patterns that transform predictably.</p>
-
-      <!-- Grid Layout -->
-      <h3 class="mt-md">Grid Layout</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap">
-        <div class="p bg-light border rounded">Column 1</div>
-        <div class="p bg-light border rounded">Column 2</div>
-        <div class="p bg-light border rounded">Column 3</div>
-      </div>
-
-      <!-- Flexbox Layout -->
-      <h3 class="mt-md">Flexbox Layout</h3>
-      <div class="flex justify-between p border rounded">
-        <div class="p-sm bg-light">Left</div>
-        <div class="p-sm bg-light">Center</div>
-        <div class="p-sm bg-light">Right</div>
-      </div>
-
-      <!-- Auto Grid -->
-      <h3 class="mt-md">Auto Grid</h3>
-      <div class="auto-grid" style="--auto-grid-min: 150px;">
-        <div class="p-sm bg-light border rounded">Item 1</div>
-        <div class="p-sm bg-light border rounded">Item 2</div>
-        <div class="p-sm bg-light border rounded">Item 3</div>
-        <div class="p-sm bg-light border rounded">Item 4</div>
-        <div class="p-sm bg-light border rounded">Item 5</div>
-        <div class="p-sm bg-light border rounded">Item 6</div>
-      </div>
-
-      <!-- Holy Grail Layout -->
-      <h3 class="mt-md">Holy Grail Layout</h3>
-      <div class="holy-grail p-sm border rounded" style="height: 400px;">
-        <header class="p-sm bg-light border rounded">Header</header>
-        <nav class="p-sm bg-light border rounded">Navigation</nav>
-        <main class="p-sm bg-light border rounded">Main Content</main>
-        <aside class="p-sm bg-light border rounded">Sidebar</aside>
-        <footer class="p-sm bg-light border rounded">Footer</footer>
       </div>
     </section>
 
     <!-- Components Section -->
-    <section id="components" class="my-xl">
-      <h2>Components</h2>
-      <p>Components follow pure functional patterns with immutable styling transformations.</p>
+    <section id="components" class="demo-section">
+      <h2>Functional Component System</h2>
+      <p>Components follow pure functional patterns with immutable styling transformations and explicit state handling.
+      </p>
 
-      <!-- Cards -->
-      <h3 class="mt-md">Cards</h3>
+      <h3 class="mt-md">Alert Components</h3>
+      <div class="grid grid-cols-1 gap">
+        <div class="alert alert-primary">
+          <div class="alert-content">
+            <div class="alert-title">Primary Alert</div>
+            <p class="m-0">This is a primary alert with type-safe status token.</p>
+          </div>
+        </div>
+
+        <div class="alert alert-success">
+          <div class="alert-content">
+            <div class="alert-title">Success Alert</div>
+            <p class="m-0">This is a success alert for positive notifications.</p>
+          </div>
+        </div>
+
+        <div class="alert alert-warning">
+          <div class="alert-content">
+            <div class="alert-title">Warning Alert</div>
+            <p class="m-0">This is a warning alert for important information.</p>
+          </div>
+        </div>
+
+        <div class="alert alert-danger">
+          <div class="alert-content">
+            <div class="alert-title">Danger Alert</div>
+            <p class="m-0">This is a danger alert for critical errors.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="mt-md">Button System</h3>
+      <div class="flex flex-wrap gap">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-outline">Outline</button>
+        <button class="btn btn-success">Success</button>
+        <button class="btn btn-danger">Danger</button>
+      </div>
+
+      <div class="flex flex-wrap gap mt-sm">
+        <button class="btn btn-primary btn-sm">Small</button>
+        <button class="btn btn-outline btn-sm">Small</button>
+        <button class="btn btn-success btn-sm">Small</button>
+        <button class="btn btn-danger btn-sm">Small</button>
+      </div>
+
+      <h3 class="mt-md">Card Components</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap">
         <div class="card">
           <div class="card-header">
-            <h4 class="m-0">Card Title</h4>
+            <h4 class="m-0">Feature Card</h4>
           </div>
           <div class="card-body">
-            <p>This is a basic card with header, body, and footer.</p>
+            <p>Cards implement a pure functional approach with predictable composition.</p>
+            <div class="flex justify-between">
+              <span class="badge badge-primary">Type-safe</span>
+              <span class="badge badge-outline badge-warning">Responsive</span>
+            </div>
           </div>
           <div class="card-footer">
-            <button class="btn btn-sm btn-primary">Action</button>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-body">
-            <h4>Simple Card</h4>
-            <p>This card only uses a body section.</p>
-            <button class="btn btn-sm btn-outline">Learn More</button>
+            <button class="btn btn-sm btn-primary">Learn More</button>
           </div>
         </div>
 
         <div class="card">
           <div class="card-header">
-            <h4 class="m-0">Features</h4>
+            <h4 class="m-0">Modal Dialog</h4>
           </div>
           <div class="card-body">
-            <ul>
-              <li>Type-safe variables</li>
-              <li>Pure function composition</li>
-              <li>Zero runtime dependencies</li>
-            </ul>
+            <p>Modal dialogs leverage CSS View Transitions for smooth animations.</p>
+            <div class="flex justify-between">
+              <span class="badge badge-success">Accessible</span>
+              <span class="badge badge-outline badge-primary">Composable</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-sm btn-outline" id="open-modal">Open Modal</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h4 class="m-0">Tooltip System</h4>
+          </div>
+          <div class="card-body">
+            <p>Pure CSS tooltips with logical positioning and focus handling.</p>
+            <div class="flex justify-center gap">
+              <button class="btn btn-sm btn-primary" data-tooltip="Top tooltip example">Hover Me</button>
+              <button class="btn btn-sm btn-outline" data-tooltip="Right side tooltip"
+                data-tooltip-placement="right">Right</button>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-muted">No JavaScript required</span>
+              <span class="badge badge-danger">CSS-only</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Alerts -->
-      <h3 class="mt-md">Alerts</h3>
-      <div class="alert alert-primary">
-        This is a primary alert with type-safe status ADT
+      <h3 class="mt-md">Badge Components</h3>
+      <div class="flex flex-wrap gap">
+        <span class="badge badge-primary">Primary</span>
+        <span class="badge badge-success">Success</span>
+        <span class="badge badge-warning">Warning</span>
+        <span class="badge badge-danger">Danger</span>
+        <span class="badge badge-outline badge-primary">Outline</span>
+        <span class="badge badge-outline badge-success">Outline</span>
+        <span class="badge badge-pill badge-primary">Pill Badge</span>
+        <span class="badge badge-pill badge-outline badge-success">Outline Pill</span>
+      </div>
+    </section>
+
+    <!-- Layouts Section -->
+    <section id="layouts" class="demo-section">
+      <h2>Layout Composition</h2>
+      <p>Mochi's layout system follows functional composition patterns that transform predictably using modern CSS Grid
+        and Flexbox features.</p>
+
+      <h3 class="mt-md">Container Query Grid Layout</h3>
+      <div class="card p">
+        <div class="grid gap" style="container-type: inline-size; container-name: demo-grid;">
+          <div class="cols-sm:2 cols-md:4 gap">
+            <div class="p bg-light border rounded text-center">Item 1</div>
+            <div class="p bg-light border rounded text-center">Item 2</div>
+            <div class="p bg-light border rounded text-center">Item 3</div>
+            <div class="p bg-light border rounded text-center">Item 4</div>
+          </div>
+
+          <p class="text-muted text-sm">This grid uses container queries to adapt to its parent container, not the
+            viewport.</p>
+        </div>
       </div>
 
-      <div class="alert alert-success">
-        This is a success alert with immutable styling
+      <h3 class="mt-md">Subgrid Layout</h3>
+      <div class="card p-md">
+        <div class="grid grid-cols-6 gap">
+          <div class="col-span-6 md:col-span-2 bg-light p border rounded">
+            Sidebar
+          </div>
+          <div class="col-span-6 md:col-span-4 subgrid-cols gap">
+            <div class="col-span-1 p border rounded bg-light">Content 1</div>
+            <div class="col-span-1 p border rounded bg-light">Content 2</div>
+            <div class="col-span-2 p border rounded bg-light">Content 3 (spans 2 columns)</div>
+          </div>
+        </div>
       </div>
 
-      <div class="alert alert-warning">
-        This is a warning alert with functional composition
+      <h3 class="mt-md">Auto Grid</h3>
+      <div class="auto-grid gap" style="--auto-grid-min: 180px;">
+        <div class="p-sm bg-light border rounded text-center">Auto Item 1</div>
+        <div class="p-sm bg-light border rounded text-center">Auto Item 2</div>
+        <div class="p-sm bg-light border rounded text-center">Auto Item 3</div>
+        <div class="p-sm bg-light border rounded text-center">Auto Item 4</div>
+        <div class="p-sm bg-light border rounded text-center">Auto Item 5</div>
+        <div class="p-sm bg-light border rounded text-center">Auto Item 6</div>
       </div>
 
-      <div class="alert alert-danger">
-        This is a danger alert with pure transformation
+      <h3 class="mt-md">Flexbox with Gap</h3>
+      <div class="flex flex-wrap justify-between gap">
+        <div class="p-sm bg-light border rounded">Flex Item 1</div>
+        <div class="p-sm bg-light border rounded">Flex Item 2</div>
+        <div class="p-sm bg-light border rounded">Flex Item 3</div>
+        <div class="p-sm bg-light border rounded">Flex Item 4</div>
       </div>
 
-      <!-- Tables -->
-      <h3 class="mt-md">Tables</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>TaskItem</td>
-            <td>Record&lt;string, unknown&gt;</td>
-            <td><span class="badge badge-success">Active</span></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>UserState</td>
-            <td>Discriminated Union</td>
-            <td><span class="badge badge-warning">Pending</span></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>DataResult</td>
-            <td>Result&lt;T, E&gt;</td>
-            <td><span class="badge badge-danger">Failed</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <h3 class="mt-md">Aspect Ratio Containers</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap">
+        <div class="aspect-ratio aspect-1x1 bg-light border rounded flex items-center justify-center">1:1</div>
+        <div class="aspect-ratio aspect-4x3 bg-light border rounded flex items-center justify-center">4:3</div>
+        <div class="aspect-ratio aspect-16x9 bg-light border rounded flex items-center justify-center">16:9</div>
+      </div>
     </section>
 
     <!-- Forms Section -->
-    <section id="forms" class="my-xl">
-      <h2>Forms</h2>
-      <p>Form elements implement type-safe input validation patterns with explicit state handling.</p>
+    <section id="forms" class="demo-section">
+      <h2>Type-Safe Form Controls</h2>
+      <p>Form elements implement type-safe input validation patterns with explicit state handling and accessible design.
+      </p>
 
       <form class="card">
+        <div class="card-header">
+          <h3 class="m-0">Registration Form</h3>
+        </div>
         <div class="card-body">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Enter your name">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="form-control" placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" class="form-control is-valid" placeholder="Enter your email"
+                value="user@example.com">
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="email">Email (Required)</label>
-            <input type="email" id="email" required placeholder="Enter your email">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control is-invalid" placeholder="Enter your password">
+            <div class="text-danger text-sm mt-xs">Password must be at least 8 characters</div>
           </div>
 
           <div class="form-group">
             <label for="country">Country</label>
-            <select id="country">
-              <option value="">Select a country</option>
+            <select id="country" class="form-control">
+              <option value="">Select your country</option>
               <option value="us">United States</option>
               <option value="ca">Canada</option>
+              <option value="mx">Mexico</option>
               <option value="uk">United Kingdom</option>
-              <option value="au">Australia</option>
+              <option value="fr">France</option>
+              <option value="de">Germany</option>
+              <option value="jp">Japan</option>
             </select>
           </div>
 
           <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" rows="4" placeholder="Your message"></textarea>
+            <label for="bio">Biography</label>
+            <textarea id="bio" class="form-control" rows="3" placeholder="Tell us about yourself"></textarea>
           </div>
 
-          <div class="form-group">
-            <label>
-              <input type="checkbox"> I agree to the terms
-            </label>
-          </div>
+          <fieldset class="form-group">
+            <legend>Preferences</legend>
 
-          <div class="flex gap-sm">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-check">
+              <input type="checkbox" id="newsletter" class="form-check-input">
+              <label for="newsletter">Subscribe to newsletter</label>
+            </div>
+
+            <div class="form-check">
+              <input type="checkbox" id="terms" class="form-check-input">
+              <label for="terms">I agree to the terms and conditions</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <legend>Theme Mode</legend>
+
+            <div class="form-switch">
+              <input type="checkbox" id="dark-mode-toggle" class="form-check-input">
+              <label for="dark-mode-toggle">Enable dark mode</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="card-footer">
+          <div class="flex gap justify-end">
             <button type="reset" class="btn btn-outline">Reset</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div>
       </form>
     </section>
 
-    <!-- Utilities Section -->
-    <section id="utilities" class="my-xl">
-      <h2>Utilities</h2>
-      <p>Utility classes implement atomic, pure transformations that compose predictably.</p>
+    <!-- Typography Section -->
+    <section id="typography" class="demo-section">
+      <h2>Typography System</h2>
+      <p>Typography follows functional composition principles with predictable type scaling and fluid typography.</p>
 
-      <!-- Spacing Utilities -->
-      <h3 class="mt-md">Spacing Utilities</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap">
-        <div>
-          <h4>Margin</h4>
-          <div class="border p">
-            <div class="bg-light p m-xs">m-xs</div>
-            <div class="bg-light p m-sm">m-sm</div>
-            <div class="bg-light p m">m (default)</div>
-            <div class="bg-light p m-md">m-md</div>
-          </div>
-        </div>
-        <div>
-          <h4>Padding</h4>
-          <div class="border">
-            <div class="bg-light p-xs m-xs">p-xs</div>
-            <div class="bg-light p-sm m-xs">p-sm</div>
-            <div class="bg-light p m-xs">p (default)</div>
-            <div class="bg-light p-md m-xs">p-md</div>
-          </div>
-        </div>
-      </div>
+      <h3 class="mt-md">Heading Hierarchy</h3>
+      <h1>Heading Level 1</h1>
+      <h2>Heading Level 2</h2>
+      <h3>Heading Level 3</h3>
+      <h4>Heading Level 4</h4>
+      <h5>Heading Level 5</h5>
+      <h6>Heading Level 6</h6>
 
-      <!-- Typography Utilities -->
-      <h3 class="mt-md">Typography Utilities</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap">
-        <div>
-          <h4>Text Styles</h4>
-          <p class="text-primary">Primary text</p>
-          <p class="text-success">Success text</p>
-          <p class="text-warning">Warning text</p>
-          <p class="text-danger">Danger text</p>
-          <p class="text-muted">Muted text</p>
-        </div>
-        <div>
-          <h4>Text Formatting</h4>
-          <p class="text-sm">Small text</p>
-          <p class="text-lg">Large text</p>
-          <p class="font-bold">Bold text</p>
-          <p class="italic">Italic text</p>
-          <p class="text-center">Centered text</p>
-        </div>
-      </div>
-    </section>
+      <h3 class="mt-md">Text Styles</h3>
+      <p>This is a standard paragraph with <a href="#">a text link</a>, <strong>bold text</strong>, <em>italic
+          text</em>, and <code>inline code</code>.</p>
 
-    <!-- Integration Section -->
-    <section id="integration" class="my-xl">
-      <h2>Integration with TypeScript</h2>
-      <p>Mochi CSS integrates perfectly with functional TypeScript patterns using discriminated unions.</p>
+      <p class="text-primary">Primary colored text</p>
+      <p class="text-success">Success colored text</p>
+      <p class="text-warning">Warning colored text</p>
+      <p class="text-danger">Danger colored text</p>
+      <p class="text-muted">Muted text for less emphasis</p>
 
-      <div class="card">
-        <div class="card-body">
-          <h3>Type-Safe Component Example</h3>
-          <pre><code>// Algebraic data type for task status
-type TaskStatus = 'pending' | 'in-progress' | 'completed' | 'archived';
+      <h3 class="mt-md">Font Sizes</h3>
+      <p class="text-xs">Extra small text - good for fine print</p>
+      <p class="text-sm">Small text - good for secondary information</p>
+      <p class="text-base">Base text - standard body copy</p>
+      <p class="text-lg">Large text - for emphasis</p>
+      <p class="text-xl">Extra large text - for sub-headers</p>
+      <p class="text-2xl">2XL text - for major sections</p>
+      <p class="text-3xl">3XL text - for page titles</p>
 
-// Pure function to determine badge class - exhaustive pattern matching
-const getStatusBadgeClass = (status: TaskStatus): string => {
-  switch (status) {
-    case 'pending': return 'badge-primary';
-    case 'in-progress': return 'badge-warning';
-    case 'completed': return 'badge-success';
-    case 'archived': return 'badge-muted';
-    // TypeScript ensures exhaustiveness
-    default: {
-      const _exhaustiveCheck: never = status;
-      return 'badge-primary';
-    }
-  }
-};
+      <h3 class="mt-md">Block Elements</h3>
+      <blockquote>
+        This is a blockquote with pure, immutable styling that composes predictably with other elements. It uses logical
+        borders (border-inline-start) for RTL language support.
+      </blockquote>
 
-// Immutable rendering function with type-safe composition
-const renderTaskCard = &lt;T extends { 
-  id: string; 
-  title: string; 
-  status: TaskStatus;
-  description?: string;
-}&gt;(task: Readonly&lt;T&gt;): string => `
-  &lt;div class="card" data-task-id="${task.id}"&gt;
-    &lt;div class="card-header flex justify-between items-center"&gt;
-      &lt;h3&gt;${task.title}&lt;/h3&gt;
-      &lt;span class="badge ${getStatusBadgeClass(task.status)}"&gt;${task.status}&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div class="card-body"&gt;
-      &lt;p&gt;${task.description ?? ''}&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-`;</code></pre>
-        </div>
-      </div>
+      <h4 class="mt-md">Code Block</h4>
+      <pre><code>// Type-safe CSS token system
+type ColorToken = string & { readonly __tag: unique symbol };
+
+// Create type-safe color
+const accent = '#3b82f6' as ColorToken;
+
+// Token composition with explicit transformation
+const createFocusRing = (color: ColorToken): string => 
+  `0 0 0 3px ${withAlpha(color, 0.5)}`;</code></pre>
     </section>
   </main>
 
-  <footer class="bg-light py-lg mt-xl">
-    <div class="container text-center">
-      <p>Mochi CSS - A minimalist CSS framework with semantic styling and immutable composition</p>
-      <p class="text-muted">Zero dependencies. Type-safe. Functionally pure.</p>
-      <p class="text-sm mt">MIT License</p>
+  <!-- Modal Dialog Component -->
+  <dialog id="demo-modal">
+    <div class="dialog-header">
+      <h3>Modal Dialog</h3>
+      <button class="dialog-close" id="close-modal"></button>
     </div>
-  </footer>
+    <div class="dialog-body">
+      <p>This modal uses the native <code>&lt;dialog&gt;</code> element with CSS animations.</p>
+      <p>It leverages modern CSS transitions and focus management for a smooth user experience.</p>
+    </div>
+    <div class="dialog-footer">
+      <button class="btn btn-outline btn-sm" id="cancel-modal">Cancel</button>
+      <button class="btn btn-primary btn-sm">Confirm</button>
+    </div>
+  </dialog>
 
-  <!-- Custom elements for integration demo -->
+  <!-- Theme Toggle Button -->
+  <div class="theme-toggle">
+    <button class="btn btn-primary rounded-full shadow-lg p-md" id="theme-toggle">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- TypeScript Integration -->
   <script type="module">
-    // Define color-swatch web component
-    class ColorSwatch extends HTMLElement {
-      static observedAttributes = ['color', 'name'];
+    // Import the Mochi utilities
+    import { initMochi, createMochiTheme, applyMochiTheme, toggleMochiDarkMode } from './mochi.js';
 
-      constructor() {
-        super();
-        this.attachShadow({ mode: 'open' });
-      }
+    // Initialize with default theme
+    const themeResult = initMochi();
 
-      connectedCallback() {
-        this.render();
-      }
-
-      attributeChangedCallback() {
-        this.render();
-      }
-
-      render() {
-        const color = this.getAttribute('color') || '#3b82f6';
-        const name = this.getAttribute('name') || 'Color';
-        const textColor = this.getLuminance(color) > 0.5 ? '#111827' : '#ffffff';
-
-        this.shadowRoot.innerHTML = `
-          <style>
-            :host {
-              display: block;
-            }
-            
-            .swatch {
-              width: 100px;
-              height: 100px;
-              background-color: ${color};
-              color: ${textColor};
-              border-radius: var(--mochi-radius, 0.375rem);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              font-weight: 600;
-              font-family: system-ui, sans-serif;
-            }
-          </style>
-          <div class="swatch">${name}</div>
-        `;
-      }
-
-      // Pure function for luminance calculation
-      getLuminance(hexColor) {
-        const r = parseInt(hexColor.substr(1, 2), 16) / 255;
-        const g = parseInt(hexColor.substr(3, 2), 16) / 255;
-        const b = parseInt(hexColor.substr(5, 2), 16) / 255;
-
-        const rgb = [r, g, b].map(v =>
-          v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4)
-        );
-
-        return 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2];
-      }
+    if (!themeResult.ok) {
+      console.error('Failed to initialize Mochi:', themeResult.error);
     }
 
-    // Register custom element
-    customElements.define('color-swatch', ColorSwatch);
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle?.addEventListener('click', () => {
+      const result = toggleMochiDarkMode();
+
+      if (result.ok) {
+        // Update icon based on theme
+        if (result.value) {
+          themeToggle.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>`;
+        } else {
+          themeToggle.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>`;
+        }
+      }
+    });
+
+    // Theme switcher buttons
+    document.getElementById('theme-blue')?.addEventListener('click', () => {
+      const blueTheme = createMochiTheme({
+        id: 'mochi-blue',
+        accent: '#3b82f6'
+      });
+
+      if (blueTheme.ok) {
+        applyMochiTheme(blueTheme.value);
+      }
+    });
+
+    document.getElementById('theme-purple')?.addEventListener('click', () => {
+      const purpleTheme = createMochiTheme({
+        id: 'mochi-purple',
+        accent: '#8b5cf6'
+      });
+
+      if (purpleTheme.ok) {
+        applyMochiTheme(purpleTheme.value);
+      }
+    });
+
+    document.getElementById('theme-green')?.addEventListener('click', () => {
+      const greenTheme = createMochiTheme({
+        id: 'mochi-green',
+        accent: '#10b981'
+      });
+
+      if (greenTheme.ok) {
+        applyMochiTheme(greenTheme.value);
+      }
+    });
+
+    document.getElementById('theme-coral')?.addEventListener('click', () => {
+      const coralTheme = createMochiTheme({
+        id: 'mochi-coral',
+        accent: '#f43f5e',
+        radius: '0.5rem'
+      });
+
+      if (coralTheme.ok) {
+        applyMochiTheme(coralTheme.value);
+      }
+    });
+
+    // Modal dialog functionality
+    const modal = document.getElementById('demo-modal');
+    document.getElementById('open-modal')?.addEventListener('click', () => {
+      modal?.showModal();
+    });
+
+    document.getElementById('close-modal')?.addEventListener('click', () => {
+      closeModalWithAnimation();
+    });
+
+    document.getElementById('cancel-modal')?.addEventListener('click', () => {
+      closeModalWithAnimation();
+    });
+
+    // Close with ESC key and clicking backdrop
+    modal?.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        closeModalWithAnimation();
+      }
+    });
+
+    // Helper for modal animation
+    function closeModalWithAnimation() {
+      if (!modal) return;
+
+      modal.dataset.closing = 'true';
+
+      const onAnimationEnd = () => {
+        modal.removeEventListener('animationend', onAnimationEnd);
+        modal.close();
+        delete modal.dataset.closing;
+      };
+
+      modal.addEventListener('animationend', onAnimationEnd);
+    }
+
+    // Active link highlighting
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Update active link based on scroll position
+    function updateActiveLink() {
+      const scrollPosition = window.scrollY + 100; // Offset for better UX
+
+      document.querySelectorAll('section[id]').forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+
+    // Initial call and event binding
+    updateActiveLink();
+    window.addEventListener('scroll', updateActiveLink);
+
+    // Form validation example
+    const form = document.querySelector('form');
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      // Demonstration only - would validate inputs here
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+
+      if (emailInput instanceof HTMLInputElement && passwordInput instanceof HTMLInputElement) {
+        // Example validation logic
+        const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
+        const passwordValid = passwordInput.value.length >= 8;
+
+        // Update validation state
+        emailInput.className = `form-control ${emailValid ? 'is-valid' : 'is-invalid'}`;
+        passwordInput.className = `form-control ${passwordValid ? 'is-valid' : 'is-invalid'}`;
+
+        // Show alert if validation passes
+        if (emailValid && passwordValid) {
+          const alertContainer = document.createElement('div');
+          alertContainer.className = 'alert alert-success mt';
+          alertContainer.innerHTML = `
+            <div class="alert-content">
+              <div class="alert-title">Form Submitted Successfully</div>
+              <p class="m-0">Thank you for your submission!</p>
+            </div>
+          `;
+
+          form.appendChild(alertContainer);
+
+          // Auto-remove alert after delay
+          setTimeout(() => {
+            alertContainer.style.opacity = '0';
+            alertContainer.style.transition = 'opacity 0.5s';
+
+            setTimeout(() => {
+              alertContainer.remove();
+            }, 500);
+          }, 3000);
+        }
+      }
+    });
   </script>
 </body>
 
