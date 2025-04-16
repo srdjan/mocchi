@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="sem-mochi: A semantic-first CSS framework with minimal class usage">
-  <title>sem-mochi | Semantic-First CSS Framework</title>
+  <title>sem-mochi Kitchen Sink | Semantic-First CSS Framework</title>
   <link rel="stylesheet" href="./sem-mochi.css">
 </head>
 
@@ -13,15 +13,18 @@
   <!-- Accessible Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Page Header with Site Title -->
-  <header>
+  <!-- Theme Toggle -->
+  <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+
+  <!-- Page Header -->
+  <header role="banner">
     <div class="content-wrapper">
-      <h1>sem-mochi</h1>
-      <p>A semantic-first CSS framework with minimal class usage</p>
+      <h1>sem-mochi Kitchen Sink</h1>
+      <p>Demonstrating all features of the semantic-first CSS framework</p>
     </div>
   </header>
 
-  <!-- Primary Navigation - Using the enhanced navigation styles -->
+  <!-- Primary Navigation -->
   <nav role="navigation" sticky>
     <div>
       <a href="#" aria-current="page">
@@ -31,12 +34,14 @@
         </svg>
         Home
       </a>
-      <a href="#features">Features</a>
-      <a href="#examples">Examples</a>
-      <a href="#usage">Usage</a>
+      <a href="#typography">Typography</a>
+      <a href="#components">Components</a>
+      <a href="#forms">Forms</a>
+      <a href="#layout">Layout</a>
     </div>
     <div>
-      <a href="#docs">Documentation</a>
+      <a href="#navigation">Navigation</a>
+      <a href="#utilities">Utilities</a>
       <a href="https://github.com/sem-mochi/sem-mochi">
         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
           <path
@@ -50,6 +55,7 @@
 
   <!-- Main Content -->
   <main id="main-content">
+    <!-- Hero Section -->
     <section id="hero">
       <div class="content-wrapper">
         <h2>Semantic HTML, Minimal Classes</h2>
@@ -78,244 +84,671 @@
       </div>
     </section>
 
-    <section id="features">
+    <!-- Typography Section -->
+    <section id="typography">
       <div class="content-wrapper">
-        <h2>Key Features</h2>
-        <p>Leveraging modern CSS features to create an elegant, type-safe framework.</p>
+        <h2>Typography</h2>
+        <p>Fluid typography that scales smoothly with viewport size using mathematical fluid scaling.</p>
 
-        <div class="auto-grid">
-          <article class="card">
-            <header>
-              <h3>Fluid Typography</h3>
-            </header>
-            <div class="content">
-              <p>Typography scales smoothly with viewport size without breakpoints, using a mathematical approach to
-                fluid scaling.</p>
-              <p class="text-xs">Extra Small Text</p>
-              <p class="text-sm">Small Text</p>
-              <p>Base Text</p>
-              <p class="text-lg">Large Text</p>
-              <p class="text-xl">Extra Large Text</p>
-            </div>
-          </article>
+        <div class="card">
+          <header>
+            <h3>Headings</h3>
+          </header>
+          <div class="content">
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+          </div>
+        </div>
 
-          <article class="card">
-            <header>
-              <h3>Semantic-First Design</h3>
-            </header>
-            <div class="content">
-              <p>Styles are applied directly to HTML elements based on their semantic meaning, minimizing the need for
-                utility classes.</p>
-              <p>Leverages modern CSS selectors and cascade layers to avoid specificity conflicts.</p>
-            </div>
-          </article>
+        <div class="card mt-md">
+          <header>
+            <h3>Text Sizes</h3>
+          </header>
+          <div class="content">
+            <p class="text-xs">Extra Small Text (.text-xs)</p>
+            <p class="text-sm">Small Text (.text-sm)</p>
+            <p>Base Text</p>
+            <p class="text-lg">Large Text (.text-lg)</p>
+            <p class="text-xl">Extra Large Text (.text-xl)</p>
+            <p class="text-2xl">2XL Text (.text-2xl)</p>
+            <p class="text-3xl">3XL Text (.text-3xl)</p>
+          </div>
+        </div>
 
-          <article class="card">
-            <header>
-              <h3>Attribute-Based Variants</h3>
-            </header>
-            <div class="content">
-              <p>Component variations use HTML attributes instead of modifier classes:</p>
-              <pre><code>&lt;button primary&gt;Primary&lt;/button&gt;
-&lt;button outline&gt;Outline&lt;/button&gt;</code></pre>
-            </div>
-          </article>
+        <div class="card mt-md">
+          <header>
+            <h3>Text Styles</h3>
+          </header>
+          <div class="content">
+            <p><strong>Bold text</strong> using &lt;strong&gt; or &lt;b&gt;</p>
+            <p><em>Italic text</em> using &lt;em&gt; or &lt;i&gt;</p>
+            <p><u>Underlined text</u> using &lt;u&gt;</p>
+            <p><s>Strikethrough text</s> using &lt;s&gt;</p>
+            <p><mark>Highlighted text</mark> using &lt;mark&gt;</p>
+            <p><small>Small text</small> using &lt;small&gt;</p>
+            <p><code>Inline code</code> using &lt;code&gt;</p>
+            <p><kbd>Keyboard input</kbd> using &lt;kbd&gt;</p>
+          </div>
+        </div>
 
-          <article class="card">
-            <header>
-              <h3>ARIA-Driven States</h3>
-            </header>
-            <div class="content">
-              <p>Interactive states are managed through ARIA attributes rather than state classes:</p>
-              <pre><code>&lt;button aria-expanded="true"&gt;
-  Menu
-&lt;/button&gt;</code></pre>
+        <div class="card mt-md">
+          <header>
+            <h3>Block Elements</h3>
+          </header>
+          <div class="content">
+            <blockquote>
+              <p>This is a blockquote demonstrating how quoted text appears.</p>
+              <cite>— Author Name</cite>
+            </blockquote>
+
+            <pre><code>// This is preformatted text
+function helloWorld() {
+  console.log("Hello, world!");
+}</code></pre>
+
+            <hr>
+
+            <p>Paragraph with a <a href="#">link</a> inside it.</p>
+          </div>
+        </div>
+
+        <div class="card mt-md">
+          <header>
+            <h3>Lists</h3>
+          </header>
+          <div class="content">
+            <div class="two-columns">
+              <div>
+                <h4>Unordered List</h4>
+                <ul>
+                  <li>First item</li>
+                  <li>Second item</li>
+                  <li>Third item with nested list:
+                    <ul>
+                      <li>Nested item 1</li>
+                      <li>Nested item 2</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4>Ordered List</h4>
+                <ol>
+                  <li>First item</li>
+                  <li>Second item</li>
+                  <li>Third item with nested list:
+                    <ol>
+                      <li>Nested item 1</li>
+                      <li>Nested item 2</li>
+                    </ol>
+                  </li>
+                </ol>
+              </div>
             </div>
-          </article>
+
+            <h4 class="mt-md">Description List</h4>
+            <dl>
+              <dt>Term 1</dt>
+              <dd>Description for term 1</dd>
+              <dt>Term 2</dt>
+              <dd>Description for term 2</dd>
+            </dl>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="examples">
+    <!-- Components Section -->
+    <section id="components">
       <div class="content-wrapper">
-        <h2>Component Examples</h2>
-        <p>Explore our semantic components with minimal class usage.</p>
+        <h2>Components</h2>
+        <p>Semantic components with minimal class usage.</p>
 
-        <h3>Navigation Variants</h3>
+        <div class="card">
+          <header>
+            <h3>Cards</h3>
+          </header>
+          <div class="content">
+            <p>Cards are created using semantic HTML elements with minimal classes:</p>
 
-        <h4>Standard Navigation</h4>
-        <nav role="navigation">
-          <div>
-            <a href="#" aria-current="page">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>
+            <div class="auto-grid">
+              <article class="card">
+                <header>
+                  <h4>Basic Card</h4>
+                </header>
+                <div class="content">
+                  <p>Card content goes here. Cards can contain any type of content.</p>
+                </div>
+                <footer>
+                  <button outline>Action</button>
+                </footer>
+              </article>
+
+              <article class="card">
+                <header>
+                  <h4>Card with Image</h4>
+                </header>
+                <img src="https://via.placeholder.com/400x200" alt="Placeholder image">
+                <div class="content">
+                  <p>Cards can include images and other media.</p>
+                </div>
+              </article>
+
+              <article class="card">
+                <div class="content">
+                  <h4>Simplified Card</h4>
+                  <p>Cards don't require all sections. This one has no header or footer.</p>
+                </div>
+              </article>
+            </div>
           </div>
-        </nav>
+        </div>
 
-        <h4>Tabs Navigation</h4>
-        <nav tabs>
-          <div>
-            <a href="#tab1" aria-current="page">Overview</a>
-            <a href="#tab2">Features</a>
-            <a href="#tab3">Installation</a>
-            <a href="#tab4">Usage</a>
+        <div class="card mt-md">
+          <header>
+            <h3>Alerts</h3>
+          </header>
+          <div class="content">
+            <aside data-type="success">
+              <strong>Success:</strong> This is a success message using <code>&lt;aside data-type="success"&gt;</code>.
+            </aside>
+
+            <aside data-type="warning" class="mt">
+              <strong>Warning:</strong> This is a warning message using <code>&lt;aside data-type="warning"&gt;</code>.
+            </aside>
+
+            <aside data-type="error" class="mt">
+              <strong>Error:</strong> This is an error message using <code>&lt;aside data-type="error"&gt;</code>.
+            </aside>
           </div>
-        </nav>
+        </div>
 
-        <h4>Pills Navigation</h4>
-        <nav pills>
-          <div>
-            <a href="#pill1" aria-current="page">All</a>
-            <a href="#pill2">Active</a>
-            <a href="#pill3">Completed</a>
-            <a href="#pill4">Archived</a>
-          </div>
-        </nav>
+        <div class="card mt-md">
+          <header>
+            <h3>Buttons</h3>
+          </header>
+          <div class="content">
+            <div class="auto-grid">
+              <div>
+                <h4>Standard Buttons</h4>
+                <p>
+                  <button>Default</button>
+                  <button primary>Primary</button>
+                  <button outline>Outline</button>
+                </p>
+                <p class="mt-sm">
+                  <button disabled>Disabled</button>
+                </p>
+              </div>
+              <div>
+                <h4>Button Sizes</h4>
+                <p>
+                  <button class="text-sm">Small</button>
+                  <button>Medium</button>
+                  <button class="text-lg">Large</button>
+                </p>
+              </div>
+            </div>
 
-        <h4>Responsive Navigation</h4>
-        <nav collapsible>
-          <div>
-            <a href="#">
-              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <h4 class="mt-md">Button with Icon</h4>
+            <button primary>
+              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
               </svg>
-              Brand
-            </a>
+              Save
+            </button>
           </div>
-
-          <input type="checkbox" id="nav-toggle">
-          <label for="nav-toggle" class="nav-toggle"></label>
-
-          <ul>
-            <li><a href="#" aria-current="page">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-
-        <h3 class="mt-md">Button Variants</h3>
-        <div>
-          <button>Default Button</button>
-          <button primary>Primary Button</button>
-          <button outline>Outline Button</button>
         </div>
 
-        <h3 class="mt-md">Form Elements</h3>
-        <form>
-          <div class="two-columns">
-            <div>
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required>
-            </div>
-            <div>
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
+        <div class="card mt-md">
+          <header>
+            <h3>Interactive Elements</h3>
+          </header>
+          <div class="content">
+            <h4>Details/Summary</h4>
+            <details>
+              <summary>Click to expand</summary>
+              <p>This content is hidden until the user clicks the summary. Uses the native <code>&lt;details&gt;</code>
+                element.</p>
+            </details>
+
+            <h4 class="mt-md">Tooltip</h4>
+            <p>
+              <span data-tooltip="This is a tooltip using data-tooltip attribute">Hover over me</span> to see a tooltip.
+            </p>
+
+            <h4 class="mt-md">Progress</h4>
+            <label for="progress-example">Example progress bar:</label>
+            <progress id="progress-example" value="65" max="100">65%</progress>
           </div>
+        </div>
 
-          <div data-span="full">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4"></textarea>
+        <div class="card mt-md">
+          <header>
+            <h3>Tables</h3>
+          </header>
+          <div class="content">
+            <table>
+              <caption>Example Table</caption>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John Doe</td>
+                  <td>john@example.com</td>
+                  <td>Admin</td>
+                </tr>
+                <tr>
+                  <td>Jane Smith</td>
+                  <td>jane@example.com</td>
+                  <td>Editor</td>
+                </tr>
+                <tr>
+                  <td>Bob Johnson</td>
+                  <td>bob@example.com</td>
+                  <td>Viewer</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-
-          <button type="submit" primary>Submit</button>
-          <button type="reset" outline>Reset</button>
-        </form>
-
-        <h3 class="mt-md">Alert Types</h3>
-        <aside data-type="success">
-          <strong>Success:</strong> Operation completed successfully.
-        </aside>
-
-        <aside data-type="warning">
-          <strong>Warning:</strong> This action cannot be undone.
-        </aside>
-
-        <aside data-type="error">
-          <strong>Error:</strong> Unable to complete the request.
-        </aside>
-
-        <h3 class="mt-md">Interactive Elements</h3>
-
-        <details>
-          <summary>Expandable Section</summary>
-          <p>This content is revealed when the section is expanded. sem-mochi styles the details/summary elements with a
-            consistent design that matches the rest of the framework.</p>
-        </details>
-
-        <p class="mt-md">
-          <span data-tooltip="This uses pure CSS, no JavaScript!">Hover over me</span> to see a tooltip.
-        </p>
+        </div>
       </div>
     </section>
 
-    <section id="usage">
+    <!-- Forms Section -->
+    <section id="forms">
       <div class="content-wrapper">
-        <h2>Using sem-mochi</h2>
-        <p>Get started with our semantic-first approach to CSS.</p>
+        <h2>Forms</h2>
+        <p>Accessible form elements with semantic markup.</p>
 
-        <h3>Installation</h3>
-        <pre><code><!-- Download or link to sem-mochi.css -->
-&lt;link rel="stylesheet" href="https://cdn.example.com/sem-mochi.css"&gt;</code></pre>
+        <div class="card">
+          <header>
+            <h3>Basic Form</h3>
+          </header>
+          <div class="content">
+            <form>
+              <div class="two-columns">
+                <div>
+                  <label for="first-name">First Name</label>
+                  <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div>
+                  <label for="last-name">Last Name</label>
+                  <input type="text" id="last-name" name="last-name" required>
+                </div>
+              </div>
 
-        <h3>Fundamental Principles</h3>
-        <ol>
-          <li><strong>Write semantic HTML first</strong> - Focus on the meaning of your content</li>
-          <li><strong>Use attributes for variants</strong> - Apply component variations with HTML attributes</li>
-          <li><strong>Leverage ARIA for states</strong> - Use standardized ARIA attributes for interactive states</li>
-          <li><strong>Minimize classes</strong> - Only use classes for true composition patterns</li>
-        </ol>
+              <div data-span="full">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
 
-        <h3>Example Patterns</h3>
-        <div class="two-columns">
-          <div>
-            <h4>Card Component</h4>
-            <pre><code>&lt;article class="card"&gt;
-  &lt;header&gt;
-    &lt;h3&gt;Card Title&lt;/h3&gt;
-  &lt;/header&gt;
-  &lt;div class="content"&gt;
-    &lt;p&gt;Card content...&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;footer&gt;
-    &lt;button primary&gt;Action&lt;/button&gt;
-  &lt;/footer&gt;
-&lt;/article&gt;</code></pre>
+              <div data-span="full">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required minlength="8">
+              </div>
+
+              <div data-span="full">
+                <label for="bio">Bio</label>
+                <textarea id="bio" name="bio" rows="4"></textarea>
+              </div>
+
+              <div data-span="full">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                  <option value="">Select a country</option>
+                  <option value="us">United States</option>
+                  <option value="ca">Canada</option>
+                  <option value="uk">United Kingdom</option>
+                </select>
+              </div>
+
+              <fieldset data-span="full">
+                <legend>Preferences</legend>
+                <label>
+                  <input type="checkbox" name="newsletter">
+                  Subscribe to newsletter
+                </label>
+                <label>
+                  <input type="checkbox" name="notifications">
+                  Enable notifications
+                </label>
+              </fieldset>
+
+              <fieldset data-span="full">
+                <legend>Payment Method</legend>
+                <label>
+                  <input type="radio" name="payment" value="credit">
+                  Credit Card
+                </label>
+                <label>
+                  <input type="radio" name="payment" value="paypal">
+                  PayPal
+                </label>
+                <label>
+                  <input type="radio" name="payment" value="bank">
+                  Bank Transfer
+                </label>
+              </fieldset>
+
+              <div class="two-columns">
+                <div>
+                  <button type="submit" primary>Submit</button>
+                </div>
+                <div>
+                  <button type="reset" outline>Reset</button>
+                </div>
+              </div>
+            </form>
           </div>
+        </div>
 
-          <div>
-            <h4>Responsive Nav</h4>
-            <pre><code>&lt;nav collapsible&gt;
-  &lt;div&gt;
-    &lt;a href="/"&gt;Brand&lt;/a&gt;
-  &lt;/div&gt;
-  
-  &lt;input type="checkbox" id="nav-toggle"&gt;
-  &lt;label for="nav-toggle" class="nav-toggle"&gt;&lt;/label&gt;
-  
-  &lt;ul&gt;
-    &lt;li&gt;&lt;a href="/" aria-current="page"&gt;Home&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href="/about"&gt;About&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/nav&gt;</code></pre>
+        <div class="card mt-md">
+          <header>
+            <h3>Form Validation</h3>
+          </header>
+          <div class="content">
+            <form>
+              <div>
+                <label for="username">Username (required)</label>
+                <input type="text" id="username" name="username" required>
+              </div>
+
+              <div class="mt">
+                <label for="age">Age (must be 18+)</label>
+                <input type="number" id="age" name="age" min="18" value="15">
+                <small>Try submitting with invalid age</small>
+              </div>
+
+              <div class="mt">
+                <button type="submit" primary>Validate</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Section -->
+    <section id="navigation">
+      <div class="content-wrapper">
+        <h2>Navigation Patterns</h2>
+        <p>Various navigation styles using semantic elements.</p>
+
+        <div class="card">
+          <header>
+            <h3>Standard Navigation</h3>
+          </header>
+          <div class="content">
+            <nav role="navigation">
+              <div>
+                <a href="#" aria-current="page">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div class="card mt-md">
+          <header>
+            <h3>Tabs Navigation</h3>
+          </header>
+          <div class="content">
+            <nav tabs role="tablist">
+              <div>
+                <a href="#tab1" aria-current="page" role="tab">Overview</a>
+                <a href="#tab2" role="tab">Features</a>
+                <a href="#tab3" role="tab">Installation</a>
+                <a href="#tab4" role="tab">Usage</a>
+              </div>
+            </nav>
+            <div class="mt">
+              <p>Content for the selected tab would appear here.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-md">
+          <header>
+            <h3>Pills Navigation</h3>
+          </header>
+          <div class="content">
+            <nav pills>
+              <div>
+                <a href="#pill1" aria-current="page">All</a>
+                <a href="#pill2">Active</a>
+                <a href="#pill3">Completed</a>
+                <a href="#pill4">Archived</a>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <div class="card mt-md">
+          <header>
+            <h3>Responsive Navigation</h3>
+          </header>
+          <div class="content">
+            <nav collapsible>
+              <div>
+                <a href="#">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  </svg>
+                  Brand
+                </a>
+              </div>
+
+              <input type="checkbox" id="nav-toggle-example">
+              <label for="nav-toggle-example" class="nav-toggle"></label>
+
+              <ul>
+                <li><a href="#" aria-current="page">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+            <p class="mt">This navigation collapses on mobile devices with a hamburger menu.</p>
+          </div>
+        </div>
+
+        <div class="card mt-md">
+          <header>
+            <h3>Breadcrumbs</h3>
+          </header>
+          <div class="content">
+            <nav aria-label="Breadcrumb">
+              <ol>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Category</a></li>
+                <li aria-current="page">Current Page</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layout Section -->
+    <section id="layout">
+      <div class="content-wrapper">
+        <h2>Layout Patterns</h2>
+        <p>Responsive layout systems using modern CSS.</p>
+
+        <div class="card">
+          <header>
+            <h3>Two Columns</h3>
+          </header>
+          <div class="content">
+            <div class="two-columns">
+              <div>
+                <h4>Left Column</h4>
+                <p>This content will stack on mobile and appear side-by-side on larger screens.</p>
+              </div>
+              <div>
+                <h4>Right Column</h4>
+                <p>The columns automatically maintain equal width.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-md">
+          <header>
+            <h3>Three Columns</h3>
+          </header>
+          <div class="content">
+            <div class="three-columns">
+              <div>
+                <h4>Column 1</h4>
+                <p>First column content.</p>
+              </div>
+              <div>
+                <h4>Column 2</h4>
+                <p>Second column content.</p>
+              </div>
+              <div>
+                <h4>Column 3</h4>
+                <p>Third column content.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-md">
+          <header>
+            <h3>Auto Grid</h3>
+          </header>
+          <div class="content">
+            <div class="auto-grid">
+              <div class="card">
+                <div class="content">
+                  <h4>Item 1</h4>
+                  <p>Auto grid creates as many columns as will fit.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="content">
+                  <h4>Item 2</h4>
+                  <p>Each item has a minimum width of 20rem.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="content">
+                  <h4>Item 3</h4>
+                  <p>Items expand to fill available space.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class="content">
+                  <h4>Item 4</h4>
+                  <p>Perfect for card layouts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-md">
+          <header>
+            <h3>Sidebar Layout</h3>
+          </header>
+          <div class="content">
+            <div class="with-sidebar">
+              <main>
+                <h4>Main Content</h4>
+                <p>This is the primary content area that will take up more space on larger screens.</p>
+              </main>
+              <aside>
+                <h4>Sidebar</h4>
+                <p>This sidebar content will stack below on mobile.</p>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Utilities Section -->
+    <section id="utilities">
+      <div class="content-wrapper">
+        <h2>Utility Classes</h2>
+        <p>Helper classes for common styling needs.</p>
+
+        <div class="card">
+          <header>
+            <h3>Spacing Utilities</h3>
+          </header>
+          <div class="content">
+            <div class="auto-grid">
+              <div>
+                <h4>Margin Top</h4>
+                <div class="mt-xs" style="border: 1px dashed var(--sm-border);">.mt-xs</div>
+                <div class="mt-sm" style="border: 1px dashed var(--sm-border);">.mt-sm</div>
+                <div class="mt" style="border: 1px dashed var(--sm-border);">.mt</div>
+                <div class="mt-md" style="border: 1px dashed var(--sm-border);">.mt-md</div>
+                <div class="mt-lg" style="border: 1px dashed var(--sm-border);">.mt-lg</div>
+              </div>
+              <div>
+                <h4>Text Colors</h4>
+                <p class="text-muted">.text-muted</p>
+                <p class="text-accent">.text-accent</p>
+                <p class="text-success">.text-success</p>
+                <p class="text-warning">.text-warning</p>
+                <p class="text-error">.text-error</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-md">
+          <header>
+            <h3>Responsive Utilities</h3>
+          </header>
+          <div class="content">
+            <div class="mobile-only">
+              <p>This text only appears on mobile devices.</p>
+            </div>
+            <div class="desktop-only">
+              <p>This text only appears on desktop devices.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-md">
+          <header>
+            <h3>Accessibility Utilities</h3>
+          </header>
+          <div class="content">
+            <button class="visually-hidden">This button is hidden visually but available to screen readers</button>
+            <p>Use <code>.visually-hidden</code> for content that should be accessible to screen readers but not
+              visible.</p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
+  <footer role="contentinfo">
     <div class="content-wrapper">
       <p>sem-mochi: A semantic-first CSS framework with minimal class usage</p>
       <p class="text-sm">Built with modern CSS features and semantic HTML principles</p>
       <p class="text-sm mt-md">MIT License</p>
     </div>
   </footer>
-
-  <!-- Theme Toggle -->
-  <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
 </body>
 
 </html>
