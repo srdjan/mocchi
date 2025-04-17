@@ -1,17 +1,16 @@
-# sem-mochi
-
+# mocchi
 
 <p align="center">
-  <img src="src/mocchi.jpg" alt="sem-mochi logo" width="200">
+  <img src="src/mocchi.jpg" alt="mocchi logo" width="200">
 </p>
 
 ## **A Semantic-First Modern CSS Framework with Attribute-Based Styling**
 
-sem-mochi is a modern CSS framework designed around the principle of semantic markup, focusing on styling native HTML elements directly and using attributes instead of classes for variations. It leverages advanced CSS features and selectors to create a highly maintainable styling approach that prioritizes the inherent semantic meaning of HTML elements.
+mocchi is a modern CSS framework designed around the principle of semantic markup, focusing on styling native HTML elements directly and using attributes instead of classes for variations. It leverages advanced CSS features and selectors to create a highly maintainable styling approach that prioritizes the inherent semantic meaning of HTML elements.
 
 ## Table of Contents
 
-- [sem-mochi](#sem-mochi)
+- [mocchi](#mocchi)
   - [**A Semantic-First Modern CSS Framework with Attribute-Based Styling**](#a-semantic-first-modern-css-framework-with-attribute-based-styling)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
@@ -50,13 +49,13 @@ sem-mochi is a modern CSS framework designed around the principle of semantic ma
 
 ## Overview
 
-sem-mochi takes a fundamentally different approach to CSS frameworks. Instead of requiring numerous utility classes or component classes, it styles native HTML elements directly and uses attributes for variations. This results in cleaner, more semantic HTML that's easier to maintain and more accessible by default.
+mocchi takes a fundamentally different approach to CSS frameworks. Instead of requiring numerous utility classes or component classes, it styles native HTML elements directly and uses attributes for variations. This results in cleaner, more semantic HTML that's easier to maintain and more accessible by default.
 
 ```html
 <!-- Traditional CSS framework -->
 <button class="btn btn-primary btn-lg">Submit</button>
 
-<!-- sem-mochi approach -->
+<!-- mocchi approach -->
 <button primary>Submit</button>
 ```
 
@@ -82,32 +81,32 @@ sem-mochi takes a fundamentally different approach to CSS frameworks. Instead of
 ### Option 1: CDN (Coming Soon)
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sem-mochi@latest/dist/sem-mochi.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mocchi@latest/dist/mocchi.min.css">
 ```
 
 ### Option 2: NPM (Coming Soon)
 
 ```bash
-npm install sem-mochi
+npm install mocchi
 ```
 
 Then import in your JavaScript:
 
 ```javascript
-import 'sem-mochi/dist/sem-mochi.min.css';
+import 'mocchi/dist/mocchi.min.css';
 ```
 
 ### Option 3: Download
 
-Download the latest release from the [releases page](https://github.com/sem-mochi/sem-mochi/releases) and include it in your project:
+Download the latest release from the [releases page](https://github.com/mocchi/mocchi/releases) and include it in your project:
 
 ```html
-<link rel="stylesheet" href="path/to/sem-mochi.css">
+<link rel="stylesheet" href="path/to/mocchi.css">
 ```
 
 ## Architecture
 
-sem-mochi is structured using CSS cascade layers for explicit specificity control:
+mocchi is structured using CSS cascade layers for explicit specificity control:
 
 ```css
 @layer tokens, theme, base, elements, components, layout, states, utilities, queries;
@@ -157,14 +156,14 @@ src/
 │   ├── _typography-attr.css  /* Attribute-based typography */
 │   ├── _spacing-attr.css     /* Attribute-based spacing */
 │   └── ...                   /* Other utilities */
-└── sem-mochi.css             /* Main entry file */
+└── mocchi.css             /* Main entry file */
 ```
 
 ## Usage Guide
 
 ### Typography
 
-sem-mochi provides a comprehensive typography system with fluid sizing that scales smoothly with viewport size.
+mocchi provides a comprehensive typography system with fluid sizing that scales smoothly with viewport size.
 
 #### Fluid Typography
 
@@ -445,7 +444,7 @@ Navigation components with various styles:
 
 ### Layout
 
-sem-mochi provides a flexible grid system and container components using attributes instead of classes:
+mocchi provides a flexible grid system and container components using attributes instead of classes:
 
 ```html
 <!-- Basic container -->
@@ -498,7 +497,7 @@ sem-mochi provides a flexible grid system and container components using attribu
 
 ### Themes
 
-sem-mochi includes built-in support for light, dark, and high-contrast themes:
+mocchi includes built-in support for light, dark, and high-contrast themes:
 
 ```html
 <!-- Theme toggle -->
@@ -554,7 +553,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### Utilities
 
-sem-mochi includes essential utilities for common needs, using attributes instead of classes:
+mocchi includes essential utilities for common needs, using attributes instead of classes:
 
 ```html
 <!-- Accessibility -->
@@ -580,7 +579,7 @@ sem-mochi includes essential utilities for common needs, using attributes instea
 
 ## Customization
 
-sem-mochi is designed to be easily customizable through CSS custom properties.
+mocchi is designed to be easily customizable through CSS custom properties.
 
 ### Customizing Colors
 
@@ -635,7 +634,7 @@ For more extensive customization, you can create a custom build:
 
 ## Browser Support
 
-sem-mochi uses modern CSS features including:
+mocchi uses modern CSS features including:
 
 - CSS Custom Properties
 - CSS Nesting
@@ -655,7 +654,7 @@ For browsers that don't support certain features, appropriate fallbacks are prov
 
 ## Philosophy
 
-sem-mochi represents a return to the original vision of the web where content structure drives presentation. By leveraging modern CSS capabilities, we can now achieve sophisticated styling while respecting the semantic meaning of HTML elements.
+mocchi represents a return to the original vision of the web where content structure drives presentation. By leveraging modern CSS capabilities, we can now achieve sophisticated styling while respecting the semantic meaning of HTML elements.
 
 This approach creates a more maintainable, accessible, and future-proof development pattern compared to utility-first or heavily class-based CSS frameworks.
 
@@ -685,7 +684,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-Made with ❤️ by the sem-mochi team
+Made with ❤️ by the mocchi team
 
 ## Accessibility
 
@@ -694,16 +693,16 @@ Made with ❤️ by the sem-mochi team
 The theme toggle button (`#theme-toggle`) is a fixed-position control used to switch color themes such as light, dark, and high contrast.
 To make this button accessible:
 
-- Add an `aria-label` attribute describing its function, e.g.: 
+- Add an `aria-label` attribute describing its function, e.g.:
 `html
 <button id="theme-toggle" aria-label="Toggle color theme"></button>
-` 
+`
 - It is keyboard focusable and styled with a visible outline on keyboard focus (`:focus-visible`).
 - Since the button uses no visible text content (icons only), the `aria-label` is essential for screen reader users.
 - Ensure any JavaScript toggling updates ARIA states if applicable.
 
 `css
-#theme-toggle:focus-visible {
+# theme-toggle:focus-visible {
   outline: 3px solid var(--sm-color-primary-500);
   outline-offset: 2px;
 }
