@@ -1,31 +1,46 @@
 # sem-mochi
 
-**A Semantic-First Modern CSS Framework with Minimal Class Usage**
+**A Semantic-First Modern CSS Framework with Attribute-Based Styling**
 
-![sem-mochi logo](https://via.placeholder.com/1200x300/3b82f6/ffffff?text=sem-mochi)
-
-sem-mochi is a modern CSS framework designed around the principle of semantic markup, focusing on styling native HTML elements directly while minimizing class usage. It leverages advanced CSS features and selectors to create a highly maintainable styling approach that prioritizes the inherent semantic meaning of HTML elements.
+sem-mochi is a modern CSS framework designed around the principle of semantic markup, focusing on styling native HTML elements directly and using attributes instead of classes for variations. It leverages advanced CSS features and selectors to create a highly maintainable styling approach that prioritizes the inherent semantic meaning of HTML elements.
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Installation](#installation)
-- [Architecture](#architecture)
-- [Usage Guide](#usage-guide)
-  - [Typography](#typography)
-  - [Buttons](#buttons)
-  - [Forms](#forms)
-  - [Cards](#cards)
-  - [Navigation](#navigation)
-  - [Layout](#layout)
-  - [Themes](#themes)
-  - [Utilities](#utilities)
-- [Customization](#customization)
-- [Browser Support](#browser-support)
-- [Philosophy](#philosophy)
-- [Contributing](#contributing)
-- [License](#license)
+- [sem-mochi](#sem-mochi)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Key Features](#key-features)
+  - [Installation](#installation)
+    - [Option 1: CDN (Coming Soon)](#option-1-cdn-coming-soon)
+    - [Option 2: NPM (Coming Soon)](#option-2-npm-coming-soon)
+    - [Option 3: Download](#option-3-download)
+  - [Architecture](#architecture)
+    - [File Structure](#file-structure)
+  - [Usage Guide](#usage-guide)
+    - [Typography](#typography)
+      - [Fluid Typography](#fluid-typography)
+      - [Mathematical Fluid Scaling](#mathematical-fluid-scaling)
+      - [Text Variations](#text-variations)
+      - [Basic Typography](#basic-typography)
+    - [Buttons](#buttons)
+    - [Forms](#forms)
+    - [Cards](#cards)
+    - [Navigation](#navigation)
+    - [Layout](#layout)
+    - [Themes](#themes)
+    - [Utilities](#utilities)
+  - [Customization](#customization)
+    - [Customizing Colors](#customizing-colors)
+    - [Customizing Typography](#customizing-typography)
+    - [Customizing Components](#customizing-components)
+    - [Creating a Custom Build](#creating-a-custom-build)
+  - [Browser Support](#browser-support)
+  - [Philosophy](#philosophy)
+    - [Core Principles](#core-principles)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Accessibility](#accessibility)
+    - [Theme Toggle Button](#theme-toggle-button)
 
 ## Overview
 
@@ -41,18 +56,20 @@ sem-mochi takes a fundamentally different approach to CSS frameworks. Instead of
 
 ## Key Features
 
+- **Attribute-Based Styling**: Uses HTML attributes instead of classes for all component variations and utilities
 - **Semantic-First Approach**: Style native HTML elements directly with minimal class usage
-- **Attribute-Based Variations**: Uses HTML attributes instead of classes for component variations
+- **Fluid Typography**: Text that scales smoothly with viewport size using mathematical fluid scaling
 - **Modular Architecture**: Organized into logical modules for better maintainability
 - **HSL-Based Color System**: Programmatically generated color palette for consistent theming
 - **Component-Specific Custom Properties**: Better encapsulation and customization
 - **Enhanced Accessibility**: Robust keyboard navigation and focus management
-- **Comprehensive Animation System**: Consistent timing functions and animations
-- **Improved Layout System**: Flexible grid and container components
+- **Comprehensive Animation System**: Consistent timing functions and animations with attribute controls
+- **Improved Layout System**: Flexible grid and container components using attributes
 - **Container Query Support**: For component-level responsive design
 - **Dark Mode & High Contrast Themes**: Built-in accessibility features
 - **Modern CSS Features**: Leverages CSS nesting, logical properties, and advanced selectors
 - **Performance Optimized**: Uses CSS containment and content-visibility
+- **Backward Compatibility**: Legacy class support for gradual migration
 
 ## Installation
 
@@ -98,41 +115,107 @@ This layered approach enables predictable styling without specificity conflicts,
 
 ### File Structure
 
-```
+```text
 src/
 ├── tokens/
-│   ├── _colors.css       /* Color system and semantic tokens */
-│   ├── _typography.css   /* Font families, sizes, and scales */
-│   ├── _spacing.css      /* Spacing system and layout tokens */
-│   └── _effects.css      /* Shadows, animations, and effects */
+│   ├── _colors.css           /* Color system and semantic tokens */
+│   ├── _typography.css       /* Font families, sizes, and scales */
+│   ├── _fluid-typography.css /* Fluid typography system */
+│   ├── _spacing.css          /* Spacing system and layout tokens */
+│   └── _effects.css          /* Shadows, animations, and effects */
 ├── themes/
-│   ├── _light.css        /* Light theme variables */
-│   ├── _dark.css         /* Dark theme variables */
-│   └── _high-contrast.css /* High contrast theme for accessibility */
+│   ├── _light.css            /* Light theme variables */
+│   ├── _dark.css             /* Dark theme variables */
+│   └── _high-contrast.css    /* High contrast theme for accessibility */
 ├── base/
-│   ├── _reset.css        /* Modern CSS reset */
-│   └── _elements.css     /* Base element styling */
+│   ├── _reset.css            /* Modern CSS reset */
+│   └── _elements.css         /* Base element styling */
 ├── components/
-│   ├── _buttons.css      /* Button components and variations */
-│   ├── _cards.css        /* Card components and variations */
-│   ├── _navigation.css   /* Navigation components */
-│   └── ...               /* Other components */
+│   ├── _buttons.css          /* Button components and variations */
+│   ├── _cards.css            /* Card components and variations */
+│   ├── _navigation.css       /* Navigation components */
+│   ├── _components-attr.css  /* Attribute-based component selectors */
+│   └── ...                   /* Other components */
 ├── layout/
-│   ├── _container.css    /* Container components */
-│   ├── _grid.css         /* Grid system */
-│   └── ...               /* Other layout components */
+│   ├── _container.css        /* Container components */
+│   ├── _container-attr.css   /* Attribute-based container selectors */
+│   ├── _grid.css             /* Grid system */
+│   ├── _grid-attr.css        /* Attribute-based grid selectors */
+│   ├── _utilities-attr.css   /* Attribute-based layout utilities */
+│   └── ...                   /* Other layout components */
 ├── utilities/
-│   ├── _accessibility.css /* Accessibility utilities */
-│   ├── _animations.css    /* Animation utilities */
-│   └── ...                /* Other utilities */
-└── sem-mochi.css         /* Main entry file */
+│   ├── _accessibility.css    /* Accessibility utilities */
+│   ├── _accessibility-attr.css /* Attribute-based accessibility */
+│   ├── _animations.css       /* Animation utilities */
+│   ├── _animations-attr.css  /* Attribute-based animations */
+│   ├── _typography-attr.css  /* Attribute-based typography */
+│   ├── _spacing-attr.css     /* Attribute-based spacing */
+│   └── ...                   /* Other utilities */
+└── sem-mochi.css             /* Main entry file */
 ```
 
 ## Usage Guide
 
 ### Typography
 
-sem-mochi provides a comprehensive typography system with fluid sizing and proper vertical rhythm.
+sem-mochi provides a comprehensive typography system with fluid sizing that scales smoothly with viewport size.
+
+#### Fluid Typography
+
+Text automatically scales between minimum and maximum sizes based on viewport width:
+
+```html
+<!-- Fluid headings that scale with viewport width -->
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+
+<!-- Fluid text sizes using attributes -->
+<p fluid-text="xs">Extra Small Text</p>
+<p fluid-text="sm">Small Text</p>
+<p fluid-text="base">Base Text</p>
+<p fluid-text="lg">Large Text</p>
+<p fluid-text="xl">Extra Large Text</p>
+<p fluid-text="2xl">2XL Text</p>
+<p fluid-text="3xl">3XL Text</p>
+```
+
+#### Mathematical Fluid Scaling
+
+More precise control over fluid scaling between specific size ranges:
+
+```html
+<p fluid-calc="sm-md">This text scales from Small to Medium</p>
+<p fluid-calc="md-lg">This text scales from Medium to Large</p>
+<p fluid-calc="lg-xl">This text scales from Large to Extra Large</p>
+<p fluid-calc="xl-2xl">This text scales from XL to 2XL</p>
+```
+
+#### Text Variations
+
+All text variations use attributes instead of classes:
+
+```html
+<!-- Text size variations -->
+<p text-size="xs">Extra small text</p>
+<p text-size="sm">Small text</p>
+<p text-size="lg">Large text</p>
+
+<!-- Text color variations -->
+<p text-color="muted">Muted text</p>
+<p text-color="accent">Accent text</p>
+<p text-color="success">Success text</p>
+
+<!-- Text alignment -->
+<p text-align="center">Centered text</p>
+<p text-align="right">Right-aligned text</p>
+
+<!-- Text wrapping -->
+<p text-wrap="balance">Balanced text wrapping</p>
+<p text-wrap="pretty">Pretty text wrapping</p>
+```
+
+#### Basic Typography
 
 ```html
 <h1>Main Heading</h1>
@@ -143,15 +226,6 @@ sem-mochi provides a comprehensive typography system with fluid sizing and prope
   <p>This is a blockquote with a citation.</p>
   <cite>— Author Name</cite>
 </blockquote>
-```
-
-#### Text Variations
-
-```html
-<p class="text-sm">Small text for less emphasis</p>
-<p class="text-lg">Larger text for more emphasis</p>
-<p class="text-center">Centered text</p>
-<p class="text-muted">Muted text with reduced emphasis</p>
 ```
 
 ### Buttons
@@ -253,57 +327,62 @@ Form elements are styled for consistency and accessibility:
 
 ### Cards
 
-Cards use a simple structure with optional attributes for variations:
+Cards use a component attribute instead of class, with optional attributes for variations:
 
 ```html
 <!-- Basic card -->
-<div class="card">
-  <div class="card-header">
+<div component="card">
+  <header>
     <h3>Card Title</h3>
-  </div>
-  <div class="card-body">
+  </header>
+  <div component="content">
     <p>Card content goes here.</p>
   </div>
-  <div class="card-footer">
+  <footer>
     <button>Action</button>
-  </div>
+  </footer>
 </div>
 
 <!-- Card with shadow -->
-<div class="card" shadow>
+<div component="card" shadow="md">
   <!-- Card content -->
 </div>
 
 <!-- Card with hover effect -->
-<div class="card" hover>
+<div component="card" hover>
   <!-- Card content -->
 </div>
 
 <!-- Card with color variation -->
-<div class="card" primary>
+<div component="card" primary>
   <!-- Card content -->
 </div>
 
 <!-- Card sizes -->
-<div class="card" size="sm">
+<div component="card" size="sm">
   <!-- Card content -->
 </div>
 
-<div class="card" size="lg">
+<div component="card" size="lg">
+  <!-- Card content -->
+</div>
+
+<!-- Card with margin -->
+<div component="card" margin-top="md">
   <!-- Card content -->
 </div>
 
 <!-- Horizontal card -->
-<div class="card" horizontal>
-  <img src="image.jpg" class="card-image" start>
-  <div class="card-body">
+<div component="card" horizontal>
+  <img src="image.jpg" start>
+  <div component="content">
     <h3>Horizontal Card</h3>
     <p>Content for horizontal card layout.</p>
   </div>
 </div>
 
 <!-- Interactive card -->
-<div class="card" interactive>
+<div component="card" interactive>
   <!-- Card content -->
 </div>
 ```
@@ -346,9 +425,9 @@ Navigation components with various styles:
 <!-- Collapsible navigation (for mobile) -->
 <nav role="navigation" collapsible>
   <div>
-    <a href="/" class="brand">Site Name</a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
-      <span class="sr-only">Toggle navigation</span>
+    <a href="/" component="brand">Site Name</a>
+    <button component="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+      <span sr-only>Toggle navigation</span>
       <svg><!-- Menu icon --></svg>
     </button>
   </div>
@@ -577,11 +656,12 @@ This approach creates a more maintainable, accessible, and future-proof developm
 ### Core Principles
 
 1. **Semantic HTML First**: Write meaningful HTML that describes the content, not the presentation
-2. **Attributes Over Classes**: Use HTML attributes instead of classes for variations and utilities
-3. **Minimal Classes**: Use classes only when absolutely necessary for complex composition patterns
-4. **ARIA for States**: Leverage ARIA attributes for interactive states
-5. **Progressive Enhancement**: Provide fallbacks for older browsers while leveraging modern features
-6. **Backward Compatibility**: Maintain legacy class support for backward compatibility
+2. **Attributes Over Classes**: Use HTML attributes instead of classes for all variations and utilities
+3. **Component Attributes**: Use `component="name"` for component identification instead of classes
+4. **Fluid Typography**: Text should scale smoothly with viewport size for better readability
+5. **ARIA for States**: Leverage ARIA attributes for interactive states
+6. **Progressive Enhancement**: Provide fallbacks for older browsers while leveraging modern features
+7. **Backward Compatibility**: Maintain legacy class support for gradual migration
 
 ## Contributing
 
@@ -600,3 +680,29 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 Made with ❤️ by the sem-mochi team
+
+## Accessibility
+
+### Theme Toggle Button
+
+The theme toggle button (`#theme-toggle`) is a fixed-position control used to switch color themes such as light, dark, and high contrast.
+To make this button accessible:
+
+- Add an `aria-label` attribute describing its function, e.g.: 
+`html
+<button id="theme-toggle" aria-label="Toggle color theme"></button>
+` 
+- It is keyboard focusable and styled with a visible outline on keyboard focus (`:focus-visible`).
+- Since the button uses no visible text content (icons only), the `aria-label` is essential for screen reader users.
+- Ensure any JavaScript toggling updates ARIA states if applicable.
+
+`css
+#theme-toggle:focus-visible {
+  outline: 3px solid var(--sm-color-primary-500);
+  outline-offset: 2px;
+}
+`
+
+Following these steps ensures the theme toggle is operable and understandable by all users, meeting accessibility best practices.
+
+---
