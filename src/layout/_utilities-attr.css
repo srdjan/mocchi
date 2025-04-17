@@ -1,0 +1,134 @@
+/* ---- Layout Utilities with Attribute Selectors ---- */
+@layer layout {
+  /* Two Columns Layout */
+  [layout="two-columns"] {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sm-space);
+  }
+  
+  @media (max-width: 768px) {
+    [layout="two-columns"] {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Three Columns Layout */
+  [layout="three-columns"] {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sm-space);
+  }
+  
+  @media (max-width: 992px) {
+    [layout="three-columns"] {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 576px) {
+    [layout="three-columns"] {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Auto Grid Layout */
+  [layout="auto-grid"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--sm-space);
+  }
+  
+  /* Sidebar Layout */
+  [layout="with-sidebar"] {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: var(--sm-space);
+  }
+  
+  @media (max-width: 768px) {
+    [layout="with-sidebar"] {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Responsive Visibility */
+  [visible="mobile-only"] {
+    display: none;
+  }
+  
+  [visible="desktop-only"] {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    [visible="mobile-only"] {
+      display: block;
+    }
+    
+    [visible="desktop-only"] {
+      display: none;
+    }
+  }
+  
+  /* Legacy class support for backward compatibility */
+  .two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sm-space);
+  }
+  
+  .three-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sm-space);
+  }
+  
+  .auto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--sm-space);
+  }
+  
+  .with-sidebar {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: var(--sm-space);
+  }
+  
+  .mobile-only {
+    display: none;
+  }
+  
+  .desktop-only {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .two-columns {
+      grid-template-columns: 1fr;
+    }
+    
+    .three-columns {
+      grid-template-columns: 1fr;
+    }
+    
+    .with-sidebar {
+      grid-template-columns: 1fr;
+    }
+    
+    .mobile-only {
+      display: block;
+    }
+    
+    .desktop-only {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 992px) and (min-width: 769px) {
+    .three-columns {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

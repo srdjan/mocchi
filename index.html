@@ -24,7 +24,6 @@
     .github-link:hover {
       background-color: color-mix(in srgb, var(--sm-accent) 20%, transparent);
     }
-
   </style>
   <meta name="theme-color" content="#3b82f6">
   <link rel="icon"
@@ -33,14 +32,14 @@
 
 <body>
   <!-- Accessible Skip Link -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" skip-link>Skip to main content</a>
 
   <!-- Theme Toggle -->
   <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
 
   <!-- Page Header -->
   <header role="banner">
-    <div class="container" max-width="lg">
+    <div container max-width="lg">
       <h1>sem-mochi Kitchen Sink</h1>
       <p>Demonstrating all features of the semantic-first CSS framework</p>
     </div>
@@ -48,9 +47,9 @@
 
   <!-- Primary Navigation - Improved -->
   <nav role="navigation" sticky compact>
-    <div class="container" max-width="lg" padding="sm">
+    <div container max-width="lg" padding="sm">
       <div>
-        <a href="#" aria-current="page" class="brand">
+        <a href="#" aria-current="page" component="brand">
           <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
             <polyline points="9 22 9 12 15 12 15 22"></polyline>
@@ -65,7 +64,7 @@
       <div>
         <a href="#navigation">Navigation</a>
         <a href="#utilities">Utilities</a>
-        <a href="https://github.com/sem-mochi/sem-mochi" class="github-link">
+        <a href="https://github.com/sem-mochi/sem-mochi" component="github-link">
           <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
             <path
               d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
@@ -81,7 +80,7 @@
   <main id="main-content">
     <!-- Hero Section -->
     <section id="hero">
-      <div class="container" max-width="lg">
+      <div container max-width="lg">
         <h2>Semantic HTML, Minimal Classes</h2>
         <p>sem-mochi leverages modern CSS capabilities and semantic HTML to minimize class usage while maintaining
           sophisticated styling capabilities.</p>
@@ -91,7 +90,7 @@
           enhanced SEO.
         </aside>
 
-        <div class="two-columns">
+        <div layout="two-columns">
           <div>
             <h3>Traditional CSS Framework</h3>
             <pre><code>&lt;button class="btn btn-primary btn-lg"&gt;
@@ -110,15 +109,15 @@
 
     <!-- Typography Section -->
     <section id="typography">
-      <div class="container" max-width="lg">
+      <div container max-width="lg">
         <h2>Typography</h2>
         <p>Fluid typography that scales smoothly with viewport size using mathematical fluid scaling.</p>
 
-        <div class="card">
+        <div component="card">
           <header>
             <h3>Headings</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <h1>Heading 1</h1>
             <h2>Heading 2</h2>
             <h3>Heading 3</h3>
@@ -128,26 +127,26 @@
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Text Sizes</h3>
           </header>
-          <div class="content">
-            <p class="text-xs">Extra Small Text (.text-xs)</p>
-            <p class="text-sm">Small Text (.text-sm)</p>
-            <p>Base Text</p>
-            <p class="text-lg">Large Text (.text-lg)</p>
-            <p class="text-xl">Extra Large Text (.text-xl)</p>
-            <p class="text-2xl">2XL Text (.text-2xl)</p>
-            <p class="text-3xl">3XL Text (.text-3xl)</p>
+          <div component="content">
+            <p text-size="xs">Extra Small Text ([text-size="xs"])</p>
+            <p text-size="sm">Small Text ([text-size="sm"])</p>
+            <p text-size="base">Base Text ([text-size="base"])</p>
+            <p text-size="lg">Large Text ([text-size="lg"])</p>
+            <p text-size="xl">Extra Large Text ([text-size="xl"])</p>
+            <p text-size="2xl">2XL Text ([text-size="2xl"])</p>
+            <p text-size="3xl">3XL Text ([text-size="3xl"])</p>
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Text Styles</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <p><strong>Bold text</strong> using &lt;strong&gt; or &lt;b&gt;</p>
             <p><em>Italic text</em> using &lt;em&gt; or &lt;i&gt;</p>
             <p><u>Underlined text</u> using &lt;u&gt;</p>
@@ -159,11 +158,11 @@
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Block Elements</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <blockquote>
               <p>This is a blockquote demonstrating how quoted text appears.</p>
               <cite>— Author Name</cite>
@@ -180,12 +179,12 @@ function helloWorld() {
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Lists</h3>
           </header>
-          <div class="content">
-            <div class="two-columns">
+          <div component="content">
+            <div layout="two-columns">
               <div>
                 <h4>Unordered List</h4>
                 <ul>
@@ -228,23 +227,23 @@ function helloWorld() {
 
     <!-- Components Section -->
     <section id="components">
-      <div class="container" max-width="lg">
+      <div container max-width="lg">
         <h2>Components</h2>
         <p>Semantic components with minimal class usage.</p>
 
-        <div class="card">
+        <div component="card">
           <header>
             <h3>Cards</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <p>Cards are created using semantic HTML elements with minimal classes:</p>
 
-            <div class="auto-grid">
-              <article class="card">
+            <div layout="auto-grid">
+              <article component="card">
                 <header>
                   <h4>Basic Card</h4>
                 </header>
-                <div class="content">
+                <div component="content">
                   <p>Card content goes here. Cards can contain any type of content.</p>
                 </div>
                 <footer>
@@ -252,18 +251,18 @@ function helloWorld() {
                 </footer>
               </article>
 
-              <article class="card">
+              <article component="card">
                 <header>
                   <h4>Card with Image</h4>
                 </header>
                 <img src="https://via.placeholder.com/400x200" alt="Placeholder image">
-                <div class="content">
+                <div component="content">
                   <p>Cards can include images and other media.</p>
                 </div>
               </article>
 
-              <article class="card">
-                <div class="content">
+              <article component="card">
+                <div component="content">
                   <h4>Simplified Card</h4>
                   <p>Cards don't require all sections. This one has no header or footer.</p>
                 </div>
@@ -272,31 +271,31 @@ function helloWorld() {
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Alerts</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <aside data-type="success">
               <strong>Success:</strong> This is a success message using <code>&lt;aside data-type="success"&gt;</code>.
             </aside>
 
-            <aside data-type="warning" class="mt">
+            <aside data-type="warning" margin-top>
               <strong>Warning:</strong> This is a warning message using <code>&lt;aside data-type="warning"&gt;</code>.
             </aside>
 
-            <aside data-type="error" class="mt">
+            <aside data-type="error" margin-top>
               <strong>Error:</strong> This is an error message using <code>&lt;aside data-type="error"&gt;</code>.
             </aside>
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Buttons</h3>
           </header>
-          <div class="content">
-            <div class="auto-grid">
+          <div component="content">
+            <div layout="auto-grid">
               <div>
                 <h4>Standard Buttons</h4>
                 <p>
@@ -304,21 +303,21 @@ function helloWorld() {
                   <button primary>Primary</button>
                   <button outline>Outline</button>
                 </p>
-                <p class="mt-sm">
+                <p margin-top="sm">
                   <button disabled>Disabled</button>
                 </p>
               </div>
               <div>
                 <h4>Button Sizes</h4>
                 <p>
-                  <button class="text-sm">Small</button>
+                  <button text-size="sm">Small</button>
                   <button>Medium</button>
-                  <button class="text-lg">Large</button>
+                  <button text-size="lg">Large</button>
                 </p>
               </div>
             </div>
 
-            <h4 class="mt-md">Button with Icon</h4>
+            <h4 margin-top="md">Button with Icon</h4>
             <button primary>
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
                 <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
@@ -328,11 +327,11 @@ function helloWorld() {
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Interactive Elements</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <h4>Details/Summary</h4>
             <details>
               <summary>Click to expand</summary>
@@ -340,22 +339,22 @@ function helloWorld() {
                 element.</p>
             </details>
 
-            <h4 class="mt-md">Tooltip</h4>
+            <h4 margin-top="md">Tooltip</h4>
             <p>
               <span data-tooltip="This is a tooltip using data-tooltip attribute">Hover over me</span> to see a tooltip.
             </p>
 
-            <h4 class="mt-md">Progress</h4>
+            <h4 margin-top="md">Progress</h4>
             <label for="progress-example">Example progress bar:</label>
             <progress id="progress-example" value="65" max="100">65%</progress>
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Tables</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <table>
               <caption>Example Table</caption>
               <thead>
@@ -390,17 +389,17 @@ function helloWorld() {
 
     <!-- Forms Section -->
     <section id="forms">
-      <div class="container" max-width="lg">
+      <div container max-width="lg">
         <h2>Forms</h2>
         <p>Accessible form elements with semantic markup.</p>
 
-        <div class="card">
+        <div component="card">
           <header>
             <h3>Basic Form</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <form>
-              <div class="two-columns">
+              <div layout="two-columns">
                 <div>
                   <label for="first-name">First Name</label>
                   <input type="text" id="first-name" name="first-name" required>
@@ -464,7 +463,7 @@ function helloWorld() {
                 </label>
               </fieldset>
 
-              <div class="two-columns">
+              <div layout="two-columns">
                 <div>
                   <button type="submit" primary>Submit</button>
                 </div>
@@ -476,24 +475,24 @@ function helloWorld() {
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Form Validation</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <form>
               <div>
                 <label for="username">Username (required)</label>
                 <input type="text" id="username" name="username" required>
               </div>
 
-              <div class="mt">
+              <div margin-top>
                 <label for="age">Age (must be 18+)</label>
                 <input type="number" id="age" name="age" min="18" value="15">
                 <small>Try submitting with invalid age</small>
               </div>
 
-              <div class="mt">
+              <div margin-top>
                 <button type="submit" primary>Validate</button>
               </div>
             </form>
@@ -504,15 +503,15 @@ function helloWorld() {
 
     <!-- Navigation Section -->
     <section id="navigation">
-      <div class="container" max-width="lg">
+      <div container max-width="lg">
         <h2>Navigation Patterns</h2>
         <p>Various navigation styles using semantic elements.</p>
 
-        <div class="card">
+        <div component="card">
           <header>
             <h3>Standard Navigation</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <nav role="navigation">
               <div>
                 <a href="#" aria-current="page">Home</a>
@@ -524,11 +523,11 @@ function helloWorld() {
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Tabs Navigation</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <nav tabs role="tablist">
               <div>
                 <a href="#tab1" aria-current="page" role="tab">Overview</a>
@@ -543,11 +542,11 @@ function helloWorld() {
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Pills Navigation</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <nav pills>
               <div>
                 <a href="#pill1" aria-current="page">All</a>
@@ -559,11 +558,11 @@ function helloWorld() {
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Responsive Navigation</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <nav collapsible>
               <div>
                 <a href="#">
@@ -575,7 +574,7 @@ function helloWorld() {
               </div>
 
               <input type="checkbox" id="nav-toggle-example">
-              <label for="nav-toggle-example" class="nav-toggle"></label>
+              <label for="nav-toggle-example" component="nav-toggle"></label>
 
               <ul>
                 <li><a href="#" aria-current="page">Home</a></li>
@@ -584,15 +583,15 @@ function helloWorld() {
                 <li><a href="#">Contact</a></li>
               </ul>
             </nav>
-            <p class="mt">This navigation collapses on mobile devices with a hamburger menu.</p>
+            <p margin-top>This navigation collapses on mobile devices with a hamburger menu.</p>
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Breadcrumbs</h3>
           </header>
-          <div class="content">
+          <div component="content">
             <nav aria-label="Breadcrumb">
               <ol>
                 <li><a href="#">Home</a></li>
@@ -608,16 +607,16 @@ function helloWorld() {
 
     <!-- Layout Section -->
     <section id="layout">
-      <div class="container" max-width="lg">
+      <div container max-width="lg">
         <h2>Layout Patterns</h2>
         <p>Responsive layout systems using modern CSS.</p>
 
-        <div class="card">
+        <div component="card">
           <header>
             <h3>Two Columns</h3>
           </header>
-          <div class="content">
-            <div class="two-columns">
+          <div component="content">
+            <div layout="two-columns">
               <div>
                 <h4>Left Column</h4>
                 <p>This content will stack on mobile and appear side-by-side on larger screens.</p>
@@ -630,12 +629,12 @@ function helloWorld() {
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Three Columns</h3>
           </header>
-          <div class="content">
-            <div class="three-columns">
+          <div component="content">
+            <div layout="three-columns">
               <div>
                 <h4>Column 1</h4>
                 <p>First column content.</p>
@@ -652,32 +651,32 @@ function helloWorld() {
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Auto Grid</h3>
           </header>
-          <div class="content">
-            <div class="auto-grid">
-              <div class="card">
-                <div class="content">
+          <div component="content">
+            <div layout="auto-grid">
+              <div component="card">
+                <div component="content">
                   <h4>Item 1</h4>
                   <p>Auto grid creates as many columns as will fit.</p>
                 </div>
               </div>
-              <div class="card">
-                <div class="content">
+              <div component="card">
+                <div component="content">
                   <h4>Item 2</h4>
                   <p>Each item has a minimum width of 20rem.</p>
                 </div>
               </div>
-              <div class="card">
-                <div class="content">
+              <div component="card">
+                <div component="content">
                   <h4>Item 3</h4>
                   <p>Items expand to fill available space.</p>
                 </div>
               </div>
-              <div class="card">
-                <div class="content">
+              <div component="card">
+                <div component="content">
                   <h4>Item 4</h4>
                   <p>Perfect for card layouts.</p>
                 </div>
@@ -686,12 +685,12 @@ function helloWorld() {
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Sidebar Layout</h3>
           </header>
-          <div class="content">
-            <div class="with-sidebar">
+          <div component="content">
+            <div layout="with-sidebar">
               <main>
                 <h4>Main Content</h4>
                 <p>This is the primary content area that will take up more space on larger screens.</p>
@@ -708,57 +707,58 @@ function helloWorld() {
 
     <!-- Utilities Section -->
     <section id="utilities">
-      <div class="container" max-width="lg">
+      <div container max-width="lg">
         <h2>Utility Classes</h2>
         <p>Helper classes for common styling needs.</p>
 
-        <div class="card">
+        <div component="card">
           <header>
             <h3>Spacing Utilities</h3>
           </header>
-          <div class="content">
-            <div class="auto-grid">
+          <div component="content">
+            <div layout="auto-grid">
               <div>
                 <h4>Margin Top</h4>
-                <div class="mt-xs" style="border: 1px dashed var(--sm-border);">.mt-xs</div>
-                <div class="mt-sm" style="border: 1px dashed var(--sm-border);">.mt-sm</div>
-                <div class="mt" style="border: 1px dashed var(--sm-border);">.mt</div>
-                <div class="mt-md" style="border: 1px dashed var(--sm-border);">.mt-md</div>
-                <div class="mt-lg" style="border: 1px dashed var(--sm-border);">.mt-lg</div>
+                <div margin-top="xs" style="border: 1px dashed var(--sm-border);">[margin-top="xs"]</div>
+                <div margin-top="sm" style="border: 1px dashed var(--sm-border);">[margin-top="sm"]</div>
+                <div margin-top style="border: 1px dashed var(--sm-border);">[margin-top]</div>
+                <div margin-top="md" style="border: 1px dashed var(--sm-border);">[margin-top="md"]</div>
+                <div margin-top="lg" style="border: 1px dashed var(--sm-border);">[margin-top="lg"]</div>
               </div>
               <div>
                 <h4>Text Colors</h4>
-                <p class="text-muted">.text-muted</p>
-                <p class="text-accent">.text-accent</p>
-                <p class="text-success">.text-success</p>
-                <p class="text-warning">.text-warning</p>
-                <p class="text-error">.text-error</p>
+                <p text-color="muted">[text-color="muted"]</p>
+                <p text-color="accent">[text-color="accent"]</p>
+                <p text-color="success">[text-color="success"]</p>
+                <p text-color="warning">[text-color="warning"]</p>
+                <p text-color="error">[text-color="error"]</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Responsive Utilities</h3>
           </header>
-          <div class="content">
-            <div class="mobile-only">
+          <div component="content">
+            <div visible="mobile-only">
               <p>This text only appears on mobile devices.</p>
             </div>
-            <div class="desktop-only">
+            <div visible="desktop-only">
               <p>This text only appears on desktop devices.</p>
             </div>
           </div>
         </div>
 
-        <div class="card mt-md">
+        <div component="card" margin-top="md">
           <header>
             <h3>Accessibility Utilities</h3>
           </header>
-          <div class="content">
-            <button class="visually-hidden">This button is hidden visually but available to screen readers</button>
-            <p>Use <code>.visually-hidden</code> for content that should be accessible to screen readers but not
+          <div component="content">
+            <button visually-hidden>This button is hidden visually but available to screen readers</button>
+            <p>Use <code>[visually-hidden]</code> attribute for content that should be accessible to screen readers but
+              not
               visible.</p>
           </div>
         </div>
@@ -767,10 +767,10 @@ function helloWorld() {
   </main>
 
   <footer role="contentinfo">
-    <div class="container" max-width="lg">
+    <div container max-width="lg">
       <p>sem-mochi: A semantic-first CSS framework with minimal class usage</p>
-      <p class="text-sm">Built with modern CSS features and semantic HTML principles</p>
-      <p class="text-sm mt-md">MIT License</p>
+      <p text-size="sm">Built with modern CSS features and semantic HTML principles</p>
+      <p text-size="sm" margin-top="md">MIT License</p>
     </div>
   </footer>
   <script>

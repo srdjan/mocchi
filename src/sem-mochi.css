@@ -26,6 +26,7 @@
 @import url('./components/_buttons.css') layer(components);
 @import url('./components/_cards.css') layer(components);
 @import url('./components/_navigation.css') layer(components);
+@import url('./components/_components-attr.css') layer(components);
 /* Add more component imports as needed */
 
 /* ---- Import Layout ---- */
@@ -33,6 +34,7 @@
 @import url('./layout/_container-attr.css') layer(layout);
 @import url('./layout/_grid.css') layer(layout);
 @import url('./layout/_grid-attr.css') layer(layout);
+@import url('./layout/_utilities-attr.css') layer(layout);
 /* Add more layout imports as needed */
 
 /* ---- Import Utilities ---- */
@@ -40,6 +42,8 @@
 @import url('./utilities/_accessibility-attr.css') layer(utilities);
 @import url('./utilities/_animations.css') layer(utilities);
 @import url('./utilities/_animations-attr.css') layer(utilities);
+@import url('./utilities/_typography-attr.css') layer(utilities);
+@import url('./utilities/_spacing-attr.css') layer(utilities);
 /* Add more utility imports as needed */
 
 /* ---- Theme Toggle Component ---- */

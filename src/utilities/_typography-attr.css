@@ -1,0 +1,147 @@
+/* ---- Typography Utilities with Attribute Selectors ---- */
+@layer utilities {
+  /* Text Size Attributes */
+  [text-size="xs"] {
+    font-size: var(--sm-font-xs);
+    line-height: var(--sm-line-height-xs);
+  }
+  
+  [text-size="sm"] {
+    font-size: var(--sm-font-sm);
+    line-height: var(--sm-line-height-sm);
+  }
+  
+  [text-size="base"] {
+    font-size: var(--sm-font-base);
+    line-height: var(--sm-line-height-base);
+  }
+  
+  [text-size="md"] {
+    font-size: var(--sm-font-md);
+    line-height: var(--sm-line-height-md);
+  }
+  
+  [text-size="lg"] {
+    font-size: var(--sm-font-lg);
+    line-height: var(--sm-line-height-lg);
+  }
+  
+  [text-size="xl"] {
+    font-size: var(--sm-font-xl);
+    line-height: var(--sm-line-height-xl);
+  }
+  
+  [text-size="2xl"] {
+    font-size: var(--sm-font-2xl);
+    line-height: var(--sm-line-height-2xl);
+  }
+  
+  [text-size="3xl"] {
+    font-size: var(--sm-font-3xl);
+    line-height: var(--sm-line-height-3xl);
+  }
+  
+  /* Text Color Attributes */
+  [text-color="muted"] {
+    color: var(--sm-muted);
+  }
+  
+  [text-color="accent"] {
+    color: var(--sm-accent);
+  }
+  
+  [text-color="success"] {
+    color: var(--sm-success);
+  }
+  
+  [text-color="warning"] {
+    color: var(--sm-warning);
+  }
+  
+  [text-color="error"] {
+    color: var(--sm-error);
+  }
+  
+  /* Text Alignment Attributes */
+  [text-align="left"] {
+    text-align: left;
+  }
+  
+  [text-align="center"] {
+    text-align: center;
+  }
+  
+  [text-align="right"] {
+    text-align: right;
+  }
+  
+  [text-align="justify"] {
+    text-align: justify;
+  }
+  
+  /* Text Transformation Attributes */
+  [text-transform="uppercase"] {
+    text-transform: uppercase;
+  }
+  
+  [text-transform="lowercase"] {
+    text-transform: lowercase;
+  }
+  
+  [text-transform="capitalize"] {
+    text-transform: capitalize;
+  }
+  
+  /* Text Decoration Attributes */
+  [text-decoration="underline"] {
+    text-decoration: underline;
+  }
+  
+  [text-decoration="line-through"] {
+    text-decoration: line-through;
+  }
+  
+  [text-decoration="none"] {
+    text-decoration: none;
+  }
+  
+  /* Text Wrap Attributes */
+  [text-wrap="balance"] {
+    text-wrap: balance;
+  }
+  
+  [text-wrap="pretty"] {
+    text-wrap: pretty;
+  }
+  
+  [text-wrap="nowrap"] {
+    white-space: nowrap;
+  }
+  
+  /* Text Overflow Attributes */
+  [text-overflow="ellipsis"] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  [text-overflow="clip"] {
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+  
+  /* Legacy class support for backward compatibility */
+  .text-xs { font-size: var(--sm-font-xs); line-height: var(--sm-line-height-xs); }
+  .text-sm { font-size: var(--sm-font-sm); line-height: var(--sm-line-height-sm); }
+  .text-lg { font-size: var(--sm-font-lg); line-height: var(--sm-line-height-lg); }
+  .text-xl { font-size: var(--sm-font-xl); line-height: var(--sm-line-height-xl); }
+  .text-2xl { font-size: var(--sm-font-2xl); line-height: var(--sm-line-height-2xl); }
+  .text-3xl { font-size: var(--sm-font-3xl); line-height: var(--sm-line-height-3xl); }
+  
+  .text-muted { color: var(--sm-muted); }
+  .text-accent { color: var(--sm-accent); }
+  .text-success { color: var(--sm-success); }
+  .text-warning { color: var(--sm-warning); }
+  .text-error { color: var(--sm-error); }
+}

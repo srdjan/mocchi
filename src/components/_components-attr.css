@@ -1,0 +1,194 @@
+/* ---- Component Utilities with Attribute Selectors ---- */
+@layer components {
+  /* Card Component */
+  [component="card"] {
+    --card-radius: var(--sm-radius);
+    --card-shadow: var(--sm-shadow-sm);
+    --card-border: 1px solid var(--sm-border);
+    --card-bg: var(--sm-surface);
+    
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--card-radius);
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    border: var(--card-border);
+    overflow: hidden;
+    transition: all var(--sm-transition);
+  }
+  
+  [component="card"] > header {
+    padding: var(--sm-space);
+    border-bottom: var(--card-border);
+    background-color: color-mix(in srgb, var(--sm-surface) 97%, var(--sm-fg));
+  }
+  
+  [component="card"] > header > *:first-child {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  [component="card"] > footer {
+    padding: var(--sm-space);
+    border-top: var(--card-border);
+    background-color: color-mix(in srgb, var(--sm-surface) 97%, var(--sm-fg));
+  }
+  
+  [component="card"] > footer > *:first-child {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  [component="card"] > [component="content"],
+  [component="card"] > .content {
+    padding: var(--sm-space);
+    flex: 1;
+  }
+  
+  [component="card"] > [component="content"] > *:first-child,
+  [component="card"] > .content > *:first-child {
+    margin-top: 0;
+  }
+  
+  [component="card"] > [component="content"] > *:last-child,
+  [component="card"] > .content > *:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Card Variations */
+  [component="card"][shadow="none"] {
+    box-shadow: none;
+  }
+  
+  [component="card"][shadow="md"] {
+    box-shadow: var(--sm-shadow-md);
+  }
+  
+  [component="card"][shadow="lg"] {
+    box-shadow: var(--sm-shadow-lg);
+  }
+  
+  [component="card"][border="none"] {
+    --card-border: none;
+  }
+  
+  [component="card"][hover] {
+    cursor: pointer;
+    transition: transform var(--sm-transition), box-shadow var(--sm-transition);
+  }
+  
+  [component="card"][hover]:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sm-shadow-md);
+  }
+  
+  /* Content Component */
+  [component="content"] {
+    padding: var(--sm-space);
+  }
+  
+  /* Brand Component */
+  [component="brand"] {
+    font-weight: var(--sm-weight-bold);
+    font-size: var(--sm-font-lg);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* GitHub Link Component */
+  [component="github-link"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: color-mix(in srgb, var(--sm-accent) 10%, transparent);
+    border-radius: var(--sm-radius-full);
+    padding-block: 0.25rem;
+    padding-inline: 0.75rem;
+    font-weight: var(--sm-weight-medium);
+  }
+  
+  [component="github-link"]:hover {
+    background-color: color-mix(in srgb, var(--sm-accent) 20%, transparent);
+  }
+  
+  /* Navigation Toggle Component */
+  [component="nav-toggle"] {
+    display: inline-block;
+    cursor: pointer;
+    width: 30px;
+    height: 24px;
+    position: relative;
+  }
+  
+  [component="nav-toggle"]::before,
+  [component="nav-toggle"]::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--sm-fg);
+    transition: all 0.3s ease;
+  }
+  
+  [component="nav-toggle"]::before {
+    top: 0;
+    box-shadow: 0 10px 0 var(--sm-fg);
+  }
+  
+  [component="nav-toggle"]::after {
+    bottom: 0;
+  }
+  
+  /* Legacy class support for backward compatibility */
+  .card {
+    --card-radius: var(--sm-radius);
+    --card-shadow: var(--sm-shadow-sm);
+    --card-border: 1px solid var(--sm-border);
+    --card-bg: var(--sm-surface);
+    
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--card-radius);
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    border: var(--card-border);
+    overflow: hidden;
+    transition: all var(--sm-transition);
+  }
+  
+  .content {
+    padding: var(--sm-space);
+  }
+  
+  .brand {
+    font-weight: var(--sm-weight-bold);
+    font-size: var(--sm-font-lg);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: color-mix(in srgb, var(--sm-accent) 10%, transparent);
+    border-radius: var(--sm-radius-full);
+    padding-block: 0.25rem;
+    padding-inline: 0.75rem;
+    font-weight: var(--sm-weight-medium);
+  }
+  
+  .github-link:hover {
+    background-color: color-mix(in srgb, var(--sm-accent) 20%, transparent);
+  }
+  
+  .nav-toggle {
+    display: inline-block;
+    cursor: pointer;
+    width: 30px;
+    height: 24px;
+    position: relative;
+  }
+}
