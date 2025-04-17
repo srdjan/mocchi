@@ -7,9 +7,8 @@
   <meta name="description" content="sem-mochi: A semantic-first CSS framework with minimal class usage">
   <title>sem-mochi Kitchen Sink | Semantic-First CSS Framework</title>
   <link rel="stylesheet" href="./src/sem-mochi.css">
-  <link rel="stylesheet" href="./custom.css">
   <style>
-    /* Additional styles for the kitchen sink demo */
+    /* Inline styles only for demo-specific enhancements */
     .github-link {
       display: inline-flex;
       align-items: center;
@@ -30,7 +29,7 @@
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233b82f6'><path d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/></svg>">
 </head>
 
-<body>
+<body sticky-footer>
   <!-- Accessible Skip Link -->
   <a href="#main-content" skip-link>Skip to main content</a>
 
@@ -38,21 +37,20 @@
   <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
 
   <!-- Page Header -->
-  <header role="banner">
-    <div container max-width="lg">
-      <h1>sem-mochi Kitchen Sink</h1>
-      <p>Demonstrating all features of the semantic-first CSS framework</p>
+  <header role="banner" bg="surface" padding-block="xl">
+    <div container max-width="lg" text-align="center">
+      <h1 fluid-text="3xl-4xl">sem-mochi Kitchen Sink</h1>
+      <p text-size="lg" text-color="muted">Demonstrating all features of the semantic-first CSS framework</p>
     </div>
   </header>
 
-  <!-- Primary Navigation - Improved -->
-  <nav role="navigation" sticky compact>
-    <div container max-width="lg" padding="sm">
-      <div>
-        <a href="#" aria-current="page" component="brand">
+  <!-- Primary Navigation -->
+  <nav role="navigation" sticky top="0" z="sticky" bg="surface" shadow="sm" backdrop-filter="blur">
+    <div container max-width="lg" padding="sm" display="flex" justify="space-between" align="center">
+      <div display="flex" gap="md">
+        <a href="#" aria-current="page" component="brand" text-size="lg" font-weight="semibold">
           <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
           </svg>
           sem-mochi
         </a>
@@ -61,8 +59,7 @@
         <a href="#forms">Forms</a>
         <a href="#layout">Layout</a>
       </div>
-      <div>
-        <a href="#navigation">Navigation</a>
+      <div display="flex" gap="md">
         <a href="#utilities">Utilities</a>
         <a href="https://github.com/sem-mochi" component="github-link">
           <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
@@ -79,26 +76,27 @@
   <!-- Main Content -->
   <main id="main-content">
     <!-- Hero Section -->
-    <section id="hero">
+    <section id="hero" padding-block="xl" border-bottom>
       <div container max-width="lg">
-        <h2>Semantic HTML, Minimal Classes</h2>
-        <p>sem-mochi leverages modern CSS capabilities and semantic HTML to minimize class usage while maintaining
+        <h2 fluid-text="2xl-3xl">Semantic HTML, Minimal Classes</h2>
+        <p text-size="lg">sem-mochi leverages modern CSS capabilities and semantic HTML to minimize class usage while
+          maintaining
           sophisticated styling capabilities.</p>
 
-        <aside data-type="success">
+        <aside data-type="success" padding="md" radius="md" margin-top="md">
           <strong>Semantic Benefit:</strong> Cleaner markup, better accessibility, improved maintainability, and
           enhanced SEO.
         </aside>
 
-        <div layout="two-columns">
-          <div>
+        <div layout="two-columns" gap="md" margin-top="lg">
+          <div component="card" padding="md">
             <h3>Traditional CSS Framework</h3>
             <pre><code>/* Traditional CSS framework approach */
 &lt;button class="btn btn-primary btn-lg"&gt;
   Submit
 &lt;/button&gt;</code></pre>
           </div>
-          <div>
+          <div component="card" padding="md">
             <h3>sem-mochi Approach</h3>
             <pre><code>/* sem-mochi attribute-based approach */
 &lt;button primary size="lg"&gt;
@@ -110,34 +108,34 @@
     </section>
 
     <!-- Typography Section -->
-    <section id="typography">
+    <section id="typography" padding-block="xl" border-bottom>
       <div container max-width="lg">
-        <h2>Typography</h2>
+        <h2 fluid-text="2xl-3xl">Typography</h2>
         <p>Fluid typography that scales smoothly with viewport size using mathematical fluid scaling. <strong>Resize
             your browser window</strong> to see the text adapt.</p>
 
-        <div component="card">
-          <header>
+        <div component="card" margin-top="lg">
+          <header padding="md" border-bottom>
             <h3>Fluid Headings</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <p>Headings automatically scale based on viewport width. <strong>Resize your browser window</strong> to see
               how they adapt:</p>
-            <h1>Heading 1 (fluid-text="4xl")</h1>
-            <h2>Heading 2 (fluid-text="3xl")</h2>
-            <h3>Heading 3 (fluid-text="2xl")</h3>
-            <h4>Heading 4 (fluid-text="xl")</h4>
-            <h5>Heading 5 (fluid-text="lg")</h5>
-            <h6>Heading 6 (fluid-text="md")</h6>
+            <h1 fluid-text="4xl">Heading 1 (fluid-text="4xl")</h1>
+            <h2 fluid-text="3xl">Heading 2 (fluid-text="3xl")</h2>
+            <h3 fluid-text="2xl">Heading 3 (fluid-text="2xl")</h3>
+            <h4 fluid-text="xl">Heading 4 (fluid-text="xl")</h4>
+            <h5 fluid-text="lg">Heading 5 (fluid-text="lg")</h5>
+            <h6 fluid-text="md">Heading 6 (fluid-text="md")</h6>
             <p margin-top="md">Headings use the fluid typography system with appropriate scaling for each level.</p>
           </div>
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Fluid Typography</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <p>Fluid typography automatically scales between minimum and maximum sizes based on viewport width:</p>
             <p fluid-text="xs">Extra Small Fluid Text ([fluid-text="xs"])</p>
             <p fluid-text="sm">Small Fluid Text ([fluid-text="sm"])</p>
@@ -154,14 +152,14 @@
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Fixed vs. Fluid Typography</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <p><strong>👉 Resize your browser window</strong> to see the difference between fixed typography (using
               static units) and fluid typography (using viewport-based scaling):</p>
 
-            <div layout="two-columns">
+            <div layout="two-columns" gap="md">
               <div>
                 <h4>Fixed Typography</h4>
                 <p style="font-size: 12px;"><strong>12px</strong> - This text stays the same size</p>
@@ -190,10 +188,10 @@
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Mathematical Fluid Scaling</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <p>Mathematical fluid scaling uses a formula to calculate the perfect size at any viewport width:</p>
             <p fluid-calc="sm-md">This text scales from Small to Medium ([fluid-calc="sm-md"])</p>
             <p fluid-calc="md-lg">This text scales from Medium to Large ([fluid-calc="md-lg"])</p>
@@ -207,10 +205,10 @@
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Text Sizes</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <p text-size="xs">Extra Small Text ([text-size="xs"])</p>
             <p text-size="sm">Small Text ([text-size="sm"])</p>
             <p text-size="base">Base Text ([text-size="base"])</p>
@@ -222,10 +220,10 @@
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Text Styles</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <p><strong>Bold text</strong> using &lt;strong&gt; or &lt;b&gt;</p>
             <p><em>Italic text</em> using &lt;em&gt; or &lt;i&gt;</p>
             <p><u>Underlined text</u> using &lt;u&gt;</p>
@@ -238,16 +236,16 @@
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Block Elements</h3>
           </header>
-          <div component="content">
-            <blockquote>
+          <div component="content" padding="md">
+            <blockquote padding="md" border-left="4px solid var(--sm-accent)" bg="surface-2">
               <p>This is a blockquote demonstrating how quoted text appears.</p>
               <cite>— Author Name</cite>
             </blockquote>
 
-            <pre><code>// This is preformatted text
+            <pre bg="code-bg" padding="md" radius="md" overflow="auto"><code>// This is preformatted text
 function helloWorld() {
   console.log("Hello, world!");
 }</code></pre>
@@ -259,11 +257,11 @@ function helloWorld() {
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Lists</h3>
           </header>
-          <div component="content">
-            <div layout="two-columns">
+          <div component="content" padding="md">
+            <div layout="two-columns" gap="md">
               <div>
                 <h4>Unordered List</h4>
                 <ul>
@@ -305,43 +303,43 @@ function helloWorld() {
     </section>
 
     <!-- Components Section -->
-    <section id="components">
+    <section id="components" padding-block="xl" border-bottom>
       <div container max-width="lg">
-        <h2>Components</h2>
+        <h2 fluid-text="2xl-3xl">Components</h2>
         <p>Semantic components with minimal class usage.</p>
 
         <div component="card">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Cards</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <p>Cards are created using semantic HTML elements with minimal classes:</p>
 
-            <div layout="auto-grid">
-              <article component="card">
-                <header>
+            <div layout="auto-grid" gap="md">
+              <article component="card" hover="lift">
+                <header padding="md" border-bottom>
                   <h4>Basic Card</h4>
                 </header>
-                <div component="content">
+                <div component="content" padding="md">
                   <p>Card content goes here. Cards can contain any type of content.</p>
                 </div>
-                <footer>
+                <footer padding="md" border-top>
                   <button outline>Action</button>
                 </footer>
               </article>
 
-              <article component="card">
-                <header>
+              <article component="card" hover="lift">
+                <header padding="md" border-bottom>
                   <h4>Card with Image</h4>
                 </header>
                 <img src="https://via.placeholder.com/400x200" alt="Placeholder image">
-                <div component="content">
+                <div component="content" padding="md">
                   <p>Cards can include images and other media.</p>
                 </div>
               </article>
 
-              <article component="card">
-                <div component="content">
+              <article component="card" hover="lift">
+                <div component="content" padding="md">
                   <h4>Simplified Card</h4>
                   <p>Cards don't require all sections. This one has no header or footer.</p>
                 </div>
@@ -351,36 +349,37 @@ function helloWorld() {
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Alerts</h3>
           </header>
-          <div component="content">
-            <aside data-type="success">
+          <div component="content" padding="md">
+            <aside data-type="success" padding="md" radius="md">
               <strong>Success:</strong> This is a success message using <code>&lt;aside data-type="success"&gt;</code>.
             </aside>
 
-            <aside data-type="warning" margin-top>
+            <aside data-type="warning" padding="md" radius="md" margin-top>
               <strong>Warning:</strong> This is a warning message using <code>&lt;aside data-type="warning"&gt;</code>.
             </aside>
 
-            <aside data-type="error" margin-top>
+            <aside data-type="error" padding="md" radius="md" margin-top>
               <strong>Error:</strong> This is an error message using <code>&lt;aside data-type="error"&gt;</code>.
             </aside>
           </div>
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Buttons</h3>
           </header>
-          <div component="content">
-            <div layout="auto-grid">
+          <div component="content" padding="md">
+            <div layout="auto-grid" gap="md">
               <div>
                 <h4>Standard Buttons</h4>
-                <p>
+                <p display="flex" gap="sm" flex-wrap="wrap">
                   <button>Default</button>
                   <button primary>Primary</button>
                   <button outline>Outline</button>
+                  <button ghost>Ghost</button>
                 </p>
                 <p margin-top="sm">
                   <button disabled>Disabled</button>
@@ -388,7 +387,7 @@ function helloWorld() {
               </div>
               <div>
                 <h4>Button Sizes</h4>
-                <p>
+                <p display="flex" gap="sm" align="center">
                   <button text-size="sm">Small</button>
                   <button>Medium</button>
                   <button text-size="lg">Large</button>
@@ -407,14 +406,15 @@ function helloWorld() {
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Interactive Elements</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <h4>Details/Summary</h4>
-            <details>
-              <summary>Click to expand</summary>
-              <p>This content is hidden until the user clicks the summary. Uses the native <code>&lt;details&gt;</code>
+            <details padding="md" border="1px solid var(--sm-border)" radius="md">
+              <summary padding="sm">Click to expand</summary>
+              <p margin-top="sm">This content is hidden until the user clicks the summary. Uses the native
+                <code>&lt;details&gt;</code>
                 element.</p>
             </details>
 
@@ -430,34 +430,34 @@ function helloWorld() {
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Tables</h3>
           </header>
-          <div component="content">
-            <table>
+          <div component="content" padding="md">
+            <table border="1px solid var(--sm-border)" radius="md" overflow="hidden">
               <caption>Example Table</caption>
               <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Role</th>
+                <tr bg="surface-2">
+                  <th padding="sm">Name</th>
+                  <th padding="sm">Email</th>
+                  <th padding="sm">Role</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>John Doe</td>
-                  <td>john@example.com</td>
-                  <td>Admin</td>
+                  <td padding="sm">John Doe</td>
+                  <td padding="sm">john@example.com</td>
+                  <td padding="sm">Admin</td>
+                </tr>
+                <tr bg="surface-2">
+                  <td padding="sm">Jane Smith</td>
+                  <td padding="sm">jane@example.com</td>
+                  <td padding="sm">Editor</td>
                 </tr>
                 <tr>
-                  <td>Jane Smith</td>
-                  <td>jane@example.com</td>
-                  <td>Editor</td>
-                </tr>
-                <tr>
-                  <td>Bob Johnson</td>
-                  <td>bob@example.com</td>
-                  <td>Viewer</td>
+                  <td padding="sm">Bob Johnson</td>
+                  <td padding="sm">bob@example.com</td>
+                  <td padding="sm">Viewer</td>
                 </tr>
               </tbody>
             </table>
@@ -467,18 +467,18 @@ function helloWorld() {
     </section>
 
     <!-- Forms Section -->
-    <section id="forms">
+    <section id="forms" padding-block="xl" border-bottom>
       <div container max-width="lg">
-        <h2>Forms</h2>
+        <h2 fluid-text="2xl-3xl">Forms</h2>
         <p>Accessible form elements with semantic markup.</p>
 
         <div component="card">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Basic Form</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <form>
-              <div layout="two-columns">
+              <div layout="two-columns" gap="md">
                 <div>
                   <label for="first-name">First Name</label>
                   <input type="text" id="first-name" name="first-name" required>
@@ -514,35 +514,35 @@ function helloWorld() {
                 </select>
               </div>
 
-              <fieldset data-span="full">
+              <fieldset data-span="full" padding="md" border="1px solid var(--sm-border)" radius="md">
                 <legend>Preferences</legend>
-                <label>
+                <label display="block" padding-block="sm">
                   <input type="checkbox" name="newsletter">
                   Subscribe to newsletter
                 </label>
-                <label>
+                <label display="block" padding-block="sm">
                   <input type="checkbox" name="notifications">
                   Enable notifications
                 </label>
               </fieldset>
 
-              <fieldset data-span="full">
+              <fieldset data-span="full" padding="md" border="1px solid var(--sm-border)" radius="md">
                 <legend>Payment Method</legend>
-                <label>
+                <label display="block" padding-block="sm">
                   <input type="radio" name="payment" value="credit">
                   Credit Card
                 </label>
-                <label>
+                <label display="block" padding-block="sm">
                   <input type="radio" name="payment" value="paypal">
                   PayPal
                 </label>
-                <label>
+                <label display="block" padding-block="sm">
                   <input type="radio" name="payment" value="bank">
                   Bank Transfer
                 </label>
               </fieldset>
 
-              <div layout="two-columns">
+              <div layout="two-columns" gap="md" margin-top="md">
                 <div>
                   <button type="submit" primary>Submit</button>
                 </div>
@@ -555,10 +555,10 @@ function helloWorld() {
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Form Validation</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <form>
               <div>
                 <label for="username">Username (required)</label>
@@ -581,18 +581,18 @@ function helloWorld() {
     </section>
 
     <!-- Navigation Section -->
-    <section id="navigation">
+    <section id="navigation" padding-block="xl" border-bottom>
       <div container max-width="lg">
-        <h2>Navigation Patterns</h2>
+        <h2 fluid-text="2xl-3xl">Navigation Patterns</h2>
         <p>Various navigation styles using semantic elements.</p>
 
         <div component="card">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Standard Navigation</h3>
           </header>
-          <div component="content">
-            <nav role="navigation">
-              <div>
+          <div component="content" padding="md">
+            <nav role="navigation" bg="surface" padding="sm" radius="md">
+              <div display="flex" gap="md">
                 <a href="#" aria-current="page">Home</a>
                 <a href="#">About</a>
                 <a href="#">Services</a>
@@ -603,12 +603,12 @@ function helloWorld() {
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Tabs Navigation</h3>
           </header>
-          <div component="content">
-            <nav tabs role="tablist">
-              <div>
+          <div component="content" padding="md">
+            <nav tabs role="tablist" border-bottom="1px solid var(--sm-border)">
+              <div display="flex" gap="md">
                 <a href="#tab1" aria-current="page" role="tab">Overview</a>
                 <a href="#tab2" role="tab">Features</a>
                 <a href="#tab3" role="tab">Installation</a>
@@ -622,12 +622,12 @@ function helloWorld() {
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Pills Navigation</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <nav pills>
-              <div>
+              <div display="flex" gap="sm">
                 <a href="#pill1" aria-current="page">All</a>
                 <a href="#pill2">Active</a>
                 <a href="#pill3">Completed</a>
@@ -638,22 +638,22 @@ function helloWorld() {
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Responsive Navigation</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <nav collapsible>
-              <div>
-                <a href="#">
+              <div display="flex" justify="space-between">
+                <a href="#" display="flex" align="center" gap="sm">
                   <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                   </svg>
                   Brand
                 </a>
-              </div>
 
-              <input type="checkbox" id="nav-toggle-example">
-              <label for="nav-toggle-example" component="nav-toggle"></label>
+                <input type="checkbox" id="nav-toggle-example">
+                <label for="nav-toggle-example" component="nav-toggle"></label>
+              </div>
 
               <ul>
                 <li><a href="#" aria-current="page">Home</a></li>
@@ -667,12 +667,12 @@ function helloWorld() {
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Breadcrumbs</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <nav aria-label="Breadcrumb">
-              <ol>
+              <ol display="flex" gap="sm" flex-wrap="wrap">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Products</a></li>
                 <li><a href="#">Category</a></li>
@@ -685,22 +685,22 @@ function helloWorld() {
     </section>
 
     <!-- Layout Section -->
-    <section id="layout">
+    <section id="layout" padding-block="xl" border-bottom>
       <div container max-width="lg">
-        <h2>Layout Patterns</h2>
+        <h2 fluid-text="2xl-3xl">Layout Patterns</h2>
         <p>Responsive layout systems using modern CSS.</p>
 
         <div component="card">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Two Columns</h3>
           </header>
-          <div component="content">
-            <div layout="two-columns">
-              <div>
+          <div component="content" padding="md">
+            <div layout="two-columns" gap="md">
+              <div component="card" padding="md">
                 <h4>Left Column</h4>
                 <p>This content will stack on mobile and appear side-by-side on larger screens.</p>
               </div>
-              <div>
+              <div component="card" padding="md">
                 <h4>Right Column</h4>
                 <p>The columns automatically maintain equal width.</p>
               </div>
@@ -709,20 +709,20 @@ function helloWorld() {
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Three Columns</h3>
           </header>
-          <div component="content">
-            <div layout="three-columns">
-              <div>
+          <div component="content" padding="md">
+            <div layout="three-columns" gap="md">
+              <div component="card" padding="md">
                 <h4>Column 1</h4>
                 <p>First column content.</p>
               </div>
-              <div>
+              <div component="card" padding="md">
                 <h4>Column 2</h4>
                 <p>Second column content.</p>
               </div>
-              <div>
+              <div component="card" padding="md">
                 <h4>Column 3</h4>
                 <p>Third column content.</p>
               </div>
@@ -731,30 +731,30 @@ function helloWorld() {
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Auto Grid</h3>
           </header>
-          <div component="content">
-            <div layout="auto-grid">
-              <div component="card">
+          <div component="content" padding="md">
+            <div layout="auto-grid" gap="md">
+              <div component="card" padding="md" hover="lift">
                 <div component="content">
                   <h4>Item 1</h4>
                   <p>Auto grid creates as many columns as will fit.</p>
                 </div>
               </div>
-              <div component="card">
+              <div component="card" padding="md" hover="lift">
                 <div component="content">
                   <h4>Item 2</h4>
                   <p>Each item has a minimum width of 20rem.</p>
                 </div>
               </div>
-              <div component="card">
+              <div component="card" padding="md" hover="lift">
                 <div component="content">
                   <h4>Item 3</h4>
                   <p>Items expand to fill available space.</p>
                 </div>
               </div>
-              <div component="card">
+              <div component="card" padding="md" hover="lift">
                 <div component="content">
                   <h4>Item 4</h4>
                   <p>Perfect for card layouts.</p>
@@ -765,16 +765,16 @@ function helloWorld() {
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Sidebar Layout</h3>
           </header>
-          <div component="content">
-            <div layout="with-sidebar">
-              <main>
+          <div component="content" padding="md">
+            <div layout="with-sidebar" gap="lg">
+              <main component="card" padding="md">
                 <h4>Main Content</h4>
                 <p>This is the primary content area that will take up more space on larger screens.</p>
               </main>
-              <aside>
+              <aside component="card" padding="md">
                 <h4>Sidebar</h4>
                 <p>This sidebar content will stack below on mobile.</p>
               </aside>
@@ -785,24 +785,24 @@ function helloWorld() {
     </section>
 
     <!-- Utilities Section -->
-    <section id="utilities">
+    <section id="utilities" padding-block="xl">
       <div container max-width="lg">
-        <h2>Utility Classes</h2>
+        <h2 fluid-text="2xl-3xl">Utilities</h2>
         <p>Helper classes for common styling needs.</p>
 
         <div component="card">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Spacing Utilities</h3>
           </header>
-          <div component="content">
-            <div layout="auto-grid">
+          <div component="content" padding="md">
+            <div layout="auto-grid" gap="md">
               <div>
                 <h4>Margin Top</h4>
-                <div margin-top="xs" style="border: 1px dashed var(--sm-border);">[margin-top="xs"]</div>
-                <div margin-top="sm" style="border: 1px dashed var(--sm-border);">[margin-top="sm"]</div>
-                <div margin-top style="border: 1px dashed var(--sm-border);">[margin-top]</div>
-                <div margin-top="md" style="border: 1px dashed var(--sm-border);">[margin-top="md"]</div>
-                <div margin-top="lg" style="border: 1px dashed var(--sm-border);">[margin-top="lg"]</div>
+                <div margin-top="xs" border="1px dashed var(--sm-border)">[margin-top="xs"]</div>
+                <div margin-top="sm" border="1px dashed var(--sm-border)">[margin-top="sm"]</div>
+                <div margin-top border="1px dashed var(--sm-border)">[margin-top]</div>
+                <div margin-top="md" border="1px dashed var(--sm-border)">[margin-top="md"]</div>
+                <div margin-top="lg" border="1px dashed var(--sm-border)">[margin-top="lg"]</div>
               </div>
               <div>
                 <h4>Text Colors</h4>
@@ -817,24 +817,24 @@ function helloWorld() {
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Responsive Utilities</h3>
           </header>
-          <div component="content">
-            <div visible="mobile-only">
+          <div component="content" padding="md">
+            <div visible="mobile-only" padding="sm" bg="surface-2" radius="md">
               <p>This text only appears on mobile devices.</p>
             </div>
-            <div visible="desktop-only">
+            <div visible="desktop-only" padding="sm" bg="surface-2" radius="md" margin-top="sm">
               <p>This text only appears on desktop devices.</p>
             </div>
           </div>
         </div>
 
         <div component="card" margin-top="md">
-          <header>
+          <header padding="md" border-bottom>
             <h3>Accessibility Utilities</h3>
           </header>
-          <div component="content">
+          <div component="content" padding="md">
             <button visually-hidden>This button is hidden visually but available to screen readers</button>
             <p>Use <code>[visually-hidden]</code> attribute for content that should be accessible to screen readers but
               not
@@ -845,10 +845,10 @@ function helloWorld() {
     </section>
   </main>
 
-  <footer role="contentinfo">
+  <footer role="contentinfo" bg="surface" padding-block="lg" margin-top="xl">
     <div container max-width="lg">
       <p>sem-mochi: A semantic-first CSS framework with minimal class usage</p>
-      <p text-size="sm">Built with modern CSS features and semantic HTML principles</p>
+      <p text-size="sm" text-color="muted">Built with modern CSS features and semantic HTML principles</p>
       <p text-size="sm" margin-top="md">MIT License</p>
     </div>
   </footer>
