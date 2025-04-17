@@ -10,6 +10,7 @@
 /* ---- Import Design Tokens ---- */
 @import url('./tokens/_colors.css') layer(tokens);
 @import url('./tokens/_typography.css') layer(tokens);
+@import url('./tokens/_fluid-typography.css') layer(tokens);
 @import url('./tokens/_spacing.css') layer(tokens);
 @import url('./tokens/_effects.css') layer(tokens);
 

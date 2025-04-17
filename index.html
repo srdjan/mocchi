@@ -93,13 +93,15 @@
         <div layout="two-columns">
           <div>
             <h3>Traditional CSS Framework</h3>
-            <pre><code>&lt;button class="btn btn-primary btn-lg"&gt;
+            <pre><code>/* Traditional CSS framework approach */
+&lt;button class="btn btn-primary btn-lg"&gt;
   Submit
 &lt;/button&gt;</code></pre>
           </div>
           <div>
             <h3>sem-mochi Approach</h3>
-            <pre><code>&lt;button primary&gt;
+            <pre><code>/* sem-mochi attribute-based approach */
+&lt;button primary size="lg"&gt;
   Submit
 &lt;/button&gt;</code></pre>
           </div>
@@ -111,19 +113,96 @@
     <section id="typography">
       <div container max-width="lg">
         <h2>Typography</h2>
-        <p>Fluid typography that scales smoothly with viewport size using mathematical fluid scaling.</p>
+        <p>Fluid typography that scales smoothly with viewport size using mathematical fluid scaling. <strong>Resize
+            your browser window</strong> to see the text adapt.</p>
 
         <div component="card">
           <header>
-            <h3>Headings</h3>
+            <h3>Fluid Headings</h3>
           </header>
           <div component="content">
-            <h1>Heading 1</h1>
-            <h2>Heading 2</h2>
-            <h3>Heading 3</h3>
-            <h4>Heading 4</h4>
-            <h5>Heading 5</h5>
-            <h6>Heading 6</h6>
+            <p>Headings automatically scale based on viewport width. <strong>Resize your browser window</strong> to see
+              how they adapt:</p>
+            <h1>Heading 1 (fluid-text="4xl")</h1>
+            <h2>Heading 2 (fluid-text="3xl")</h2>
+            <h3>Heading 3 (fluid-text="2xl")</h3>
+            <h4>Heading 4 (fluid-text="xl")</h4>
+            <h5>Heading 5 (fluid-text="lg")</h5>
+            <h6>Heading 6 (fluid-text="md")</h6>
+            <p margin-top="md">Headings use the fluid typography system with appropriate scaling for each level.</p>
+          </div>
+        </div>
+
+        <div component="card" margin-top="md">
+          <header>
+            <h3>Fluid Typography</h3>
+          </header>
+          <div component="content">
+            <p>Fluid typography automatically scales between minimum and maximum sizes based on viewport width:</p>
+            <p fluid-text="xs">Extra Small Fluid Text ([fluid-text="xs"])</p>
+            <p fluid-text="sm">Small Fluid Text ([fluid-text="sm"])</p>
+            <p fluid-text="base">Base Fluid Text ([fluid-text="base"])</p>
+            <p fluid-text="lg">Large Fluid Text ([fluid-text="lg"])</p>
+            <p fluid-text="xl">Extra Large Fluid Text ([fluid-text="xl"])</p>
+            <p fluid-text="2xl">2XL Fluid Text ([fluid-text="2xl"])</p>
+            <p fluid-text="3xl">3XL Fluid Text ([fluid-text="3xl"])</p>
+            <p fluid-text="4xl">4XL Fluid Text ([fluid-text="4xl"])</p>
+            <p fluid-text="5xl">5XL Fluid Text ([fluid-text="5xl"])</p>
+            <p margin-top="md">The fluid typography system uses <code>clamp()</code> to set minimum and maximum sizes
+              with smooth scaling between them.</p>
+          </div>
+        </div>
+
+        <div component="card" margin-top="md">
+          <header>
+            <h3>Fixed vs. Fluid Typography</h3>
+          </header>
+          <div component="content">
+            <p><strong>👉 Resize your browser window</strong> to see the difference between fixed typography (using
+              static units) and fluid typography (using viewport-based scaling):</p>
+
+            <div layout="two-columns">
+              <div>
+                <h4>Fixed Typography</h4>
+                <p style="font-size: 12px;"><strong>12px</strong> - This text stays the same size</p>
+                <p style="font-size: 14px;"><strong>14px</strong> - No matter the viewport width</p>
+                <p style="font-size: 16px;"><strong>16px</strong> - Static size on all devices</p>
+                <p style="font-size: 20px;"><strong>20px</strong> - May be too small on large screens</p>
+                <p style="font-size: 24px;"><strong>24px</strong> - May be too large on mobile</p>
+                <p style="font-size: 30px;"><strong>30px</strong> - Hard to read on small screens</p>
+                <p style="font-size: 36px;"><strong>36px</strong> - Or too small on large displays</p>
+              </div>
+              <div>
+                <h4>Fluid Typography</h4>
+                <p fluid-text="xs"><strong>Extra Small</strong> - Scales with viewport</p>
+                <p fluid-text="sm"><strong>Small</strong> - Adapts to screen size</p>
+                <p fluid-text="base"><strong>Base</strong> - Perfect at any width</p>
+                <p fluid-text="lg"><strong>Large</strong> - Proportional scaling</p>
+                <p fluid-text="xl"><strong>Extra Large</strong> - Grows with screen</p>
+                <p fluid-text="2xl"><strong>2XL</strong> - Larger on bigger screens</p>
+                <p fluid-text="3xl"><strong>3XL</strong> - Always readable</p>
+              </div>
+            </div>
+
+            <p margin-top="md">Fluid typography ensures text is always readable and properly proportioned across all
+              device sizes.</p>
+          </div>
+        </div>
+
+        <div component="card" margin-top="md">
+          <header>
+            <h3>Mathematical Fluid Scaling</h3>
+          </header>
+          <div component="content">
+            <p>Mathematical fluid scaling uses a formula to calculate the perfect size at any viewport width:</p>
+            <p fluid-calc="sm-md">This text scales from Small to Medium ([fluid-calc="sm-md"])</p>
+            <p fluid-calc="md-lg">This text scales from Medium to Large ([fluid-calc="md-lg"])</p>
+            <p fluid-calc="lg-xl">This text scales from Large to Extra Large ([fluid-calc="lg-xl"])</p>
+            <p fluid-calc="xl-2xl">This text scales from XL to 2XL ([fluid-calc="xl-2xl"])</p>
+            <p fluid-calc="2xl-3xl">This text scales from 2XL to 3XL ([fluid-calc="2xl-3xl"])</p>
+            <p margin-top="md">The formula used is:
+              <code>min-size + (max-size - min-size) * ((viewport-width - min-viewport) / (max-viewport - min-viewport))</code>
+            </p>
           </div>
         </div>
 
@@ -213,7 +292,7 @@ function helloWorld() {
               </div>
             </div>
 
-            <h4 class="mt-md">Description List</h4>
+            <h4 margin-top="md">Description List</h4>
             <dl>
               <dt>Term 1</dt>
               <dd>Description for term 1</dd>
@@ -536,7 +615,7 @@ function helloWorld() {
                 <a href="#tab4" role="tab">Usage</a>
               </div>
             </nav>
-            <div class="mt">
+            <div margin-top>
               <p>Content for the selected tab would appear here.</p>
             </div>
           </div>
