@@ -44,8 +44,6 @@ mocchi is a modern CSS framework designed around the principle of semantic marku
     - [Core Principles](#core-principles)
   - [Contributing](#contributing)
   - [License](#license)
-  - [Accessibility](#accessibility)
-    - [Theme Toggle Button](#theme-toggle-button)
 
 ## Overview
 
@@ -684,30 +682,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-Made with ❤️ by the mocchi team
+Made with ❤️ 
 
-## Accessibility
-
-### Theme Toggle Button
-
-The theme toggle button (`#theme-toggle`) is a fixed-position control used to switch color themes such as light, dark, and high contrast.
-To make this button accessible:
-
-- Add an `aria-label` attribute describing its function, e.g.:
-`html
-<button id="theme-toggle" aria-label="Toggle color theme"></button>
-`
-- It is keyboard focusable and styled with a visible outline on keyboard focus (`:focus-visible`).
-- Since the button uses no visible text content (icons only), the `aria-label` is essential for screen reader users.
-- Ensure any JavaScript toggling updates ARIA states if applicable.
-
-`css
-# theme-toggle:focus-visible {
-  outline: 3px solid var(--sm-color-primary-500);
-  outline-offset: 2px;
-}
-`
-
-Following these steps ensures the theme toggle is operable and understandable by all users, meeting accessibility best practices.
-
----
