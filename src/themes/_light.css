@@ -1,19 +1,26 @@
 /* ---- Light Theme ---- */
 @layer theme {
+
   /* Default Light Theme */
   :root,
   :root[data-theme="light"] {
     /* Base Colors */
     --sm-bg: #ffffff;
-    --sm-fg: var(--sm-color-neutral-900);
-    --sm-subtle: var(--sm-color-neutral-600);
+    --sm-fg: hsl(210, 15%, 20%);
+    /* Softer than pure black */
+    --sm-subtle: hsl(210, 10%, 40%);
+    --sm-muted: hsl(210, 10%, 60%);
     --sm-border: var(--sm-color-neutral-200);
     --sm-border-strong: var(--sm-color-neutral-300);
     --sm-input-bg: var(--sm-color-neutral-50);
-    
+
+    /* Accent Colors - Enhanced for MVP look */
+    --sm-accent: hsl(210, 90%, 50%);
+    --sm-accent-subtle: hsl(210, 90%, 40%);
+
     /* Focus and Interaction */
     --sm-focus-ring: color-mix(in srgb, var(--sm-accent) 50%, transparent);
-    
+
     /* Semantic Colors */
     --sm-accent-bg: color-mix(in srgb, var(--sm-accent) 10%, transparent);
     --sm-success-bg: color-mix(in srgb, var(--sm-success) 10%, transparent);
@@ -21,17 +28,47 @@
     --sm-error-bg: color-mix(in srgb, var(--sm-error) 10%, transparent);
     --sm-purple-bg: color-mix(in srgb, var(--sm-purple) 10%, transparent);
     --sm-highlight: color-mix(in srgb, var(--sm-accent) 20%, transparent);
-    
-    /* Shadow Properties */
-    --sm-shadow-strength: 1%;
-    --sm-shadow-color: 220 3% 15%;
-    
+
+    /* Shadow Properties - Enhanced for MVP look */
+    --sm-shadow-strength: 3%;
+    --sm-shadow-color: 210 15% 15%;
+
+    /* Code Block Colors */
+    --sm-code-bg: hsl(210, 15%, 95%);
+    --sm-code-fg: hsl(210, 15%, 20%);
+    --sm-code-border: hsl(210, 15%, 85%);
+
     /* System Properties */
     color-scheme: light;
   }
-  
+
+  /* Light Mode Element Enhancements */
+  :root,
+  :root[data-theme="light"] {
+    /* Card enhancements */
+    --card-shadow: var(--sm-shadow-md);
+
+    /* Button enhancements */
+    --button-focus-ring: var(--sm-focus-ring);
+
+    /* Table enhancements */
+    --table-header-bg: var(--sm-accent-bg);
+    --table-header-color: var(--sm-accent);
+    --table-row-alternate: var(--sm-input-bg);
+
+    /* Form enhancements */
+    --form-focus-ring: var(--sm-focus-ring);
+
+    /* Navigation enhancements */
+    --nav-active-bg: var(--sm-accent);
+    --nav-active-color: white;
+    --nav-hover-bg: var(--sm-accent-bg);
+    --nav-hover-color: var(--sm-accent);
+  }
+
   /* Fallbacks for browsers that don't support color-mix */
   @supports not (color-mix(in srgb, var(--sm-accent) 10%, transparent)) {
+
     :root,
     :root[data-theme="light"] {
       --sm-accent-bg: rgba(59, 130, 246, 0.1);

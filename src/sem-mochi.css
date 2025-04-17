@@ -28,6 +28,7 @@
 @import url('./components/_cards.css') layer(components);
 @import url('./components/_navigation.css') layer(components);
 @import url('./components/_components-attr.css') layer(components);
+@import url('./components/_sections.css') layer(components);
 /* Add more component imports as needed */
 
 /* ---- Import Layout ---- */

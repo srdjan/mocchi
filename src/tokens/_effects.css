@@ -1,6 +1,6 @@
 /* ---- Effects System ---- */
 :root {
-  /* Radius Scale */
+  /* Radius Scale - Adjusted for MVP look */
   --sm-radius-xs: 0.125rem;
   --sm-radius-sm: 0.25rem;
   --sm-radius: 0.375rem;
@@ -9,55 +9,55 @@
   --sm-radius-xl: 1rem;
   --sm-radius-2xl: 1.5rem;
   --sm-radius-full: 9999px;
-  
-  /* Shadow Scale with Layered Approach */
-  --sm-shadow-color: 220 3% 15%;
-  --sm-shadow-strength: 1%;
-  
-  --sm-shadow-xs: 
+
+  /* Shadow Scale with Layered Approach - Enhanced for MVP look */
+  --sm-shadow-color: 210 15% 15%;
+  --sm-shadow-strength: 3%;
+
+  --sm-shadow-xs:
     0 1px 2px hsl(var(--sm-shadow-color) / calc(var(--sm-shadow-strength) + 5%));
-  
-  --sm-shadow-sm: 
+
+  --sm-shadow-sm:
     0 1px 2px hsl(var(--sm-shadow-color) / calc(var(--sm-shadow-strength) + 9%)),
     0 1px 1px hsl(var(--sm-shadow-color) / calc(var(--sm-shadow-strength) + 3%));
-  
-  --sm-shadow: 
+
+  --sm-shadow:
     0 1px 3px hsl(var(--sm-shadow-color) / calc(var(--sm-shadow-strength) + 10%)),
     0 1px 2px hsl(var(--sm-shadow-color) / calc(var(--sm-shadow-strength) + 6%));
-  
-  --sm-shadow-md: 
+
+  --sm-shadow-md:
     0 4px 6px -1px hsl(var(--sm-shadow-color) / calc(var(--sm-shadow-strength) + 10%)),
     0 2px 4px -1px hsl(var(--sm-shadow-color) / calc(var(--sm-shadow-strength) + 6%));
-  
-  --sm-shadow-lg: 
+
+  --sm-shadow-lg:
     0 10px 15px -3px hsl(var(--sm-shadow-color) / calc(var(--sm-shadow-strength) + 10%)),
     0 4px 6px -2px hsl(var(--sm-shadow-color) / calc(var(--sm-shadow-strength) + 5%));
-  
-  --sm-shadow-xl: 
+
+  --sm-shadow-xl:
     0 20px 25px -5px hsl(var(--sm-shadow-color) / calc(var(--sm-shadow-strength) + 10%)),
     0 10px 10px -5px hsl(var(--sm-shadow-color) / calc(var(--sm-shadow-strength) + 4%));
-  
-  --sm-shadow-2xl: 
+
+  --sm-shadow-2xl:
     0 25px 50px -12px hsl(var(--sm-shadow-color) / calc(var(--sm-shadow-strength) + 25%));
-  
-  --sm-shadow-inner: 
+
+  --sm-shadow-inner:
     inset 0 2px 4px 0 hsl(var(--sm-shadow-color) / calc(var(--sm-shadow-strength) + 10%));
-  
-  /* Animation Tokens */
+
+  /* Animation Tokens - Enhanced for MVP feel */
   --sm-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --sm-easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
   --sm-easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
-  
+
   --sm-duration-instant: 100ms;
   --sm-duration-fast: 200ms;
   --sm-duration-normal: 300ms;
   --sm-duration-slow: 500ms;
-  
+
   --sm-transition-instant: var(--sm-duration-instant) var(--sm-easing-standard);
   --sm-transition-fast: var(--sm-duration-fast) var(--sm-easing-standard);
   --sm-transition: var(--sm-duration-normal) var(--sm-easing-standard);
   --sm-transition-slow: var(--sm-duration-slow) var(--sm-easing-standard);
-  
+
   /* Z-index Scale */
   --sm-z-negative: -1;
   --sm-z-base: 0;

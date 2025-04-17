@@ -1,93 +1,100 @@
 /* ---- Navigation Components ---- */
 @layer components {
+
   /* Base Navigation */
   nav {
     --nav-gap: var(--sm-space-sm);
     --nav-padding-block: 0.625rem;
     --nav-padding-inline: var(--sm-space);
-    --nav-border-width: 2px;
+    --nav-border-width: 0;
     --nav-height: auto;
-    --nav-bg: var(--sm-input-bg);
+    --nav-bg: var(--sm-bg);
     --nav-border-color: var(--sm-border);
     --nav-z-index: var(--sm-z-sticky);
-    
+
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     gap: var(--nav-gap);
     padding-block: var(--nav-padding-block);
     padding-inline: var(--nav-padding-inline);
     background-color: var(--nav-bg);
-    border-bottom: 1px solid var(--nav-border-color);
+    border-bottom: var(--nav-border-width) solid var(--nav-border-color);
     position: relative;
     height: var(--nav-height);
+    margin-bottom: var(--sm-space-lg);
+    border-radius: var(--sm-radius);
+    box-shadow: var(--sm-shadow-sm);
   }
-  
+
   /* Navigation Links */
   nav a {
     position: relative;
     display: inline-flex;
     align-items: center;
     padding-block: 0.5rem;
-    padding-inline: 0.75rem;
+    padding-inline: 1rem;
     color: var(--sm-fg);
     text-decoration: none;
-    border-radius: var(--sm-radius-sm);
+    border-radius: var(--sm-radius);
     transition:
       color var(--sm-transition-fast),
       background-color var(--sm-transition-fast);
-    
+
     &:hover {
       color: var(--sm-accent);
-      background-color: color-mix(in srgb, var(--sm-accent) 5%, transparent);
+      background-color: var(--sm-accent-bg);
+      text-decoration: none;
     }
-    
+
     &:focus-visible {
       outline: none;
       box-shadow: 0 0 0 2px var(--sm-focus-ring);
     }
-    
+
     &[aria-current="page"] {
+      background-color: var(--sm-accent);
+      color: white;
       font-weight: var(--sm-weight-medium);
-      color: var(--sm-accent);
-      
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0.75rem;
-        right: 0.75rem;
-        height: var(--nav-border-width);
-        background-color: var(--sm-accent);
-        border-radius: var(--nav-border-width);
-      }
     }
-    
+
     & svg {
       width: 1.25em;
       height: 1.25em;
       margin-inline-end: 0.25em;
     }
   }
-  
+
   /* Navigation Layout */
-  nav > div,
-  nav > ul {
+  nav>div,
+  nav>ul {
     display: flex;
     flex-wrap: wrap;
     gap: var(--nav-gap);
     align-items: center;
   }
-  
-  nav > ul {
+
+  nav>ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  
-  nav > :not(:first-child) {
-    margin-inline-start: auto;
+
+  /* Brand styling */
+  [component="brand"],
+  .brand {
+    font-size: var(--sm-font-lg);
+    font-weight: var(--sm-weight-bold);
+    color: var(--sm-accent);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--sm-accent-subtle);
+      text-decoration: none;
+    }
   }
-  
+
   /* Sticky Navigation */
   nav[sticky] {
     position: sticky;
@@ -97,90 +104,106 @@
     background-color: color-mix(in srgb, var(--nav-bg) 90%, transparent);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   }
-  
+
   /* Compact Navigation */
   nav[compact] {
     --nav-padding-block: 0.25rem;
     --nav-gap: 0.25rem;
     --nav-height: 3.5rem;
-    
+
     & a {
       padding-block: 0.25rem;
       padding-inline: 0.5rem;
       font-size: var(--sm-font-sm);
     }
-    
-    & .brand {
+
+    & .brand,
+    & [component="brand"] {
       font-weight: var(--sm-weight-semibold);
       font-size: var(--sm-font-base);
     }
   }
-  
+
   /* Navigation with Tabs */
   nav[tabs] {
-    --nav-border-width: 3px;
+    --nav-border-width: 0;
     --nav-gap: 0;
-    
+    box-shadow: none;
+    border-bottom: 1px solid var(--sm-border);
+
     & a {
       padding-inline: 1rem;
-      border-bottom: var(--nav-border-width) solid transparent;
-      
+      border-radius: 0;
+      border-bottom: 3px solid transparent;
+
       &[aria-current="page"] {
         border-bottom-color: var(--sm-accent);
-        
-        &::after {
-          content: none;
-        }
+        background-color: transparent;
+        color: var(--sm-accent);
       }
     }
   }
-  
+
   /* Navigation with Pills */
   nav[pills] a {
     border-radius: 9999px;
     padding-inline: 1rem;
-    
+
     &[aria-current="page"] {
       color: white;
       background-color: var(--sm-accent);
-      
-      &::after {
-        content: none;
-      }
     }
   }
-  
+
   /* Responsive Navigation */
   @media (max-width: 767px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    nav>div,
+    nav>ul {
+      width: 100%;
+      margin-top: var(--sm-space-sm);
+    }
+
+    nav a {
+      display: block;
+      width: 100%;
+      margin-bottom: var(--sm-space-xs);
+    }
+
     nav[collapsible] {
       flex-wrap: wrap;
-      
+
       & .nav-toggle {
         display: flex;
         margin-inline-start: auto;
       }
-      
-      & > ul,
-      & > div:not(:first-child) {
+
+      &>ul,
+      &>div:not(:first-child) {
         display: none;
         width: 100%;
         flex-direction: column;
         align-items: stretch;
-        
+
         & a {
           width: 100%;
         }
       }
-      
-      &[expanded] > ul,
-      &[expanded] > div:not(:first-child) {
+
+      &[expanded]>ul,
+      &[expanded]>div:not(:first-child) {
         display: flex;
       }
     }
   }
-  
+
   /* Special Navigation Styles */
-  .github-link {
+  .github-link,
+  [component="github-link"] {
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
@@ -189,19 +212,9 @@
     padding-block: 0.25rem;
     padding-inline: 0.75rem;
     font-weight: var(--sm-weight-medium);
-    
+
     &:hover {
       background-color: color-mix(in srgb, var(--sm-accent) 20%, transparent);
-    }
-  }
-  
-  /* Brand Link */
-  .brand {
-    font-weight: var(--sm-weight-bold);
-    color: var(--sm-accent);
-    
-    &:hover {
-      color: var(--sm-accent-subtle);
     }
   }
 }

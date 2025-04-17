@@ -1,0 +1,181 @@
+/* ---- Section Components ---- */
+@layer components {
+
+  /* Base Section */
+  section {
+    margin: var(--sm-space-xl) 0;
+  }
+
+  section>header {
+    margin-bottom: var(--sm-space-md);
+  }
+
+  section>header h1,
+  section>header h2,
+  section>header h3,
+  section>header h4 {
+    margin-top: 0;
+  }
+
+  section>header p {
+    color: var(--sm-subtle);
+    font-size: var(--sm-font-md);
+    margin-top: var(--sm-space-sm);
+  }
+
+  /* Section Attributes */
+  [section],
+  section[type] {
+    margin: var(--sm-space-xl) 0;
+  }
+
+  /* Alternative Section */
+  [section="alt"],
+  section[type="alt"] {
+    background-color: var(--sm-input-bg);
+    padding: var(--sm-space-lg) var(--sm-space);
+    border-radius: var(--sm-radius);
+    margin: var(--sm-space-xl) calc(var(--sm-space) * -1);
+  }
+
+  /* Hero Section */
+  [section="hero"],
+  section[type="hero"] {
+    text-align: center;
+    padding: var(--sm-space-xl) var(--sm-space);
+    margin: 0 calc(var(--sm-space) * -1) var(--sm-space-xl);
+    background-color: var(--sm-accent-bg);
+    border-radius: 0 0 var(--sm-radius-lg) var(--sm-radius-lg);
+  }
+
+  [section="hero"] h1,
+  section[type="hero"] h1 {
+    font-size: var(--sm-fluid-5xl);
+    margin-bottom: var(--sm-space);
+    color: var(--sm-accent);
+  }
+
+  [section="hero"] p,
+  section[type="hero"] p {
+    font-size: var(--sm-fluid-lg);
+    max-width: 50ch;
+    margin: 0 auto var(--sm-space-lg);
+  }
+
+  /* Featured Section */
+  [section="featured"],
+  section[type="featured"] {
+    padding: var(--sm-space-lg) var(--sm-space);
+    background-color: var(--sm-accent-bg);
+    border-radius: var(--sm-radius);
+    border: 1px solid color-mix(in srgb, var(--sm-accent) 30%, transparent);
+    box-shadow: var(--sm-shadow-md);
+  }
+
+  [section="featured"] h2,
+  section[type="featured"] h2 {
+    color: var(--sm-accent);
+    border-bottom: none;
+  }
+
+  /* Bordered Section */
+  [section="bordered"],
+  section[type="bordered"] {
+    padding: var(--sm-space-lg) var(--sm-space);
+    border: 1px solid var(--sm-border);
+    border-radius: var(--sm-radius);
+  }
+
+  /* Responsive Section Layout */
+  @media (max-width: 768px) {
+
+    [section="hero"],
+    section[type="hero"] {
+      padding: var(--sm-space-md) var(--sm-space-sm);
+    }
+
+    [section="hero"] h1,
+    section[type="hero"] h1 {
+      font-size: var(--sm-fluid-4xl);
+    }
+
+    [section="alt"],
+    section[type="alt"],
+    [section="featured"],
+    section[type="featured"],
+    [section="bordered"],
+    section[type="bordered"] {
+      padding: var(--sm-space) var(--sm-space-sm);
+    }
+  }
+
+  /* Section with Call to Action */
+  [section="cta"],
+  section[type="cta"] {
+    text-align: center;
+    padding: var(--sm-space-xl) var(--sm-space);
+    background-color: var(--sm-accent-bg);
+    border-radius: var(--sm-radius);
+    margin: var(--sm-space-xl) 0;
+  }
+
+  [section="cta"] h2,
+  section[type="cta"] h2 {
+    margin-bottom: var(--sm-space);
+    border-bottom: none;
+  }
+
+  [section="cta"] .buttons,
+  section[type="cta"] .buttons {
+    margin-top: var(--sm-space-lg);
+    display: flex;
+    gap: var(--sm-space);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Section with background color */
+  [section-bg="primary"] {
+    background-color: var(--sm-accent-bg);
+  }
+
+  [section-bg="success"] {
+    background-color: var(--sm-success-bg);
+  }
+
+  [section-bg="warning"] {
+    background-color: var(--sm-warning-bg);
+  }
+
+  [section-bg="error"] {
+    background-color: var(--sm-error-bg);
+  }
+
+  /* Section with background image */
+  [section-image] {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    padding: var(--sm-space-xl) var(--sm-space);
+    border-radius: var(--sm-radius);
+    overflow: hidden;
+  }
+
+  [section-image]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  [section-image]>* {
+    position: relative;
+    z-index: 2;
+  }
+}

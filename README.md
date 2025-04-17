@@ -1,12 +1,18 @@
 # sem-mochi
 
-**A Semantic-First Modern CSS Framework with Attribute-Based Styling**
+
+<p align="center">
+  <img src="src/mocchi.jpg" alt="sem-mochi logo" width="200">
+</p>
+
+## **A Semantic-First Modern CSS Framework with Attribute-Based Styling**
 
 sem-mochi is a modern CSS framework designed around the principle of semantic markup, focusing on styling native HTML elements directly and using attributes instead of classes for variations. It leverages advanced CSS features and selectors to create a highly maintainable styling approach that prioritizes the inherent semantic meaning of HTML elements.
 
 ## Table of Contents
 
 - [sem-mochi](#sem-mochi)
+  - [**A Semantic-First Modern CSS Framework with Attribute-Based Styling**](#a-semantic-first-modern-css-framework-with-attribute-based-styling)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Key Features](#key-features)

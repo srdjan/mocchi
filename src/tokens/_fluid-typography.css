@@ -5,17 +5,17 @@
     --sm-fluid-min-width: 320px;
     --sm-fluid-max-width: 1200px;
 
-    /* Fluid type scale with clamp() - More dramatic scaling */
-    --sm-fluid-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-    --sm-fluid-sm: clamp(0.875rem, 0.8rem + 0.5vw, 1.125rem);
-    --sm-fluid-base: clamp(1rem, 0.9rem + 0.75vw, 1.5rem);
-    --sm-fluid-md: clamp(1.125rem, 1rem + 1vw, 1.75rem);
-    --sm-fluid-lg: clamp(1.25rem, 1.1rem + 1.5vw, 2rem);
-    --sm-fluid-xl: clamp(1.5rem, 1.3rem + 2vw, 2.5rem);
-    --sm-fluid-2xl: clamp(1.875rem, 1.6rem + 2.5vw, 3rem);
-    --sm-fluid-3xl: clamp(2.25rem, 1.9rem + 3vw, 3.75rem);
-    --sm-fluid-4xl: clamp(3rem, 2.4rem + 4vw, 5rem);
-    --sm-fluid-5xl: clamp(4rem, 3rem + 5vw, 6rem);
+    /* Fluid type scale with clamp() - Enhanced scaling */
+    --sm-fluid-xs: clamp(0.75rem, 0.73rem + 0.1vw, 0.85rem);
+    --sm-fluid-sm: clamp(0.875rem, 0.84rem + 0.175vw, 1.05rem);
+    --sm-fluid-base: clamp(1rem, 0.95rem + 0.25vw, 1.175rem);
+    --sm-fluid-md: clamp(1.125rem, 1.06rem + 0.325vw, 1.425rem);
+    --sm-fluid-lg: clamp(1.25rem, 1.17rem + 0.4vw, 1.625rem);
+    --sm-fluid-xl: clamp(1.5rem, 1.4rem + 0.5vw, 2rem);
+    --sm-fluid-2xl: clamp(1.875rem, 1.75rem + 0.625vw, 2.5rem);
+    --sm-fluid-3xl: clamp(2.25rem, 2.1rem + 0.75vw, 3rem);
+    --sm-fluid-4xl: clamp(3rem, 2.8rem + 1vw, 4rem);
+    --sm-fluid-5xl: clamp(4rem, 3.7rem + 1.5vw, 5.5rem);
 
     /* Fluid spacing */
     --sm-fluid-space-xs: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
@@ -33,7 +33,7 @@
   span[fluid-text="xs"],
   [fluid-text="xs"] {
     font-size: var(--sm-fluid-xs) !important;
-    line-height: 1.5 !important;
+    line-height: 1.6 !important;
   }
 
   p[fluid-text="sm"],
@@ -41,7 +41,7 @@
   span[fluid-text="sm"],
   [fluid-text="sm"] {
     font-size: var(--sm-fluid-sm) !important;
-    line-height: 1.5 !important;
+    line-height: 1.6 !important;
   }
 
   p[fluid-text="base"],
@@ -49,7 +49,7 @@
   span[fluid-text="base"],
   [fluid-text="base"] {
     font-size: var(--sm-fluid-base) !important;
-    line-height: 1.5 !important;
+    line-height: 1.6 !important;
   }
 
   p[fluid-text="md"],
@@ -65,7 +65,7 @@
   span[fluid-text="lg"],
   [fluid-text="lg"] {
     font-size: var(--sm-fluid-lg) !important;
-    line-height: 1.4 !important;
+    line-height: 1.5 !important;
   }
 
   p[fluid-text="xl"],
@@ -108,19 +108,21 @@
     line-height: 1.1 !important;
   }
 
-  /* Fluid Heading Elements */
+  /* Fluid Heading Elements - MVP Style */
   h1 {
     font-size: var(--sm-fluid-4xl);
     line-height: 1.1;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
+    margin-top: 0;
+    margin-bottom: var(--sm-space-md);
   }
 
   h2 {
     font-size: var(--sm-fluid-3xl);
     line-height: 1.2;
+    border-bottom: 1px solid var(--sm-border);
+    padding-bottom: 0.1em;
     margin-top: 1.5em;
-    margin-bottom: 0.5em;
+    margin-bottom: var(--sm-space);
   }
 
   h3 {
@@ -149,6 +151,7 @@
     line-height: 1.5;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
+    color: var(--sm-subtle);
   }
 
   /* Reset margins for headings in specific contexts */
@@ -158,6 +161,12 @@
   [component="card"] header h4,
   [component="card"] header h5,
   [component="card"] header h6,
+  section header h1,
+  section header h2,
+  section header h3,
+  section header h4,
+  section header h5,
+  section header h6,
   h1:first-child,
   h2:first-child,
   h3:first-child,
@@ -170,7 +179,7 @@
   /* Fluid Paragraph */
   p:not([fluid-text]):not([fluid-calc]) {
     font-size: var(--sm-fluid-base);
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   /* Mathematical Fluid Scaling Function */

@@ -1,30 +1,30 @@
 /* ---- Typography System ---- */
 :root {
-  /* Font Families */
-  --sm-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Enhanced Font Families */
+  --sm-font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --sm-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --sm-font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  
+
   /* Fluid Typography Configuration */
   --sm-font-base-size: 1rem;
   --sm-min-width: 20rem;
   --sm-max-width: 80rem;
-  --sm-min-scale: 0.875;
+  --sm-min-scale: 0.9;
+  /* Slightly higher minimum */
   --sm-max-scale: 1.125;
-  
-  /* Fluid Typography Formula */
+  /* Keep max scale the same */
+
+  /* Improved Fluid Typography Formula */
   --sm-slope: calc((var(--sm-max-scale) - var(--sm-min-scale)) / (var(--sm-max-width) - var(--sm-min-width)));
   --sm-slope-vw: calc(var(--sm-slope) * 100vw);
   --sm-intercept: calc(var(--sm-min-scale) - (var(--sm-slope) * var(--sm-min-width)));
   --sm-fluid-factor: calc(var(--sm-slope-vw) + var(--sm-intercept));
-  --sm-fluid-base: clamp(
-    calc(var(--sm-min-scale) * var(--sm-font-base-size)),
-    calc(var(--sm-fluid-factor) * var(--sm-font-base-size)),
-    calc(var(--sm-max-scale) * var(--sm-font-base-size))
-  );
-  
-  /* Type Scale - Configurable ratio */
-  --sm-scale-ratio: 1.2;
+  --sm-fluid-base: clamp(calc(var(--sm-min-scale) * var(--sm-font-base-size)),
+      calc(var(--sm-fluid-factor) * var(--sm-font-base-size)),
+      calc(var(--sm-max-scale) * var(--sm-font-base-size)));
+
+  /* Type Scale - Perfect fourth ratio (1.25) */
+  --sm-scale-ratio: 1.25;
   --sm-font-xs: calc(var(--sm-fluid-base) / var(--sm-scale-ratio) / var(--sm-scale-ratio));
   --sm-font-sm: calc(var(--sm-fluid-base) / var(--sm-scale-ratio));
   --sm-font-base: var(--sm-fluid-base);
@@ -33,32 +33,32 @@
   --sm-font-xl: calc(var(--sm-fluid-base) * var(--sm-scale-ratio) * var(--sm-scale-ratio) * var(--sm-scale-ratio));
   --sm-font-2xl: calc(var(--sm-font-xl) * var(--sm-scale-ratio));
   --sm-font-3xl: calc(var(--sm-font-2xl) * var(--sm-scale-ratio));
-  
-  /* Line Heights */
+
+  /* Line Heights - Adjusted for better readability */
   --sm-line-height-xs: 1.6;
-  --sm-line-height-sm: 1.5;
-  --sm-line-height-base: 1.5;
+  --sm-line-height-sm: 1.6;
+  --sm-line-height-base: 1.6;
   --sm-line-height-md: 1.4;
   --sm-line-height-lg: 1.3;
   --sm-line-height-xl: 1.2;
   --sm-line-height-2xl: 1.1;
   --sm-line-height-3xl: 1.1;
-  
+
   /* Font Weights */
   --sm-weight-light: 300;
   --sm-weight-normal: 400;
   --sm-weight-medium: 500;
   --sm-weight-semibold: 600;
   --sm-weight-bold: 700;
-  
+
   /* Letter Spacing */
   --sm-letter-spacing-tight: -0.025em;
   --sm-letter-spacing-normal: 0;
   --sm-letter-spacing-wide: 0.025em;
   --sm-letter-spacing-wider: 0.05em;
-  
-  /* Measure (optimal line length) */
-  --sm-measure: 70ch;
-  --sm-measure-narrow: 60ch;
-  --sm-measure-wide: 80ch;
+
+  /* Measure (optimal line length) - Adjusted for MVP-inspired look */
+  --sm-measure: 65ch;
+  --sm-measure-narrow: 55ch;
+  --sm-measure-wide: 75ch;
 }
