@@ -1,0 +1,96 @@
+/* ---- Modern Form Styling ---- */
+input,
+select,
+textarea {
+  font-family: var(--sm-font-sans);
+  font-size: var(--sm-font-sm);
+  padding: 0.6em 0.8em;
+  border-radius: var(--sm-radius);
+  border: 1px solid var(--sm-border-strong);
+  background-color: var(--sm-input-bg);
+  color: var(--sm-fg);
+  transition: all var(--sm-transition-fast);
+  width: 100%;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--sm-accent);
+  box-shadow: 0 0 0 3px var(--sm-focus-ring);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--sm-muted);
+}
+
+/* Form label */
+label {
+  display: block;
+  margin-bottom: var(--sm-space-xs);
+  font-weight: var(--sm-weight-medium);
+  font-size: var(--sm-font-sm);
+  color: var(--sm-fg);
+}
+
+/* Form group */
+.form-group,
+[component="form-group"] {
+  margin-bottom: var(--sm-space);
+}
+
+/* Form help text */
+.form-text,
+[component="form-text"] {
+  display: block;
+  margin-top: var(--sm-space-xs);
+  font-size: var(--sm-font-xs);
+  color: var(--sm-subtle);
+}
+
+/* Checkbox and radio */
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  margin-right: var(--sm-space-xs);
+}
+
+/* Select styling */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.8em center;
+  background-size: 1em;
+  padding-right: 2.5em;
+}
+
+/* Form validation states */
+input:invalid,
+select:invalid,
+textarea:invalid {
+  border-color: var(--sm-error);
+}
+
+input:invalid:focus,
+select:invalid:focus,
+textarea:invalid:focus {
+  box-shadow: 0 0 0 3px var(--sm-focus-ring-error);
+}
+
+/* Form layout */
+.form-row,
+[component="form-row"] {
+  display: flex;
+  gap: var(--sm-space);
+  margin-bottom: var(--sm-space);
+}
+
+@media (max-width: 640px) {
+  .form-row,
+  [component="form-row"] {
+    flex-direction: column;
+  }
+}

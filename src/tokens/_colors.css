@@ -1,28 +1,28 @@
 /* ---- Color System with HSL Base ---- */
 :root {
-  /* Primary (Blue) - Adjusted for MVP-inspired look */
-  --sm-color-primary-h: 210;
-  --sm-color-primary-s: 90%;
+  /* Primary (Blue) - Adjusted for a more elegant look */
+  --sm-color-primary-h: 220;
+  --sm-color-primary-s: 85%;
 
-  /* Success (Green) */
-  --sm-color-success-h: 160;
-  --sm-color-success-s: 84%;
+  /* Success (Green) - Softer, more sophisticated */
+  --sm-color-success-h: 155;
+  --sm-color-success-s: 75%;
 
-  /* Warning (Yellow/Amber) */
-  --sm-color-warning-h: 38;
-  --sm-color-warning-s: 92%;
+  /* Warning (Yellow/Amber) - Warmer, less harsh */
+  --sm-color-warning-h: 42;
+  --sm-color-warning-s: 85%;
 
-  /* Error (Red) */
-  --sm-color-error-h: 0;
-  --sm-color-error-s: 84%;
+  /* Error (Red) - Slightly muted for elegance */
+  --sm-color-error-h: 358;
+  --sm-color-error-s: 80%;
 
-  /* Purple */
-  --sm-color-purple-h: 270;
-  --sm-color-purple-s: 76%;
+  /* Purple - Richer, more vibrant */
+  --sm-color-purple-h: 265;
+  --sm-color-purple-s: 70%;
 
-  /* Neutral (Gray) - Adjusted for better readability */
-  --sm-color-neutral-h: 210;
-  --sm-color-neutral-s: 10%;
+  /* Neutral (Gray) - Cooler, more sophisticated */
+  --sm-color-neutral-h: 215;
+  --sm-color-neutral-s: 12%;
 
   /* Color Luminance Scale */
   --sm-luminance-50: 95%;
@@ -116,14 +116,13 @@
     --sm-color-neutral-900: hsl(var(--sm-color-neutral-h), var(--sm-color-neutral-s), var(--sm-luminance-900));
     --sm-color-neutral-950: hsl(var(--sm-color-neutral-h), var(--sm-color-neutral-s), var(--sm-luminance-950));
   
-    /* Semantic Color Tokens - MVP-Inspired */
+    /* Semantic Color Tokens - Modern & Elegant */
     --sm-bg: #ffffff;
-    --sm-fg: hsl(210, 15%, 20%);
-    /* Softer than pure black */
-    --sm-subtle: hsl(210, 10%, 40%);
-    --sm-muted: hsl(210, 10%, 60%);
-    --sm-accent: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), 50%);
-    --sm-accent-subtle: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), 40%);
+    --sm-fg: hsl(215, 15%, 18%);
+    --sm-subtle: hsl(215, 12%, 38%);
+    --sm-muted: hsl(215, 10%, 58%);
+    --sm-accent: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), 48%);
+    --sm-accent-subtle: hsl(var(--sm-color-primary-h), var(--sm-color-primary-s), 38%);
     --sm-success: var(--sm-color-success-500);
     --sm-success-subtle: var(--sm-color-success-600);
     --sm-warning: var(--sm-color-warning-500);
